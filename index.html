@@ -387,10 +387,10 @@
 
         /* FIXED: Enhanced Summary Cards with better visibility */
         .summary-card {
-            background: linear-gradient(135deg, #27ae60, #2ecc71); /* Changed to green gradient */
+            background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gray gradient for better contrast */
             border-radius: 15px;
             padding: 30px;
-            color: white; /* Changed to white text */
+            color: white; /* White text for better visibility */
             margin-bottom: 30px;
             box-shadow: var(--card-shadow);
             position: relative;
@@ -417,6 +417,7 @@
             position: relative;
             z-index: 1;
             color: white; /* Explicitly set to white */
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Added text shadow for better readability */
         }
 
         .summary-stats {
@@ -1481,6 +1482,21 @@
         .performance-indicator.low {
             background: rgba(231, 76, 60, 0.1);
             color: var(--danger-color);
+        }
+
+        /* FIXED: Add specific styles for the report summary section */
+        #report-summary .summary-stat {
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        #report-summary .summary-stat:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        #report-summary .insights-box {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
     </style>
 </head>
@@ -3935,7 +3951,7 @@
                         labels: months,
                         datasets: [{
                             label: '2024',
-                            data: chartData2024.map(val => val / (metricFilter === 'sales' ?                            data: chartData2024.map(val => val / (metricFilter === 'sales' ?                            data: chartData2024.map(val => val / (metricFilter === 'sales' ?                            data: chartData2024.map(val => val / (metricFilter === 'sales' ?                           data: chartData2024.map(val => val / (metricFilter === 'sales' ?                            data: chartData2024.map(val => val / (metricFilter === 'sales' ?                          data: chartData2024.map(val => val / (metricFilter === 'sales' ?                            data: chartData2024.map(val => val / (metricFilter === 'sales' ? 1000000 : 1)),
+                            data: chartData2024.map(val => val / (metricFilter === 'sales' ? 1000000 : 1)),
                             backgroundColor: 'rgba(231, 76, 60, 0.2)',
                             borderColor: 'rgba(231, 76, 60, 1)',
                             borderWidth: 2,
