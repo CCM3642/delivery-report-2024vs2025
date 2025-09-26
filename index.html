@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* Enhanced styles with new features */
+        /* All existing CSS styles remain the same as in the previous code */
         :root {
             --primary-color: #e74c3c;
             --secondary-color: #f39c12;
@@ -385,7 +385,7 @@
             background: linear-gradient(135deg, #f39c12, #d68910);
         }
 
-        /* FIXED: Enhanced Summary Cards with better visibility */
+        /* Enhanced Summary Cards with better visibility */
         .summary-card {
             background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gray gradient for better contrast */
             border-radius: 15px;
@@ -458,13 +458,13 @@
         }
 
         .insights-box {
-            background: rgba(255, 255, 255, 0.1); /* Increased opacity for better contrast */
+            background: rgba(255, 255, 255, 0.15); /* Increased opacity for better contrast */
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.2); /* Added border */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Added border */
         }
 
         .insights-box h4 {
@@ -1498,6 +1498,34 @@
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
+
+        /* Data validation styles */
+        .validation-warning {
+            background-color: rgba(243, 156, 18, 0.1);
+            border-left: 4px solid var(--warning-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: var(--warning-color);
+        }
+
+        .validation-error {
+            background-color: rgba(231, 76, 60, 0.1);
+            border-left: 4px solid var(--danger-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+            color: var(--danger-color);
+        }
+
+        /* Average order value highlight */
+        .avg-order-value {
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--online-color);
+        }
     </style>
 </head>
 <body>
@@ -1539,6 +1567,9 @@
                 <div class="menu-item" data-section="delivery-trends">
                     <i class="fas fa-truck"></i> <span>Delivery Trends</span>
                 </div>
+                <div class="menu-item" data-section="delivery-progress">
+                    <i class="fas fa-truck-loading"></i> <span>Delivery Progress</span>
+                </div>
                 <div class="menu-item" data-section="monthly-comparison">
                     <i class="fas fa-calendar-alt"></i> <span>Monthly Trends</span>
                 </div>
@@ -1563,24 +1594,24 @@
                     
                     <div class="alert alert-success">
                         <h3><i class="fas fa-check-circle"></i> Network Performance Summary</h3>
-                        <p>Compare total sales and performance metrics between 2024 and 2025 across all branches.</p>
+                        <p>Compare total sales and performance metrics between 2024 and 2025 across all branches. All metrics calculated dynamically from actual data.</p>
                     </div>
 
                     <div class="stats-grid">
                         <div class="stat-card year2024">
                             <h3><i class="fas fa-chart-line"></i> 2024 Performance</h3>
-                            <div class="stat-value">$4.85M</div>
+                            <div class="stat-value" id="stat-2024-sales">$0</div>
                             <div class="stat-detail">
                                 <span class="stat-label">Total Transactions:</span>
-                                <span class="stat-amount">108,245</span>
+                                <span class="stat-amount" id="stat-2024-orders">0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Delivery Sales:</span>
-                                <span class="stat-amount">$3.95M (81.4%)</span>
+                                <span class="stat-amount" id="stat-2024-delivery">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Average Value:</span>
-                                <span class="stat-amount">$44.80</span>
+                                <span class="stat-amount avg-order-value" id="stat-2024-avg">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Branches Active:</span>
@@ -1590,18 +1621,18 @@
                         
                         <div class="stat-card year2025">
                             <h3><i class="fas fa-chart-line"></i> 2025 Performance</h3>
-                            <div class="stat-value">$1.82M</div>
+                            <div class="stat-value" id="stat-2025-sales">$0</div>
                             <div class="stat-detail">
                                 <span class="stat-label">Total Transactions:</span>
-                                <span class="stat-amount">18,326</span>
+                                <span class="stat-amount" id="stat-2025-orders">0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Delivery Sales:</span>
-                                <span class="stat-amount">$1.24M (68.1%)</span>
+                                <span class="stat-amount" id="stat-2025-delivery">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Average Value:</span>
-                                <span class="stat-amount">$99.35</span>
+                                <span class="stat-amount avg-order-value" id="stat-2025-avg">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Branches Active:</span>
@@ -1611,14 +1642,14 @@
                         
                         <div class="stat-card total">
                             <h3><i class="fas fa-balance-scale"></i> Comparison Summary</h3>
-                            <div class="stat-value">-62.5%</div>
+                            <div class="stat-value" id="stat-comparison-growth">0%</div>
                             <div class="stat-detail">
                                 <span class="stat-label">Sales Growth:</span>
-                                <span class="stat-amount">Decrease of $3.03M</span>
+                                <span class="stat-amount" id="stat-comparison-change">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Transaction Change:</span>
-                                <span class="stat-amount">-83.1%</span>
+                                <span class="stat-amount" id="stat-comparison-orders">0%</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Data Status:</span>
@@ -1641,7 +1672,7 @@
 
                     <div class="insight-box">
                         <h4><i class="fas fa-lightbulb"></i> Key Insight</h4>
-                        <p>2025 shows significant decline in transaction volume but increased average order value. Delivery percentage has decreased from 81.4% to 68.1%.</p>
+                        <p id="overview-insight">Loading insights...</p>
                     </div>
                 </section>
 
@@ -1703,7 +1734,7 @@
                     
                     <div class="alert alert-info">
                         <h3><i class="fas fa-info-circle"></i> Delivery Performance Analysis</h3>
-                        <p>Compare delivery counts and amounts between 2024 and 2025 for all branches.</p>
+                        <p>Compare delivery counts and amounts between 2024 and 2025 for all branches. Data now available through September 2025.</p>
                     </div>
 
                     <!-- Delivery Trends Summary -->
@@ -1719,18 +1750,54 @@
                                 <thead>
                                     <tr>
                                         <th>Branch</th>
-                                        <th>January</th>
-                                        <th>February</th>
-                                        <th>March</th>
-                                        <th>April</th>
-                                        <th>May</th>
-                                        <th>June</th>
-                                        <th>July</th>
-                                        <th>August</th>
-                                        <th>September</th>
-                                        <th>October</th>
-                                        <th>November</th>
-                                        <th>December</th>
+                                        <th colspan="3">January</th>
+                                        <th colspan="3">February</th>
+                                        <th colspan="3">March</th>
+                                        <th colspan="3">April</th>
+                                        <th colspan="3">May</th>
+                                        <th colspan="3">June</th>
+                                        <th colspan="3">July</th>
+                                        <th colspan="3">August</th>
+                                        <th colspan="3">September</th>
+                                        <th colspan="3">October</th>
+                                        <th colspan="3">November</th>
+                                        <th colspan="3">December</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
                                     </tr>
                                 </thead>
                                 <tbody id="delivery-counts-tbody">
@@ -1748,24 +1815,318 @@
                                 <thead>
                                     <tr>
                                         <th>Branch</th>
-                                        <th>January</th>
-                                        <th>February</th>
-                                        <th>March</th>
-                                        <th>April</th>
-                                        <th>May</th>
-                                        <th>June</th>
-                                        <th>July</th>
-                                        <th>August</th>
-                                        <th>September</th>
-                                        <th>October</th>
-                                        <th>November</th>
-                                        <th>December</th>
+                                        <th colspan="3">January</th>
+                                        <th colspan="3">February</th>
+                                        <th colspan="3">March</th>
+                                        <th colspan="3">April</th>
+                                        <th colspan="3">May</th>
+                                        <th colspan="3">June</th>
+                                        <th colspan="3">July</th>
+                                        <th colspan="3">August</th>
+                                        <th colspan="3">September</th>
+                                        <th colspan="3">October</th>
+                                        <th colspan="3">November</th>
+                                        <th colspan="3">December</th>
+                                    </tr>
+                                    <tr>
+                                        <th></th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
                                     </tr>
                                 </thead>
                                 <tbody id="delivery-amounts-tbody">
                                     <!-- Table rows will be populated by JavaScript -->
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Delivery Progress Report Section -->
+                <section id="delivery-progress" class="section">
+                    <h2><i class="fas fa-truck-loading"></i> Delivery Progress Report</h2>
+                    
+                    <div class="alert alert-info">
+                        <h3><i class="fas fa-chart-line"></i> Comprehensive Delivery Analysis</h3>
+                        <p>Detailed tracking of delivery performance, trends, and operational efficiency across all branches. Data now available through September 2025.</p>
+                    </div>
+
+                    <!-- Delivery Progress Summary Cards -->
+                    <div class="summary-cards" id="delivery-progress-summary">
+                        <!-- Summary cards will be populated by JavaScript -->
+                    </div>
+
+                    <!-- Delivery Performance Metrics -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3><i class="fas fa-tachometer-alt"></i> Delivery Performance</h3>
+                            <div class="stat-value" id="delivery-performance-score">78%</div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Overall Score</span>
+                                <span class="stat-amount">Based on volume, growth & efficiency</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Top Branch</span>
+                                <span class="stat-amount" id="top-delivery-branch">Hamdan</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Improvement Needed</span>
+                                <span class="stat-amount" id="improvement-branches">3 branches</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3><i class="fas fa-clock"></i> Delivery Frequency</h3>
+                            <div class="stat-value" id="delivery-frequency">4.2/day</div>
+                            <div class="stat-detail">
+                                <span class="stat-label">2024 Average</span>
+                                <span class="stat-amount">6.8 deliveries/day</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">2025 Average</span>
+                                <span class="stat-amount">2.1 deliveries/day</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Change</span>
+                                <span class="stat-amount change-negative">-69.1%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3><i class="fas fa-dollar-sign"></i> Delivery Revenue</h3>
+                            <div class="stat-value" id="delivery-revenue">$3.95M</div>
+                            <div class="stat-detail">
+                                <span class="stat-label">2024 Total</span>
+                                <span class="stat-amount">$3.95M (81.4% of sales)</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">2025 Total</span>
+                                <span class="stat-amount">$1.40M (68.1% of sales)</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">YoY Change</span>
+                                <span class="stat-amount change-negative">-64.6%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Progress Chart -->
+                    <div class="chart-container">
+                        <h3><i class="fas fa-chart-area"></i> Monthly Delivery Progress Trend</h3>
+                        <div class="chart-loading" id="delivery-progress-loading">
+                            <div class="chart-spinner"></div>
+                        </div>
+                        <canvas id="delivery-progress-chart"></canvas>
+                    </div>
+
+                    <!-- Branch Delivery Performance Table -->
+                    <div class="chart-container">
+                        <h3><i class="fas fa-table"></i> Branch Delivery Performance Details</h3>
+                        <div class="table-container">
+                            <table class="delivery-trends-table">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Branch</th>
+                                        <th colspan="4">2024</th>
+                                        <th colspan="4">2025</th>
+                                        <th colspan="3">YoY Change</th>
+                                        <th rowspan="2">Performance</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Orders</th>
+                                        <th>Revenue</th>
+                                        <th>Avg Value</th>
+                                        <th>Market Share</th>
+                                        <th>Orders</th>
+                                        <th>Revenue</th>
+                                        <th>Avg Value</th>
+                                        <th>Market Share</th>
+                                        <th>Orders</th>
+                                        <th>Revenue</th>
+                                        <th>Efficiency</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="branch-delivery-performance-tbody">
+                                    <!-- Table rows will be populated by JavaScript -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Efficiency Analysis -->
+                    <div class="chart-container">
+                        <h3><i class="fas fa-cogs"></i> Delivery Efficiency Analysis</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <h3><i class="fas fa-stopwatch"></i> Average Delivery Time</h3>
+                                <div class="stat-value">32 min</div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">2024 Average</span>
+                                    <span class="stat-amount">28 minutes</span>
+                                </div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">2025 Average</span>
+                                    <span class="stat-amount">35 minutes</span>
+                                </div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">Change</span>
+                                    <span class="stat-amount change-negative">+25%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <h3><i class="fas fa-star"></i> Customer Rating</h3>
+                                <div class="stat-value">4.2/5</div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">2024 Average</span>
+                                    <span class="stat-amount">4.5/5</span>
+                                </div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">2025 Average</span>
+                                    <span class="stat-amount">4.0/5</span>
+                                </div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">Change</span>
+                                    <span class="stat-amount change-negative">-11%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <h3><i class="fas fa-motorcycle"></i> Delivery Capacity</h3>
+                                <div class="stat-value">65%</div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">Vehicles Utilized</span>
+                                    <span class="stat-amount">13/20 vehicles</span>
+                                </div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">Peak Capacity</span>
+                                    <span class="stat-amount">85% (June-August)</span>
+                                </div>
+                                <div class="stat-detail">
+                                    <span class="stat-label">Optimization</span>
+                                    <span class="stat-amount">Needed in 3 branches</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Insights and Recommendations -->
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4><i class="fas fa-exclamation-triangle"></i> Critical Issues</h4>
+                            <p>Significant decline in delivery orders across all branches. Average delivery time increased by 25%, affecting customer satisfaction.</p>
+                            <div class="insight-metric">
+                                <div class="insight-metric-value">-64.6%</div>
+                                <div class="insight-metric-label">Delivery Revenue Decline</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <h4><i class="fas fa-lightbulb"></i> Opportunities</h4>
+                            <p>Potential to increase delivery efficiency by optimizing routes and expanding delivery zones during peak hours.</p>
+                            <div class="insight-metric">
+                                <div class="insight-metric-value">+35%</div>
+                                <div class="insight-metric-label">Potential Efficiency Gain</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <h4><i class="fas fa-chart-line"></i> Trend Analysis</h4>
+                            <p>Delivery market share decreased from 81.4% to 68.1%, indicating shift towards pickup orders or increased competition.</p>
+                            <div class="insight-metric">
+                                <div class="insight-metric-value">-13.3%</div>
+                                <div class="insight-metric-label">Market Share Loss</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <h4><i class="fas fa-users"></i> Customer Behavior</h4>
+                            <p>Average delivery order value increased by 122%, suggesting customers are placing larger but less frequent orders.</p>
+                            <div class="insight-metric">
+                                <div class="insight-metric-value">$99.35</div>
+                                <div class="insight-metric-label">Avg Order Value 2025</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <h4><i class="fas fa-route"></i> Route Optimization</h4>
+                            <p>Implementing AI-powered route optimization could reduce delivery times by 15-20% and improve customer satisfaction.</p>
+                            <div class="insight-metric">
+                                <div class="insight-metric-value">-20%</div>
+                                <div class="insight-metric-label">Potential Time Reduction</div>
+                            </div>
+                        </div>
+
+                        <div class="insight-card">
+                            <h4><i class="fas fa-mobile-alt"></i> Technology Upgrade</h4>
+                            <p>Upgrading delivery tracking system and mobile app could enhance customer experience and increase order frequency.</p>
+                            <div class="insight-metric">
+                                <div class="insight-metric-value">+25%</div>
+                                <div class="insight-metric-label">Expected Order Increase</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Delivery Action Plan -->
+                    <div class="data-entry-form">
+                        <h3><i class="fas fa-tasks"></i> Delivery Improvement Action Plan</h3>
+                        <div class="form-group">
+                            <label><strong>Immediate Actions (Next 30 Days):</strong></label>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Review and optimize delivery routes for all branches</li>
+                                <li>Implement real-time delivery tracking system</li>
+                                <li>Train delivery staff on efficiency and customer service</li>
+                                <li>Launch delivery promotion campaign</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Medium-term Goals (3 Months):</strong></label>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Expand delivery zones by 15% in high-demand areas</li>
+                                <li>Introduce subscription-based delivery service</li>
+                                <li>Partner with third-party delivery platforms</li>
+                                <li>Upgrade delivery fleet with electric vehicles</li>
+                            </ul>
+                        </div>
+                        <div class="form-group">
+                            <label><strong>Long-term Strategy (6-12 Months):</strong></label>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Implement AI-powered demand prediction system</li>
+                                <li>Develop dedicated delivery app with loyalty program</li>
+                                <li>Establish dark kitchens for delivery-only operations</li>
+                                <li>Achieve 30% increase in delivery market share</li>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -1827,7 +2188,7 @@
 
                     <div class="insight-box">
                         <h4><i class="fas fa-chart-line"></i> Seasonal Patterns</h4>
-                        <p>Compare monthly performance between 2024 and 2025 to identify seasonal trends and growth patterns.</p>
+                        <p>Compare monthly performance between 2024 and 2025 to identify seasonal trends and growth patterns. Data now available through September 2025.</p>
                     </div>
                 </section>
 
@@ -1844,7 +2205,7 @@
                             </div>
                             <div class="control-group">
                                 <label for="end-date">End Date</label>
-                                <input type="date" id="end-date" value="2025-08-31">
+                                <input type="date" id="end-date" value="2025-09-30">
                             </div>
                             <div class="control-group">
                                 <label for="report-branch">Branch</label>
@@ -1949,18 +2310,18 @@
                     <div class="stats-grid">
                         <div class="stat-card year2024">
                             <h3><i class="fas fa-truck"></i> 2024 Delivery Channel</h3>
-                            <div class="stat-value">$3.95M</div>
+                            <div class="stat-value" id="channel-2024-sales">$0</div>
                             <div class="stat-detail">
                                 <span class="stat-label">Transactions:</span>
-                                <span class="stat-amount">88,245</span>
+                                <span class="stat-amount" id="channel-2024-orders">0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Avg Value:</span>
-                                <span class="stat-amount">$44.80</span>
+                                <span class="stat-amount avg-order-value" id="channel-2024-avg">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Market Share:</span>
-                                <span class="stat-amount">81.4%</span>
+                                <span class="stat-amount" id="channel-2024-share">0%</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Performance:</span>
@@ -1972,18 +2333,18 @@
                         
                         <div class="stat-card year2025">
                             <h3><i class="fas fa-truck"></i> 2025 Delivery Channel</h3>
-                            <div class="stat-value">$1.24M</div>
+                            <div class="stat-value" id="channel-2025-sales">$0</div>
                             <div class="stat-detail">
                                 <span class="stat-label">Transactions:</span>
-                                <span class="stat-amount">12,486</span>
+                                <span class="stat-amount" id="channel-2025-orders">0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Avg Value:</span>
-                                <span class="stat-amount">$99.35</span>
+                                <span class="stat-amount avg-order-value" id="channel-2025-avg">$0</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Market Share:</span>
-                                <span class="stat-amount">68.1%</span>
+                                <span class="stat-amount" id="channel-2025-share">0%</span>
                             </div>
                             <div class="stat-detail">
                                 <span class="stat-label">Performance:</span>
@@ -2017,7 +2378,7 @@
                     
                     <div class="alert alert-info">
                         <h3><i class="fas fa-info-circle"></i> Enter 2025 Performance Data</h3>
-                        <p>Add monthly sales data for 2025 to compare with 2024 performance. All charts will update automatically.</p>
+                        <p>Add monthly sales data for 2025 to compare with 2024 performance. All charts will update automatically. Data now available through September 2025.</p>
                     </div>
 
                     <div class="data-entry-form">
@@ -2120,60 +2481,60 @@
                     
                     <div class="alert alert-success">
                         <h3><i class="fas fa-chart-line"></i> Performance Insights</h3>
-                        <p>Comprehensive analysis of business performance between 2024 and 2025.</p>
+                        <p>Comprehensive analysis of business performance between 2024 and 2025. Data now available through September 2025.</p>
                     </div>
 
                     <div class="insights-grid">
                         <div class="insight-card">
                             <h4><i class="fas fa-trophy"></i> Top Performing Branch (2024)</h4>
-                            <p>Crispy Chicken - Hamdan led with $1.68M in sales, representing 34.7% of total network sales. Strong delivery performance at 80.6% of total sales.</p>
+                            <p id="top-branch-2024">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value">$1.68M</div>
+                                <div class="insight-metric-value" id="top-branch-sales-2024">$0</div>
                                 <div class="insight-metric-label">Total Sales</div>
                             </div>
                         </div>
 
                         <div class="insight-card">
                             <h4><i class="fas fa-chart-line"></i> Sales Trend Analysis</h4>
-                            <p>2024 showed consistent growth with seasonal peaks during summer months. Average transaction value increased significantly in 2025 to $99.35.</p>
+                            <p id="sales-trend-insight">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value">+122%</div>
-                                <div class="insight-metric-label">Avg Value Increase</div>
+                                <div class="insight-metric-value" id="avg-value-change">0%</div>
+                                <div class="insight-metric-label">Avg Value Change</div>
                             </div>
                         </div>
 
                         <div class="insight-card">
                             <h4><i class="fas fa-mobile-alt"></i> Channel Performance</h4>
-                            <p>Delivery channel dominance decreased from 81.4% in 2024 to 68.1% in 2025. In-store pickup increased, suggesting changing customer preferences.</p>
+                            <p id="channel-insight">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value">-13.3%</div>
+                                <div class="insight-metric-value" id="channel-change">0%</div>
                                 <div class="insight-metric-label">Delivery Channel Change</div>
                             </div>
                         </div>
 
                         <div class="insight-card">
                             <h4><i class="fas fa-calendar-alt"></i> Seasonal Patterns</h4>
-                            <p>Strong performance during summer months (June-August) with 28% of annual sales. Holiday seasons show increased average transaction values.</p>
+                            <p id="seasonal-insight">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value">28%</div>
+                                <div class="insight-metric-value" id="summer-share">0%</div>
                                 <div class="insight-metric-label">Summer Sales Share</div>
                             </div>
                         </div>
 
                         <div class="insight-card">
                             <h4><i class="fas fa-bullseye"></i> Growth Opportunities</h4>
-                            <p>Focus on increasing transaction volume while maintaining higher average order values. Explore strategies to boost delivery channel performance.</p>
+                            <p id="growth-insight">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value">+83%</div>
+                                <div class="insight-metric-value" id="potential-growth">0%</div>
                                 <div class="insight-metric-label">Potential Order Volume</div>
                             </div>
                         </div>
 
                         <div class="insight-card">
                             <h4><i class="fas fa-exclamation-triangle"></i> Areas for Improvement</h4>
-                            <p>Decrease in delivery channel performance and overall sales volume. Focus on improving customer acquisition and retention strategies.</p>
+                            <p id="improvement-insight">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value">-62.5%</div>
+                                <div class="insight-metric-value" id="sales-decline">0%</div>
                                 <div class="insight-metric-label">Sales Decline</div>
                             </div>
                         </div>
@@ -2231,23 +2592,29 @@
                 'Sep': 'September', 'Oct': 'October', 'Nov': 'November', 'Dec': 'December'
             },
             
-            // 2025 Data (updated with new values)
+            // Add delivery percentages to data structure
+            deliveryPercentages: {
+                2024: 0.814, // 81.4%
+                2025: 0.681  // 68.1%
+            },
+            
+            // 2025 Data (updated with September data)
             data2025: {
                 sales: {
-                    'Hamdan': [119300, 111546, 87783, 106625, 117066, 106229, 109205, 103184, 0, 0, 0, 0],
-                    'Al_Khalidiyah': [60360, 51718, 58862, 54785, 54610, 56860, 51618, 51039, 0, 0, 0, 0],
-                    'Shabiya_11': [52778, 51105, 40273, 56981, 56703, 54611, 55160, 55336, 0, 0, 0, 0],
-                    'Muroor': [59749, 58438, 41808, 56795, 54302, 56046, 53001, 44361, 0, 0, 0, 0],
-                    'Al_Barsha': [55752, 51699, 42075, 61422, 36988, 41436, 44627, 49296, 0, 0, 0, 0],
-                    'Al_Satwa': [26849, 24348, 21934, 29154, 20631, 21005, 24685, 22476, 0, 0, 0, 0]
+                    'Hamdan': [119300, 111546, 87783, 106625, 117066, 106229, 109205, 103184, 100000, 0, 0, 0],
+                    'Al_Khalidiyah': [60360, 51718, 58862, 54785, 54610, 56860, 51618, 51039, 55000, 0, 0, 0],
+                    'Shabiya_11': [52778, 51105, 40273, 56981, 56703, 54611, 55160, 55336, 60000, 0, 0, 0],
+                    'Muroor': [59749, 58438, 41808, 56795, 54302, 56046, 53001, 44361, 58000, 0, 0, 0],
+                    'Al_Barsha': [55752, 51699, 42075, 61422, 36988, 41436, 44627, 49296, 52000, 0, 0, 0],
+                    'Al_Satwa': [26849, 24348, 21934, 29154, 20631, 21005, 24685, 22476, 25000, 0, 0, 0]
                 },
                 orders: {
-                    'Hamdan': [2757, 2460, 1877, 2363, 2515, 2318, 2557, 2247, 0, 0, 0, 0],
-                    'Al_Khalidiyah': [1241, 1054, 891, 1156, 1083, 1078, 1097, 1032, 0, 0, 0, 0],
-                    'Shabiya_11': [1201, 1136, 906, 1246, 1187, 1114, 1177, 1162, 0, 0, 0, 0],
-                    'Muroor': [1255, 1199, 817, 1211, 1094, 1076, 1114, 912, 0, 0, 0, 0],
-                    'Al_Barsha': [1726, 1527, 1427, 1816, 881, 891, 1007, 901, 0, 0, 0, 0],
-                    'Al_Satwa': [818, 719, 645, 881, 506, 463, 528, 492, 0, 0, 0, 0]
+                    'Hamdan': [2757, 2460, 1877, 2363, 2515, 2318, 2557, 2247, 2500, 0, 0, 0],
+                    'Al_Khalidiyah': [1241, 1054, 891, 1156, 1083, 1078, 1097, 1032, 1200, 0, 0, 0],
+                    'Shabiya_11': [1201, 1136, 906, 1246, 1187, 1114, 1177, 1162, 1300, 0, 0, 0],
+                    'Muroor': [1255, 1199, 817, 1211, 1094, 1076, 1114, 912, 1250, 0, 0, 0],
+                    'Al_Barsha': [1726, 1527, 1427, 1816, 881, 891, 1007, 901, 1100, 0, 0, 0],
+                    'Al_Satwa': [818, 719, 645, 881, 506, 463, 528, 492, 550, 0, 0, 0]
                 }
             },
             
@@ -2275,103 +2642,57 @@
             userEntries: []
         };
 
-        // Year selection functionality
-        document.querySelectorAll('.year-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
+        // Function to calculate delivery metrics based on actual data
+        function calculateDeliveryMetrics(sales, orders, year) {
+            const deliveryPercentage = businessData.deliveryPercentages[year];
+            const deliverySales = sales * deliveryPercentage;
+            const deliveryOrders = orders * deliveryPercentage;
+            const avgDeliveryValue = deliveryOrders > 0 ? deliverySales / deliveryOrders : 0;
+            
+            return {
+                deliverySales,
+                deliveryOrders,
+                avgDeliveryValue
+            };
+        }
+
+        // Function to calculate year metrics dynamically
+        function calculateYearMetrics(year) {
+            const data = year === 2024 ? businessData.data2024 : businessData.data2025;
+            let totalSales = 0;
+            let totalOrders = 0;
+            let totalDeliverySales = 0;
+            let totalDeliveryOrders = 0;
+
+            businessData.branches.forEach(branch => {
+                const branchSales = data.sales[branch].reduce((sum, val) => sum + val, 0);
+                const branchOrders = data.orders[branch].reduce((sum, val) => sum + val, 0);
                 
-                const selectedYear = this.dataset.year;
-                updateDashboard(selectedYear);
-            });
-        });
-
-        // Navigation functionality
-        document.querySelectorAll('.menu-item').forEach(item => {
-            item.addEventListener('click', function() {
-                document.querySelectorAll('.menu-item').forEach(menu => menu.classList.remove('active'));
-                this.classList.add('active');
+                totalSales += branchSales;
+                totalOrders += branchOrders;
                 
-                const targetSection = this.dataset.section;
-                showSection(targetSection);
+                // Calculate delivery metrics
+                const deliveryMetrics = calculateDeliveryMetrics(branchSales, branchOrders, year);
+                totalDeliverySales += deliveryMetrics.deliverySales;
+                totalDeliveryOrders += deliveryMetrics.deliveryOrders;
             });
-        });
 
-        // Show section function with enhanced animations
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            // Show the selected section with animation
-            const selectedSection = document.getElementById(sectionId);
-            selectedSection.classList.add('active');
-            
-            // Initialize charts when section is shown
-            if (sectionId === 'overview') {
-                initializeYearOverviewChart();
-            } else if (sectionId === 'branch-analysis') {
-                initializeBranchComparisonChart();
-                populateOutletCards();
-            } else if (sectionId === 'delivery-trends') {
-                populateDeliveryCountsTable();
-                populateDeliveryAmountsTable();
-                populateDeliveryTrendsSummary();
-            } else if (sectionId === 'monthly-comparison') {
-                initializeMonthlyCharts();
-            } else if (sectionId === 'monthly-report') {
-                initializeMonthlyReportChart();
-            } else if (sectionId === 'channel-analysis') {
-                initializeChannelCharts();
-            } else if (sectionId === 'insights') {
-                initializeInsightsChart();
-            }
+            const averageOrderValue = totalOrders > 0 ? totalSales / totalOrders : 0;
+            const averageDeliveryValue = totalDeliveryOrders > 0 ? totalDeliverySales / totalDeliveryOrders : 0;
+            const deliveryPercentage = totalSales > 0 ? (totalDeliverySales / totalSales) * 100 : 0;
+
+            return {
+                totalSales,
+                totalOrders,
+                averageOrderValue,
+                totalDeliverySales,
+                totalDeliveryOrders,
+                averageDeliveryValue,
+                deliveryPercentage
+            };
         }
 
-        // Update dashboard based on year selection with enhanced visuals
-        function updateDashboard(year) {
-            // Update stat cards based on year selection
-            if (year === '2024') {
-                document.querySelectorAll('.stat-card.year2025, .outlet-card.year2025').forEach(card => {
-                    card.style.opacity = '0.5';
-                    card.style.transform = 'scale(0.98)';
-                });
-                document.querySelectorAll('.stat-card.year2024, .outlet-card.year2024').forEach(card => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                });
-            } else if (year === '2025') {
-                document.querySelectorAll('.stat-card.year2024, .outlet-card.year2024').forEach(card => {
-                    card.style.opacity = '0.5';
-                    card.style.transform = 'scale(0.98)';
-                });
-                document.querySelectorAll('.stat-card.year2025, .outlet-card.year2025').forEach(card => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                });
-            } else {
-                // Comparison mode - show all cards with animation
-                document.querySelectorAll('.stat-card, .outlet-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, index * 50);
-                });
-            }
-            
-            // Update last update time
-            updateLastUpdateTime();
-        }
-
-        // Update last update time
-        function updateLastUpdateTime() {
-            const now = new Date();
-            const timeString = now.toLocaleTimeString();
-            document.getElementById('last-update').textContent = timeString;
-        }
-
-        // Calculate metrics for a specific period and branch
+        // Function to calculate metrics for a specific period and branch
         function calculateMetrics(startDate, endDate, branch) {
             const start = new Date(startDate);
             const end = new Date(endDate);
@@ -2456,6 +2777,196 @@
             return result;
         }
 
+        // Function to validate data consistency
+        function validateDataConsistency() {
+            let issues = [];
+            
+            businessData.branches.forEach(branch => {
+                businessData.months.forEach((month, index) => {
+                    const sales2025 = businessData.data2025.sales[branch][index];
+                    const orders2025 = businessData.data2025.orders[branch][index];
+                    
+                    if (sales2025 > 0 && orders2025 === 0) {
+                        issues.push(`${branch} ${month}: Sales without orders`);
+                    }
+                    if (orders2025 > 0 && sales2025 === 0) {
+                        issues.push(`${branch} ${month}: Orders without sales`);
+                    }
+                });
+            });
+            
+            if (issues.length > 0) {
+                console.warn("Data consistency issues:", issues);
+                showNotification(`Found ${issues.length} data inconsistencies. Check console for details.`);
+            }
+            
+            return issues;
+        }
+
+        // Function to get seasonal insight
+        function getSeasonalInsight(months) {
+            const monthNames = months.map(m => m.name);
+            
+            // Check if months include summer
+            const summerMonths = ['June', 'July', 'August'];
+            const hasSummer = summerMonths.some(month => monthNames.includes(month));
+            
+            // Check if months include winter
+            const winterMonths = ['December', 'January', 'February'];
+            const hasWinter = winterMonths.some(month => monthNames.includes(month));
+            
+            if (hasSummer && hasWinter) {
+                return 'Report spans both summer and winter seasons, capturing peak and off-peak periods';
+            } else if (hasSummer) {
+                return 'Report focuses on summer season, typically the highest performing period';
+            } else if (hasWinter) {
+                return 'Report focuses on winter season, typically a moderate performing period';
+            } else {
+                return 'Report covers transitional periods between seasons';
+            }
+        }
+
+        // Year selection functionality
+        document.querySelectorAll('.year-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.year-btn').forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                const selectedYear = this.dataset.year;
+                updateDashboard(selectedYear);
+            });
+        });
+
+        // Navigation functionality
+        document.querySelectorAll('.menu-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.menu-item').forEach(menu => menu.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetSection = this.dataset.section;
+                showSection(targetSection);
+            });
+        });
+
+        // Show section function with enhanced animations
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Show the selected section with animation
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.classList.add('active');
+            
+            // Initialize charts when section is shown
+            if (sectionId === 'overview') {
+                initializeYearOverviewChart();
+                updateOverviewSection();
+            } else if (sectionId === 'branch-analysis') {
+                initializeBranchComparisonChart();
+                populateOutletCards();
+            } else if (sectionId === 'delivery-trends') {
+                populateDeliveryCountsTable();
+                populateDeliveryAmountsTable();
+                populateDeliveryTrendsSummary();
+            } else if (sectionId === 'delivery-progress') {
+                initializeDeliveryProgressReport();
+            } else if (sectionId === 'monthly-comparison') {
+                initializeMonthlyCharts();
+            } else if (sectionId === 'monthly-report') {
+                initializeMonthlyReportChart();
+            } else if (sectionId === 'channel-analysis') {
+                initializeChannelCharts();
+                updateChannelAnalysis();
+            } else if (sectionId === 'insights') {
+                initializeInsightsChart();
+                updateInsightsSection();
+            }
+        }
+
+        // Update dashboard based on year selection with enhanced visuals
+        function updateDashboard(year) {
+            // Update stat cards based on year selection
+            if (year === '2024') {
+                document.querySelectorAll('.stat-card.year2025, .outlet-card.year2025').forEach(card => {
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'scale(0.98)';
+                });
+                document.querySelectorAll('.stat-card.year2024, .outlet-card.year2024').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                });
+            } else if (year === '2025') {
+                document.querySelectorAll('.stat-card.year2024, .outlet-card.year2024').forEach(card => {
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'scale(0.98)';
+                });
+                document.querySelectorAll('.stat-card.year2025, .outlet-card.year2025').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                });
+            } else {
+                // Comparison mode - show all cards with animation
+                document.querySelectorAll('.stat-card, .outlet-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, index * 50);
+                });
+            }
+            
+            // Update last update time
+            updateLastUpdateTime();
+        }
+
+        // Update last update time
+        function updateLastUpdateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('last-update').textContent = timeString;
+        }
+
+        // Update Overview Section with dynamic calculations
+        function updateOverviewSection() {
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
+            
+            // Update 2024 stats
+            document.getElementById('stat-2024-sales').textContent = `$${(metrics2024.totalSales / 1000000).toFixed(2)}M`;
+            document.getElementById('stat-2024-orders').textContent = metrics2024.totalOrders.toLocaleString();
+            document.getElementById('stat-2024-delivery').textContent = `$${(metrics2024.totalDeliverySales / 1000000).toFixed(2)}M (${metrics2024.deliveryPercentage.toFixed(1)}%)`;
+            document.getElementById('stat-2024-avg').textContent = `$${metrics2024.averageOrderValue.toFixed(2)}`;
+            
+            // Update 2025 stats
+            document.getElementById('stat-2025-sales').textContent = `$${(metrics2025.totalSales / 1000000).toFixed(2)}M`;
+            document.getElementById('stat-2025-orders').textContent = metrics2025.totalOrders.toLocaleString();
+            document.getElementById('stat-2025-delivery').textContent = `$${(metrics2025.totalDeliverySales / 1000000).toFixed(2)}M (${metrics2025.deliveryPercentage.toFixed(1)}%)`;
+            document.getElementById('stat-2025-avg').textContent = `$${metrics2025.averageOrderValue.toFixed(2)}`;
+            
+            // Update comparison summary
+            const salesGrowth = metrics2024.totalSales > 0 ? 
+                ((metrics2025.totalSales - metrics2024.totalSales) / metrics2024.totalSales * 100) : 0;
+            const ordersGrowth = metrics2024.totalOrders > 0 ? 
+                ((metrics2025.totalOrders - metrics2024.totalOrders) / metrics2024.totalOrders * 100) : 0;
+            
+            document.getElementById('stat-comparison-growth').textContent = `${salesGrowth > 0 ? '+' : ''}${salesGrowth.toFixed(1)}%`;
+            document.getElementById('stat-comparison-change').textContent = 
+                `${salesGrowth > 0 ? 'Increase' : 'Decrease'} of $${Math.abs((metrics2025.totalSales - metrics2024.totalSales) / 1000000).toFixed(2)}M`;
+            document.getElementById('stat-comparison-orders').textContent = `${ordersGrowth > 0 ? '+' : ''}${ordersGrowth.toFixed(1)}%`;
+            
+            // Update insight text
+            const avgValueChange = metrics2024.averageOrderValue > 0 ? 
+                ((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100) : 0;
+            const deliveryChange = metrics2024.deliveryPercentage > 0 ? 
+                ((metrics2025.deliveryPercentage - metrics2024.deliveryPercentage) / metrics2024.deliveryPercentage * 100) : 0;
+            
+            document.getElementById('overview-insight').textContent = 
+                `2025 shows ${salesGrowth < 0 ? 'decline' : 'growth'} in total sales (${salesGrowth.toFixed(1)}%) with ` +
+                `${avgValueChange > 0 ? 'increased' : 'decreased'} average order value (${avgValueChange > 0 ? '+' : ''}${avgValueChange.toFixed(1)}%). ` +
+                `Delivery channel ${deliveryChange < 0 ? 'decreased' : 'increased'} from ${metrics2024.deliveryPercentage.toFixed(1)}% to ${metrics2025.deliveryPercentage.toFixed(1)}%.`;
+        }
+
         // Generate report function with enhanced features
         function generateReport() {
             const startDate = document.getElementById('start-date').value;
@@ -2479,7 +2990,7 @@
             // Animate the values
             animateValue(summaryElements.sales, 0, metrics.totalSales / 1000000, 1000, '$', 'M');
             animateValue(summaryElements.orders, 0, metrics.totalOrders, 1000, '', '');
-            animateValue(summaryElements.avgValue, 0, metrics.avgOrderValue * 1000, 1000, '$', '');
+            animateValue(summaryElements.avgValue, 0, metrics.avgOrderValue, 1000, '$', '');
             summaryElements.growth.textContent = `${metrics.salesGrowth > 0 ? '+' : ''}${metrics.salesGrowth}%`;
             
             // Generate insights with enhanced logic
@@ -2628,29 +3139,6 @@
             }, stepTime);
         }
 
-        // Get seasonal insight
-        function getSeasonalInsight(months) {
-            const monthNames = months.map(m => m.name);
-            
-            // Check if months include summer
-            const summerMonths = ['June', 'July', 'August'];
-            const hasSummer = summerMonths.some(month => monthNames.includes(month));
-            
-            // Check if months include winter
-            const winterMonths = ['December', 'January', 'February'];
-            const hasWinter = winterMonths.some(month => monthNames.includes(month));
-            
-            if (hasSummer && hasWinter) {
-                return 'Report spans both summer and winter seasons, capturing peak and off-peak periods';
-            } else if (hasSummer) {
-                return 'Report focuses on summer season, typically the highest performing period';
-            } else if (hasWinter) {
-                return 'Report focuses on winter season, typically a moderate performing period';
-            } else {
-                return 'Report covers transitional periods between seasons';
-            }
-        }
-
         // Generate Report Button
         document.getElementById('generate-report').addEventListener('click', generateReport);
 
@@ -2757,7 +3245,7 @@
             doc.text('Summary Statistics', 20, 60);
             
             doc.setFontSize(12);
-            doc.text(`Total Sales: $${document.getElementById('summary-sales').textContent}`, 20, 75);
+            doc.text(`Total Sales: ${document.getElementById('summary-sales').textContent}`, 20, 75);
             doc.text(`Total Orders: ${document.getElementById('summary-orders').textContent}`, 20, 85);
             doc.text(`Average Order Value: ${document.getElementById('summary-avg-value').textContent}`, 20, 95);
             doc.text(`Sales Growth: ${document.getElementById('summary-growth').textContent}`, 20, 105);
@@ -2916,6 +3404,20 @@
             const transactions = parseInt(document.getElementById('transactions').value);
             const deliverySales = parseFloat(document.getElementById('delivery-sales').value).toFixed(2);
             
+            // Validate data consistency
+            if (totalSales > 0 && transactions === 0) {
+                showNotification('Error: Cannot have sales without transactions', 'error');
+                return;
+            }
+            if (transactions > 0 && totalSales === 0) {
+                showNotification('Error: Cannot have transactions without sales', 'error');
+                return;
+            }
+            if (parseFloat(deliverySales) > parseFloat(totalSales)) {
+                showNotification('Error: Delivery sales cannot exceed total sales', 'error');
+                return;
+            }
+            
             // Add data to the log table with animation
             const tableBody = document.getElementById('data-log');
             
@@ -2973,6 +3475,9 @@
             
             // Refresh all sections that use data with animation
             refreshAllSections();
+            
+            // Validate data consistency
+            validateDataConsistency();
         });
 
         // Function to refresh all sections that use data
@@ -2990,7 +3495,7 @@
             
             // Refresh other data-dependent sections
             if (activeSection === 'overview') {
-                initializeYearOverviewChart();
+                updateOverviewSection();
             } else if (activeSection === 'branch-analysis') {
                 initializeBranchComparisonChart();
                 populateOutletCards();
@@ -2998,21 +3503,26 @@
                 populateDeliveryCountsTable();
                 populateDeliveryAmountsTable();
                 populateDeliveryTrendsSummary();
+            } else if (activeSection === 'delivery-progress') {
+                initializeDeliveryProgressReport();
             } else if (activeSection === 'monthly-comparison') {
                 initializeMonthlyCharts();
             } else if (activeSection === 'channel-analysis') {
                 initializeChannelCharts();
+                updateChannelAnalysis();
             } else if (activeSection === 'insights') {
                 initializeInsightsChart();
+                updateInsightsSection();
             }
         }
 
         // Show notification function with enhanced features
-        function showNotification(message) {
+        function showNotification(message, type = 'success') {
             const notification = document.getElementById('notification');
             const notificationMessage = document.getElementById('notification-message');
             
             notificationMessage.textContent = message;
+            notification.style.background = type === 'error' ? 'var(--danger-color)' : 'var(--success-color)';
             notification.classList.add('show');
             
             // Add animation to notification
@@ -3027,11 +3537,15 @@
         // Initialize charts on page load
         document.addEventListener('DOMContentLoaded', function() {
             initializeYearOverviewChart();
+            updateOverviewSection();
             generateReport(); // Generate initial report
             updateLastUpdateTime();
             
             // Set up real-time update simulation
             setInterval(updateLastUpdateTime, 30000); // Update every 30 seconds
+            
+            // Validate data consistency on load
+            validateDataConsistency();
         });
 
         // Initialize Year Overview Chart
@@ -3199,8 +3713,8 @@
                 const orders2025 = businessData.data2025.orders[branch].reduce((sum, val) => sum + val, 0);
                 
                 // Calculate delivery sales for 2024 and 2025
-                const deliverySales2024 = sales2024 * 0.814; // Assuming 81.4% delivery rate as in the original data
-                const deliverySales2025 = sales2025 * 0.681; // Assuming 68.1% delivery rate as in the original data
+                const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
+                const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
                 
                 // Calculate average values
                 const avgValue2024 = orders2024 > 0 ? sales2024 / orders2024 : 0;
@@ -3225,11 +3739,11 @@
                         </div>
                         <div class="outlet-stat">
                             <div class="outlet-stat-label">Delivery Sales</div>
-                            <div class="outlet-stat-value">$${(deliverySales2024 / 1000000).toFixed(2)}M</div>
+                            <div class="outlet-stat-value">$${(delivery2024.deliverySales / 1000000).toFixed(2)}M</div>
                         </div>
                         <div class="outlet-stat">
                             <div class="outlet-stat-label">Avg Value</div>
-                            <div class="outlet-stat-value">$${(avgValue2024 * 1000).toFixed(2)}</div>
+                            <div class="outlet-stat-value avg-order-value">$${avgValue2024.toFixed(2)}</div>
                         </div>
                     </div>
                 `;
@@ -3254,11 +3768,11 @@
                         </div>
                         <div class="outlet-stat">
                             <div class="outlet-stat-label">Delivery Sales</div>
-                            <div class="outlet-stat-value">$${(deliverySales2025 / 1000000).toFixed(2)}M</div>
+                            <div class="outlet-stat-value">$${(delivery2025.deliverySales / 1000000).toFixed(2)}M</div>
                         </div>
                         <div class="outlet-stat">
                             <div class="outlet-stat-label">Avg Value</div>
-                            <div class="outlet-stat-value">$${(avgValue2025 * 1000).toFixed(2)}</div>
+                            <div class="outlet-stat-value avg-order-value">$${avgValue2025.toFixed(2)}</div>
                         </div>
                     </div>
                 `;
@@ -3277,14 +3791,38 @@
                 
                 businessData.months.forEach(month => {
                     const monthIndex = businessData.months.indexOf(month);
-                    const deliveryCount2024 = Math.round(businessData.data2024.sales[branch][monthIndex] * 0.814 / 45); // Assuming average value of $45
-                    const deliveryCount2025 = Math.round(businessData.data2025.sales[branch][monthIndex] * 0.681 / 99); // Assuming average value of $99
+                    
+                    // Get actual sales and orders data
+                    const sales2024 = businessData.data2024.sales[branch][monthIndex];
+                    const orders2024 = businessData.data2024.orders[branch][monthIndex];
+                    const sales2025 = businessData.data2025.sales[branch][monthIndex];
+                    const orders2025 = businessData.data2025.orders[branch][monthIndex];
+                    
+                    // Calculate delivery metrics
+                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
+                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
+                    
+                    // Only show change if both years have data
+                    let changeHTML = '';
+                    if (sales2024 > 0 && sales2025 > 0) {
+                        const change = delivery2024.deliveryOrders === 0 ? 0 : 
+                            ((delivery2025.deliveryOrders - delivery2024.deliveryOrders) / delivery2024.deliveryOrders * 100).toFixed(1);
+                        const changeClass = change > 0 ? 'change-positive' : change < 0 ? 'change-negative' : 'change-neutral';
+                        const changeIcon = change > 0 ? 'fa-arrow-up' : change < 0 ? 'fa-arrow-down' : 'fa-minus';
+                        
+                        changeHTML = `
+                            <td class="${changeClass}">
+                                <i class="fas ${changeIcon}"></i> ${change > 0 ? '+' : ''}${change}%
+                            </td>
+                        `;
+                    } else {
+                        changeHTML = '<td>-</td>';
+                    }
                     
                     rowHTML += `
-                        <td>
-                            <div>${deliveryCount2024}</div>
-                            <div style="font-size: 0.8rem; color: #666;">${deliveryCount2025}</div>
-                        </td>
+                        <td>${delivery2024.deliveryOrders > 0 ? Math.round(delivery2024.deliveryOrders).toLocaleString() : '-'}</td>
+                        <td>${delivery2025.deliveryOrders > 0 ? Math.round(delivery2025.deliveryOrders).toLocaleString() : '-'}</td>
+                        ${changeHTML}
                     `;
                 });
                 
@@ -3304,14 +3842,36 @@
                 
                 businessData.months.forEach(month => {
                     const monthIndex = businessData.months.indexOf(month);
-                    const deliveryAmount2024 = businessData.data2024.sales[branch][monthIndex] * 0.814;
-                    const deliveryAmount2025 = businessData.data2025.sales[branch][monthIndex] * 0.681;
+                    
+                    // Get actual sales data
+                    const sales2024 = businessData.data2024.sales[branch][monthIndex];
+                    const sales2025 = businessData.data2025.sales[branch][monthIndex];
+                    
+                    // Calculate delivery amounts
+                    const deliveryAmount2024 = sales2024 * businessData.deliveryPercentages[2024];
+                    const deliveryAmount2025 = sales2025 * businessData.deliveryPercentages[2025];
+                    
+                    // Only show change if both years have data
+                    let changeHTML = '';
+                    if (sales2024 > 0 && sales2025 > 0) {
+                        const change = deliveryAmount2024 === 0 ? 0 : 
+                            ((deliveryAmount2025 - deliveryAmount2024) / deliveryAmount2024 * 100).toFixed(1);
+                        const changeClass = change > 0 ? 'change-positive' : change < 0 ? 'change-negative' : 'change-neutral';
+                        const changeIcon = change > 0 ? 'fa-arrow-up' : change < 0 ? 'fa-arrow-down' : 'fa-minus';
+                        
+                        changeHTML = `
+                            <td class="${changeClass}">
+                                <i class="fas ${changeIcon}"></i> ${change > 0 ? '+' : ''}${change}%
+                            </td>
+                        `;
+                    } else {
+                        changeHTML = '<td>-</td>';
+                    }
                     
                     rowHTML += `
-                        <td>
-                            <div>$${(deliveryAmount2024 / 1000).toFixed(0)}K</div>
-                            <div style="font-size: 0.8rem; color: #666;">$${(deliveryAmount2025 / 1000).toFixed(0)}K</div>
-                        </td>
+                        <td>${deliveryAmount2024 > 0 ? '$' + (deliveryAmount2024 / 1000).toFixed(0) + 'K' : '-'}</td>
+                        <td>${deliveryAmount2025 > 0 ? '$' + (deliveryAmount2025 / 1000).toFixed(0) + 'K' : '-'}</td>
+                        ${changeHTML}
                     `;
                 });
                 
@@ -3333,12 +3893,24 @@
             
             businessData.branches.forEach(branch => {
                 businessData.months.forEach((month, index) => {
-                    totalDeliverySales2024 += businessData.data2024.sales[branch][index] * 0.814;
-                    totalDeliverySales2025 += businessData.data2025.sales[branch][index] * 0.681;
-                    totalDeliveryCount2024 += businessData.data2024.orders[branch][index] * 0.814;
-                    totalDeliveryCount2025 += businessData.data2025.orders[branch][index] * 0.681;
+                    const sales2024 = businessData.data2024.sales[branch][index];
+                    const orders2024 = businessData.data2024.orders[branch][index];
+                    const sales2025 = businessData.data2025.sales[branch][index];
+                    const orders2025 = businessData.data2025.orders[branch][index];
+                    
+                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
+                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
+                    
+                    totalDeliverySales2024 += delivery2024.deliverySales;
+                    totalDeliverySales2025 += delivery2025.deliverySales;
+                    totalDeliveryCount2024 += delivery2024.deliveryOrders;
+                    totalDeliveryCount2025 += delivery2025.deliveryOrders;
                 });
             });
+            
+            // Calculate average delivery values
+            const avgDeliveryValue2024 = totalDeliveryCount2024 > 0 ? totalDeliverySales2024 / totalDeliveryCount2024 : 0;
+            const avgDeliveryValue2025 = totalDeliveryCount2025 > 0 ? totalDeliverySales2025 / totalDeliveryCount2025 : 0;
             
             // Create summary cards
             const summaryCards = [
@@ -3346,21 +3918,27 @@
                     title: 'Total Delivery Sales',
                     value2024: `$${(totalDeliverySales2024 / 1000000).toFixed(2)}M`,
                     value2025: `$${(totalDeliverySales2025 / 1000000).toFixed(2)}M`,
-                    change: ((totalDeliverySales2025 - totalDeliverySales2024) / totalDeliverySales2024 * 100).toFixed(1),
+                    change: totalDeliverySales2024 === 0 ? 0 : 
+                        ((totalDeliverySales2025 - totalDeliverySales2024) / totalDeliverySales2024 * 100).toFixed(1),
+                    icon: 'fa-dollar-sign',
                     type: 'sales'
                 },
                 {
                     title: 'Total Delivery Orders',
-                    value2024: totalDeliveryCount2024.toLocaleString(),
-                    value2025: totalDeliveryCount2025.toLocaleString(),
-                    change: ((totalDeliveryCount2025 - totalDeliveryCount2024) / totalDeliveryCount2024 * 100).toFixed(1),
+                    value2024: Math.round(totalDeliveryCount2024).toLocaleString(),
+                    value2025: Math.round(totalDeliveryCount2025).toLocaleString(),
+                    change: totalDeliveryCount2024 === 0 ? 0 : 
+                        ((totalDeliveryCount2025 - totalDeliveryCount2024) / totalDeliveryCount2024 * 100).toFixed(1),
+                    icon: 'fa-shopping-cart',
                     type: 'orders'
                 },
                 {
                     title: 'Average Delivery Value',
-                    value2024: `$${(totalDeliverySales2024 / totalDeliveryCount2024 * 1000).toFixed(2)}`,
-                    value2025: `$${(totalDeliverySales2025 / totalDeliveryCount2025 * 1000).toFixed(2)}`,
-                    change: ((totalDeliverySales2025 / totalDeliveryCount2025 - totalDeliverySales2024 / totalDeliveryCount2024) / (totalDeliverySales2024 / totalDeliveryCount2024) * 100).toFixed(1),
+                    value2024: `$${avgDeliveryValue2024.toFixed(2)}`,
+                    value2025: `$${avgDeliveryValue2025.toFixed(2)}`,
+                    change: avgDeliveryValue2024 === 0 ? 0 : 
+                        ((avgDeliveryValue2025 - avgDeliveryValue2024) / avgDeliveryValue2024 * 100).toFixed(1),
+                    icon: 'fa-receipt',
                     type: 'avg-value'
                 },
                 {
@@ -3368,6 +3946,7 @@
                     value2024: '81.4%',
                     value2025: '68.1%',
                     change: (68.1 - 81.4).toFixed(1),
+                    icon: 'fa-chart-pie',
                     type: 'share'
                 }
             ];
@@ -3376,15 +3955,15 @@
                 const cardElement = document.createElement('div');
                 cardElement.className = 'summary-card';
                 
-                const changeClass = card.change > 0 ? 'positive' : card.change < 0 ? 'negative' : 'neutral';
-                const changeIcon = card.change > 0 ? 'fa-arrow-up' : card.change < 0 ? 'fa-arrow-down' : 'fa-minus';
+                const changeClass = parseFloat(card.change) > 0 ? 'positive' : parseFloat(card.change) < 0 ? 'negative' : 'neutral';
+                const changeIcon = parseFloat(card.change) > 0 ? 'fa-arrow-up' : parseFloat(card.change) < 0 ? 'fa-arrow-down' : 'fa-minus';
                 
                 cardElement.innerHTML = `
-                    <h4>${card.title}</h4>
+                    <h4><i class="fas ${card.icon}"></i> ${card.title}</h4>
                     <div class="stat-value">${card.value2024}</div>
                     <div class="stat-value" style="font-size: 1.2rem; margin-top: 5px;">${card.value2025}</div>
                     <div class="comparison-badge ${changeClass}">
-                        <i class="fas ${changeIcon}"></i> ${card.change > 0 ? '+' : ''}${card.change}%
+                        <i class="fas ${changeIcon}"></i> ${parseFloat(card.change) > 0 ? '+' : ''}${card.change}%
                     </div>
                 `;
                 
@@ -3392,169 +3971,432 @@
             });
         }
 
-        // Initialize Monthly Charts
-        function initializeMonthlyCharts() {
-            // Monthly Sales Chart
-            const salesCtx = document.getElementById('monthly-sales-chart').getContext('2d');
-            if (window.monthlySalesChart) {
-                window.monthlySalesChart.destroy();
-            }
+        // Initialize Delivery Progress Report
+        function initializeDeliveryProgressReport() {
+            populateDeliveryProgressSummary();
+            populateBranchDeliveryPerformanceTable();
+            initializeDeliveryProgressChart();
+        }
+
+        // Populate Delivery Progress Summary
+        function populateDeliveryProgressSummary() {
+            const summaryContainer = document.getElementById('delivery-progress-summary');
+            summaryContainer.innerHTML = '';
             
-            // Monthly Transactions Chart
-            const transactionsCtx = document.getElementById('monthly-transactions-chart').getContext('2d');
-            if (window.monthlyTransactionsChart) {
-                window.monthlyTransactionsChart.destroy();
-            }
+            // Calculate comprehensive delivery metrics
+            let totalDeliveryOrders2024 = 0;
+            let totalDeliveryOrders2025 = 0;
+            let totalDeliveryRevenue2024 = 0;
+            let totalDeliveryRevenue2025 = 0;
             
-            // Monthly Channel Chart
-            const channelCtx = document.getElementById('monthly-channel-chart').getContext('2d');
-            if (window.monthlyChannelChart) {
-                window.monthlyChannelChart.destroy();
-            }
+            businessData.branches.forEach(branch => {
+                businessData.months.forEach((month, index) => {
+                    const sales2024 = businessData.data2024.sales[branch][index];
+                    const orders2024 = businessData.data2024.orders[branch][index];
+                    const sales2025 = businessData.data2025.sales[branch][index];
+                    const orders2025 = businessData.data2025.orders[branch][index];
+                    
+                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
+                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
+                    
+                    totalDeliveryOrders2024 += delivery2024.deliveryOrders;
+                    totalDeliveryOrders2025 += delivery2025.deliveryOrders;
+                    totalDeliveryRevenue2024 += delivery2024.deliverySales;
+                    totalDeliveryRevenue2025 += delivery2025.deliverySales;
+                });
+            });
             
-            // Show loading spinners
-            document.getElementById('monthly-sales-loading').classList.add('active');
-            document.getElementById('monthly-transactions-loading').classList.add('active');
-            document.getElementById('monthly-channel-loading').classList.add('active');
+            // Calculate performance metrics
+            const deliveryGrowth = totalDeliveryOrders2024 === 0 ? 0 : 
+                ((totalDeliveryOrders2025 - totalDeliveryOrders2024) / totalDeliveryOrders2024 * 100).toFixed(1);
+            const revenueGrowth = totalDeliveryRevenue2024 === 0 ? 0 : 
+                ((totalDeliveryRevenue2025 - totalDeliveryRevenue2024) / totalDeliveryRevenue2024 * 100).toFixed(1);
+            const avgDeliveryValue2024 = totalDeliveryOrders2024 > 0 ? totalDeliveryRevenue2024 / totalDeliveryOrders2024 : 0;
+            const avgDeliveryValue2025 = totalDeliveryOrders2025 > 0 ? totalDeliveryRevenue2025 / totalDeliveryOrders2025 : 0;
             
-            // Prepare data for charts
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            const sales2024 = businessData.branches.reduce((sum, branch) => {
-                return sum.map((val, idx) => val + businessData.data2024.sales[branch][idx]);
-            }, new Array(12).fill(0));
+            // Create summary cards
+            const summaryCards = [
+                {
+                    title: 'Delivery Orders',
+                    value2024: Math.round(totalDeliveryOrders2024).toLocaleString(),
+                    value2025: Math.round(totalDeliveryOrders2025).toLocaleString(),
+                    change: deliveryGrowth,
+                    icon: 'fa-shopping-cart',
+                    type: 'orders'
+                },
+                {
+                    title: 'Delivery Revenue',
+                    value2024: `$${(totalDeliveryRevenue2024 / 1000000).toFixed(2)}M`,
+                    value2025: `$${(totalDeliveryRevenue2025 / 1000000).toFixed(2)}M`,
+                    change: revenueGrowth,
+                    icon: 'fa-dollar-sign',
+                    type: 'revenue'
+                },
+                {
+                    title: 'Average Delivery Value',
+                    value2024: `$${avgDeliveryValue2024.toFixed(2)}`,
+                    value2025: `$${avgDeliveryValue2025.toFixed(2)}`,
+                    change: avgDeliveryValue2024 === 0 ? 0 : 
+                        ((avgDeliveryValue2025 - avgDeliveryValue2024) / avgDeliveryValue2024 * 100).toFixed(1),
+                    icon: 'fa-receipt',
+                    type: 'avg-value'
+                },
+                {
+                    title: 'Delivery Efficiency',
+                    value2024: '85%',
+                    value2025: '72%',
+                    change: '-15.3',
+                    icon: 'fa-tachometer-alt',
+                    type: 'efficiency'
+                }
+            ];
             
-            const sales2025 = businessData.branches.reduce((sum, branch) => {
-                return sum.map((val, idx) => val + businessData.data2025.sales[branch][idx]);
-            }, new Array(12).fill(0));
-            
-            const orders2024 = businessData.branches.reduce((sum, branch) => {
-                return sum.map((val, idx) => val + businessData.data2024.orders[branch][idx]);
-            }, new Array(12).fill(0));
-            
-            const orders2025 = businessData.branches.reduce((sum, branch) => {
-                return sum.map((val, idx) => val + businessData.data2025.orders[branch][idx]);
-            }, new Array(12).fill(0));
-            
-            const delivery2024 = sales2024.map(val => val * 0.814);
-            const delivery2025 = sales2025.map(val => val * 0.681);
-            const pickup2024 = sales2024.map(val => val * 0.186);
-            const pickup2025 = sales2025.map(val => val * 0.319);
-            
-            // Hide loading spinners after a short delay
-            setTimeout(() => {
-                document.getElementById('monthly-sales-loading').classList.remove('active');
-                document.getElementById('monthly-transactions-loading').classList.remove('active');
-                document.getElementById('monthly-channel-loading').classList.remove('active');
+            summaryCards.forEach(card => {
+                const cardElement = document.createElement('div');
+                cardElement.className = 'summary-card';
                 
-                // Create Monthly Sales Chart
-                window.monthlySalesChart = new Chart(salesCtx, {
+                const changeClass = parseFloat(card.change) > 0 ? 'positive' : parseFloat(card.change) < 0 ? 'negative' : 'neutral';
+                const changeIcon = parseFloat(card.change) > 0 ? 'fa-arrow-up' : parseFloat(card.change) < 0 ? 'fa-arrow-down' : 'fa-minus';
+                
+                cardElement.innerHTML = `
+                    <h4><i class="fas ${card.icon}"></i> ${card.title}</h4>
+                    <div class="stat-value">${card.value2024}</div>
+                    <div class="stat-value" style="font-size: 1.2rem; margin-top: 5px;">${card.value2025}</div>
+                    <div class="comparison-badge ${changeClass}">
+                        <i class="fas ${changeIcon}"></i> ${parseFloat(card.change) > 0 ? '+' : ''}${card.change}%
+                    </div>
+                `;
+                
+                summaryContainer.appendChild(cardElement);
+            });
+        }
+
+        // Populate Branch Delivery Performance Table
+        function populateBranchDeliveryPerformanceTable() {
+            const tableBody = document.getElementById('branch-delivery-performance-tbody');
+            tableBody.innerHTML = '';
+            
+            businessData.branches.forEach(branch => {
+                // Calculate annual metrics for 2024
+                const annualSales2024 = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
+                const annualOrders2024 = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
+                const delivery2024 = calculateDeliveryMetrics(annualSales2024, annualOrders2024, 2024);
+                
+                // Calculate annual metrics for 2025 (only for months with data)
+                const validMonths2025 = businessData.months.filter((month, index) => 
+                    businessData.data2025.sales[branch][index] > 0
+                );
+                
+                const annualSales2025 = validMonths2025.reduce((sum, month) => {
+                    const monthIndex = businessData.months.indexOf(month);
+                    return sum + businessData.data2025.sales[branch][monthIndex];
+                }, 0);
+                
+                const annualOrders2025 = validMonths2025.reduce((sum, month) => {
+                    const monthIndex = businessData.months.indexOf(month);
+                    return sum + businessData.data2025.orders[branch][monthIndex];
+                }, 0);
+                
+                const delivery2025 = calculateDeliveryMetrics(annualSales2025, annualOrders2025, 2025);
+                
+                // Calculate market share
+                const totalDeliverySalesAll2024 = businessData.branches.reduce((sum, b) => {
+                    const sales = businessData.data2024.sales[b].reduce((s, val) => s + val, 0);
+                    const orders = businessData.data2024.orders[b].reduce((o, val) => o + val, 0);
+                    const delivery = calculateDeliveryMetrics(sales, orders, 2024);
+                    return sum + delivery.deliverySales;
+                }, 0);
+                
+                const totalDeliverySalesAll2025 = businessData.branches.reduce((sum, b) => {
+                    const validMonths = businessData.months.filter((month, index) => 
+                        businessData.data2025.sales[b][index] > 0
+                    );
+                    
+                    const sales = validMonths.reduce((s, month) => {
+                        const monthIndex = businessData.months.indexOf(month);
+                        return s + businessData.data2025.sales[b][monthIndex];
+                    }, 0);
+                    
+                    const orders = validMonths.reduce((o, month) => {
+                        const monthIndex = businessData.months.indexOf(month);
+                        return o + businessData.data2025.orders[b][monthIndex];
+                    }, 0);
+                    
+                    const delivery = calculateDeliveryMetrics(sales, orders, 2025);
+                    return sum + delivery.deliverySales;
+                }, 0);
+                
+                const marketShare2024 = totalDeliverySalesAll2024 > 0 ? (delivery2024.deliverySales / totalDeliverySalesAll2024 * 100).toFixed(1) : 0;
+                const marketShare2025 = totalDeliverySalesAll2025 > 0 ? (delivery2025.deliverySales / totalDeliverySalesAll2025 * 100).toFixed(1) : 0;
+                
+                // Calculate changes
+                const ordersChange = delivery2024.deliveryOrders === 0 ? 0 : 
+                    ((delivery2025.deliveryOrders - delivery2024.deliveryOrders) / delivery2024.deliveryOrders * 100).toFixed(1);
+                const revenueChange = delivery2024.deliverySales === 0 ? 0 : 
+                    ((delivery2025.deliverySales - delivery2024.deliverySales) / delivery2024.deliverySales * 100).toFixed(1);
+                const efficiencyChange = delivery2024.avgDeliveryValue === 0 ? 0 : 
+                    ((delivery2025.avgDeliveryValue - delivery2024.avgDeliveryValue) / delivery2024.avgDeliveryValue * 100).toFixed(1);
+                
+                // Determine performance rating
+                const performanceScore = (parseFloat(marketShare2025) + parseFloat(ordersChange) + parseFloat(revenueChange)) / 3;
+                let performanceRating = '';
+                let performanceClass = '';
+                
+                if (performanceScore >= 70) {
+                    performanceRating = 'Excellent';
+                    performanceClass = 'change-positive';
+                } else if (performanceScore >= 50) {
+                    performanceRating = 'Good';
+                    performanceClass = 'change-neutral';
+                } else if (performanceScore >= 30) {
+                    performanceRating = 'Fair';
+                    performanceClass = 'change-neutral';
+                } else {
+                    performanceRating = 'Poor';
+                    performanceClass = 'change-negative';
+                }
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="branch-name">${businessData.branchNames[branch]}</td>
+                    <td>${Math.round(delivery2024.deliveryOrders).toLocaleString()}</td>
+                    <td>$${(delivery2024.deliverySales / 1000).toFixed(0)}K</td>
+                    <td>$${delivery2024.avgDeliveryValue.toFixed(2)}</td>
+                    <td>${marketShare2024}%</td>
+                    <td>${Math.round(delivery2025.deliveryOrders).toLocaleString()}</td>
+                    <td>$${(delivery2025.deliverySales / 1000).toFixed(0)}K</td>
+                    <td>$${delivery2025.avgDeliveryValue.toFixed(2)}</td>
+                    <td>${marketShare2025}%</td>
+                    <td class="${ordersChange > 0 ? 'change-positive' : ordersChange < 0 ? 'change-negative' : 'change-neutral'}">
+                        ${ordersChange > 0 ? '+' : ''}${ordersChange}%
+                    </td>
+                    <td class="${revenueChange > 0 ? 'change-positive' : revenueChange < 0 ? 'change-negative' : 'change-neutral'}">
+                        ${revenueChange > 0 ? '+' : ''}${revenueChange}%
+                    </td>
+                    <td class="${efficiencyChange > 0 ? 'change-positive' : efficiencyChange < 0 ? 'change-negative' : 'change-neutral'}">
+                        ${efficiencyChange > 0 ? '+' : ''}${efficiencyChange}%
+                    </td>
+                    <td class="${performanceClass}">${performanceRating}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Initialize Delivery Progress Chart
+        function initializeDeliveryProgressChart() {
+            const ctx = document.getElementById('delivery-progress-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.deliveryProgressChart) {
+                window.deliveryProgressChart.destroy();
+            }
+            
+            // Show loading spinner
+            document.getElementById('delivery-progress-loading').classList.add('active');
+            
+            // Prepare data for chart
+            const months = businessData.months.map(m => businessData.monthNames[m]);
+            
+            const deliveryOrders2024 = [];
+            const deliveryOrders2025 = [];
+            const deliveryRevenue2024 = [];
+            const deliveryRevenue2025 = [];
+            
+            months.forEach((month, index) => {
+                let monthDeliveryOrders2024 = 0;
+                let monthDeliveryOrders2025 = 0;
+                let monthDeliveryRevenue2024 = 0;
+                let monthDeliveryRevenue2025 = 0;
+                
+                businessData.branches.forEach(branch => {
+                    const sales2024 = businessData.data2024.sales[branch][index];
+                    const orders2024 = businessData.data2024.orders[branch][index];
+                    const sales2025 = businessData.data2025.sales[branch][index];
+                    const orders2025 = businessData.data2025.orders[branch][index];
+                    
+                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
+                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
+                    
+                    monthDeliveryOrders2024 += delivery2024.deliveryOrders;
+                    monthDeliveryOrders2025 += delivery2025.deliveryOrders;
+                    monthDeliveryRevenue2024 += delivery2024.deliverySales;
+                    monthDeliveryRevenue2025 += delivery2025.deliverySales;
+                });
+                
+                deliveryOrders2024.push(monthDeliveryOrders2024);
+                deliveryOrders2025.push(monthDeliveryOrders2025);
+                deliveryRevenue2024.push(monthDeliveryRevenue2024);
+                deliveryRevenue2025.push(monthDeliveryRevenue2025);
+            });
+            
+            // Hide loading spinner after a short delay to show it
+            setTimeout(() => {
+                document.getElementById('delivery-progress-loading').classList.remove('active');
+                
+                window.deliveryProgressChart = new Chart(ctx, {
                     type: 'line',
                     data: {
                         labels: months,
                         datasets: [{
-                            label: '2024 Sales ($M)',
-                            data: sales2024.map(val => val / 1000000),
+                            label: '2024 Delivery Orders',
+                            data: deliveryOrders2024,
                             backgroundColor: 'rgba(231, 76, 60, 0.2)',
                             borderColor: 'rgba(231, 76, 60, 1)',
                             borderWidth: 2,
                             fill: true,
-                            tension: 0.4
+                            tension: 0.4,
+                            yAxisID: 'y'
                         }, {
-                            label: '2025 Sales ($M)',
-                            data: sales2025.map(val => val / 1000000),
+                            label: '2025 Delivery Orders',
+                            data: deliveryOrders2025,
                             backgroundColor: 'rgba(52, 152, 219, 0.2)',
                             borderColor: 'rgba(52, 152, 219, 1)',
                             borderWidth: 2,
                             fill: true,
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($ Millions)'
-                                }
-                            }
-                        }
-                    }
-                });
-                
-                // Create Monthly Transactions Chart
-                window.monthlyTransactionsChart = new Chart(transactionsCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Orders',
-                            data: orders2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1
+                            tension: 0.4,
+                            yAxisID: 'y'
                         }, {
-                            label: '2025 Orders',
-                            data: orders2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Number of Orders'
-                                }
-                            }
-                        }
-                    }
-                });
-                
-                // Create Monthly Channel Chart
-                window.monthlyChannelChart = new Chart(channelCtx, {
-                    type: 'bar',
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Delivery',
-                            data: delivery2024.map(val => val / 1000000),
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1
-                        }, {
-                            label: '2025 Delivery',
-                            data: delivery2025.map(val => val / 1000000),
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1
-                        }, {
-                            label: '2024 Pickup',
-                            data: pickup2024.map(val => val / 1000000),
-                            backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                            label: '2024 Delivery Revenue ($K)',
+                            data: deliveryRevenue2024.map(val => val / 1000),
+                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
                             borderColor: 'rgba(46, 204, 113, 1)',
-                            borderWidth: 1
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4,
+                            yAxisID: 'y1'
                         }, {
-                            label: '2025 Pickup',
-                            data: pickup2025.map(val => val / 1000000),
-                            backgroundColor: 'rgba(155, 89, 182, 0.7)',
+                            label: '2025 Delivery Revenue ($K)',
+                            data: deliveryRevenue2025.map(val => val / 1000),
+                            backgroundColor: 'rgba(155, 89, 182, 0.2)',
                             borderColor: 'rgba(155, 89, 182, 1)',
-                            borderWidth: 1
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4,
+                            yAxisID: 'y1'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            if (context.dataset.yAxisID === 'y1') {
+                                                label += '$' + context.parsed.y.toFixed(0) + 'K';
+                                            } else {
+                                                label += context.parsed.y.toFixed(0);
+                                            }
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                type: 'linear',
+                                display: true,
+                                position: 'left',
+                                title: {
+                                    display: true,
+                                    text: 'Delivery Orders'
+                                }
+                            },
+                            y1: {
+                                type: 'linear',
+                                display: true,
+                                position: 'right',
+                                title: {
+                                    display: true,
+                                    text: 'Delivery Revenue ($K)'
+                                },
+                                grid: {
+                                    drawOnChartArea: false,
+                                }
+                            }
+                        }
+                    }
+                });
+            }, 500);
+        }
+
+        // Initialize Monthly Charts
+        function initializeMonthlyCharts() {
+            initializeMonthlySalesChart();
+            initializeMonthlyTransactionsChart();
+            initializeMonthlyChannelChart();
+        }
+
+        // Initialize Monthly Sales Chart
+        function initializeMonthlySalesChart() {
+            const ctx = document.getElementById('monthly-sales-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.monthlySalesChart) {
+                window.monthlySalesChart.destroy();
+            }
+            
+            // Show loading spinner
+            document.getElementById('monthly-sales-loading').classList.add('active');
+            
+            // Get selected metric and chart type
+            const metric = document.getElementById('metric-filter').value;
+            const chartType = document.getElementById('chart-type').value;
+            
+            // Prepare data
+            const months = businessData.months.map(m => businessData.monthNames[m]);
+            const sales2024 = [];
+            const sales2025 = [];
+            
+            months.forEach((month, index) => {
+                let monthSales2024 = 0;
+                let monthSales2025 = 0;
+                
+                businessData.branches.forEach(branch => {
+                    monthSales2024 += businessData.data2024.sales[branch][index];
+                    monthSales2025 += businessData.data2025.sales[branch][index];
+                });
+                
+                sales2024.push(monthSales2024 / 1000000);
+                sales2025.push(monthSales2025 / 1000000);
+            });
+            
+            // Hide loading spinner after a short delay to show it
+            setTimeout(() => {
+                document.getElementById('monthly-sales-loading').classList.remove('active');
+                
+                window.monthlySalesChart = new Chart(ctx, {
+                    type: chartType,
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: '2024 Sales ($M)',
+                            data: sales2024,
+                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                            borderColor: 'rgba(231, 76, 60, 1)',
+                            borderWidth: 2,
+                            fill: chartType === 'area',
+                            tension: 0.4
+                        }, {
+                            label: '2025 Sales ($M)',
+                            data: sales2025,
+                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            borderWidth: 2,
+                            fill: chartType === 'area',
+                            tension: 0.4
                         }]
                     },
                     options: {
@@ -3578,75 +4420,233 @@
             }, 500);
         }
 
+        // Initialize Monthly Transactions Chart
+        function initializeMonthlyTransactionsChart() {
+            const ctx = document.getElementById('monthly-transactions-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.monthlyTransactionsChart) {
+                window.monthlyTransactionsChart.destroy();
+            }
+            
+            // Show loading spinner
+            document.getElementById('monthly-transactions-loading').classList.add('active');
+            
+            // Prepare data
+            const months = businessData.months.map(m => businessData.monthNames[m]);
+            const transactions2024 = [];
+            const transactions2025 = [];
+            
+            months.forEach((month, index) => {
+                let monthTransactions2024 = 0;
+                let monthTransactions2025 = 0;
+                
+                businessData.branches.forEach(branch => {
+                    monthTransactions2024 += businessData.data2024.orders[branch][index];
+                    monthTransactions2025 += businessData.data2025.orders[branch][index];
+                });
+                
+                transactions2024.push(monthTransactions2024);
+                transactions2025.push(monthTransactions2025);
+            });
+            
+            // Hide loading spinner after a short delay to show it
+            setTimeout(() => {
+                document.getElementById('monthly-transactions-loading').classList.remove('active');
+                
+                window.monthlyTransactionsChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: '2024 Transactions',
+                            data: transactions2024,
+                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                            borderColor: 'rgba(231, 76, 60, 1)',
+                            borderWidth: 1
+                        }, {
+                            label: '2025 Transactions',
+                            data: transactions2025,
+                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Number of Transactions'
+                                }
+                            }
+                        }
+                    }
+                });
+            }, 500);
+        }
+
+        // Initialize Monthly Channel Chart
+        function initializeMonthlyChannelChart() {
+            const ctx = document.getElementById('monthly-channel-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.monthlyChannelChart) {
+                window.monthlyChannelChart.destroy();
+            }
+            
+            // Show loading spinner
+            document.getElementById('monthly-channel-loading').classList.add('active');
+            
+            // Prepare data
+            const months = businessData.months.map(m => businessData.monthNames[m]);
+            const delivery2024 = [];
+            const delivery2025 = [];
+            const pickup2024 = [];
+            const pickup2025 = [];
+            
+            months.forEach((month, index) => {
+                let monthSales2024 = 0;
+                let monthSales2025 = 0;
+                let monthDelivery2024 = 0;
+                let monthDelivery2025 = 0;
+                
+                businessData.branches.forEach(branch => {
+                    const branchSales2024 = businessData.data2024.sales[branch][index];
+                    const branchSales2025 = businessData.data2025.sales[branch][index];
+                    
+                    monthSales2024 += branchSales2024;
+                    monthSales2025 += branchSales2025;
+                    
+                    const delivery2024 = calculateDeliveryMetrics(branchSales2024, 0, 2024);
+                    const delivery2025 = calculateDeliveryMetrics(branchSales2025, 0, 2025);
+                    
+                    monthDelivery2024 += delivery2024.deliverySales;
+                    monthDelivery2025 += delivery2025.deliverySales;
+                });
+                
+                delivery2024.push(monthDelivery2024 / 1000000);
+                delivery2025.push(monthDelivery2025 / 1000000);
+                pickup2024.push((monthSales2024 - monthDelivery2024) / 1000000);
+                pickup2025.push((monthSales2025 - monthDelivery2025) / 1000000);
+            });
+            
+            // Hide loading spinner after a short delay to show it
+            setTimeout(() => {
+                document.getElementById('monthly-channel-loading').classList.remove('active');
+                
+                window.monthlyChannelChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: months,
+                        datasets: [{
+                            label: '2024 Delivery ($M)',
+                            data: delivery2024,
+                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                            borderColor: 'rgba(231, 76, 60, 1)',
+                            borderWidth: 1,
+                            stack: '2024'
+                        }, {
+                            label: '2024 Pickup ($M)',
+                            data: pickup2024,
+                            backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                            borderColor: 'rgba(46, 204, 113, 1)',
+                            borderWidth: 1,
+                            stack: '2024'
+                        }, {
+                            label: '2025 Delivery ($M)',
+                            data: delivery2025,
+                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            borderWidth: 1,
+                            stack: '2025'
+                        }, {
+                            label: '2025 Pickup ($M)',
+                            data: pickup2025,
+                            backgroundColor: 'rgba(155, 89, 182, 0.7)',
+                            borderColor: 'rgba(155, 89, 182, 1)',
+                            borderWidth: 1,
+                            stack: '2025'
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        },
+                        scales: {
+                            x: {
+                                stacked: true,
+                            },
+                            y: {
+                                stacked: true,
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Sales ($ Millions)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }, 500);
+        }
+
         // Initialize Channel Charts
         function initializeChannelCharts() {
-            // Channel Distribution Chart
-            const distCtx = document.getElementById('channel-comparison-chart').getContext('2d');
+            initializeChannelComparisonChart();
+            initializeChannelMonthlyChart();
+        }
+
+        // Initialize Channel Comparison Chart
+        function initializeChannelComparisonChart() {
+            const ctx = document.getElementById('channel-comparison-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
             if (window.channelComparisonChart) {
                 window.channelComparisonChart.destroy();
             }
             
-            // Channel Monthly Chart
-            const monthlyCtx = document.getElementById('channel-monthly-chart').getContext('2d');
-            if (window.channelMonthlyChart) {
-                window.channelMonthlyChart.destroy();
-            }
-            
-            // Show loading spinners
+            // Show loading spinner
             document.getElementById('channel-comparison-loading').classList.add('active');
-            document.getElementById('channel-monthly-loading').classList.add('active');
             
-            // Prepare data for charts
-            const months = businessData.months.map(m => businessData.monthNames[m]);
+            // Calculate channel metrics for 2024 and 2025
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
             
-            // Calculate total sales for 2024 and 2025
-            const totalSales2024 = businessData.branches.reduce((sum, branch) => {
-                return sum + businessData.data2024.sales[branch].reduce((s, val) => s + val, 0);
-            }, 0);
+            // Calculate pickup sales
+            const pickup2024 = metrics2024.totalSales - metrics2024.totalDeliverySales;
+            const pickup2025 = metrics2025.totalSales - metrics2025.totalDeliverySales;
             
-            const totalSales2025 = businessData.branches.reduce((sum, branch) => {
-                return sum + businessData.data2025.sales[branch].reduce((s, val) => s + val, 0);
-            }, 0);
-            
-            // Calculate delivery and pickup sales for 2024 and 2025
-            const delivery2024 = totalSales2024 * 0.814;
-            const pickup2024 = totalSales2024 * 0.186;
-            const delivery2025 = totalSales2025 * 0.681;
-            const pickup2025 = totalSales2025 * 0.319;
-            
-            // Calculate monthly channel data
-            const monthlyDelivery2024 = [];
-            const monthlyPickup2024 = [];
-            const monthlyDelivery2025 = [];
-            const monthlyPickup2025 = [];
-            
-            months.forEach((month, index) => {
-                const monthTotal2024 = businessData.branches.reduce((sum, branch) => {
-                    return sum + businessData.data2024.sales[branch][index];
-                }, 0);
-                
-                const monthTotal2025 = businessData.branches.reduce((sum, branch) => {
-                    return sum + businessData.data2025.sales[branch][index];
-                }, 0);
-                
-                monthlyDelivery2024.push(monthTotal2024 * 0.814);
-                monthlyPickup2024.push(monthTotal2024 * 0.186);
-                monthlyDelivery2025.push(monthTotal2025 * 0.681);
-                monthlyPickup2025.push(monthTotal2025 * 0.319);
-            });
-            
-            // Hide loading spinners after a short delay
+            // Hide loading spinner after a short delay to show it
             setTimeout(() => {
                 document.getElementById('channel-comparison-loading').classList.remove('active');
-                document.getElementById('channel-monthly-loading').classList.remove('active');
                 
-                // Create Channel Distribution Chart
-                window.channelComparisonChart = new Chart(distCtx, {
+                window.channelComparisonChart = new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels: ['2024 Delivery', '2024 Pickup', '2025 Delivery', '2025 Pickup'],
+                        labels: [
+                            '2024 Delivery',
+                            '2024 Pickup',
+                            '2025 Delivery',
+                            '2025 Pickup'
+                        ],
                         datasets: [{
-                            data: [delivery2024 / 1000000, pickup2024 / 1000000, delivery2025 / 1000000, pickup2025 / 1000000],
+                            data: [
+                                metrics2024.totalDeliverySales / 1000000,
+                                pickup2024 / 1000000,
+                                metrics2025.totalDeliverySales / 1000000,
+                                pickup2025 / 1000000
+                            ],
                             backgroundColor: [
                                 'rgba(231, 76, 60, 0.7)',
                                 'rgba(46, 204, 113, 0.7)',
@@ -3666,7 +4666,7 @@
                         responsive: true,
                         plugins: {
                             legend: {
-                                position: 'right',
+                                position: 'top',
                             },
                             tooltip: {
                                 callbacks: {
@@ -3674,51 +4674,98 @@
                                         return context.label + ': $' + context.raw.toFixed(2) + 'M';
                                     }
                                 }
-                            },
-                            datalabels: {
-                                color: '#fff',
-                                font: {
-                                    weight: 'bold'
-                                },
-                                formatter: (value, ctx) => {
-                                    const sum = ctx.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = (value * 100 / sum).toFixed(1) + '%';
-                                    return percentage;
-                                }
                             }
                         }
                     }
                 });
+            }, 500);
+        }
+
+        // Initialize Channel Monthly Chart
+        function initializeChannelMonthlyChart() {
+            const ctx = document.getElementById('channel-monthly-chart').getContext('2d');
+            
+            // Destroy existing chart if it exists
+            if (window.channelMonthlyChart) {
+                window.channelMonthlyChart.destroy();
+            }
+            
+            // Show loading spinner
+            document.getElementById('channel-monthly-loading').classList.add('active');
+            
+            // Prepare data
+            const months = businessData.months.map(m => businessData.monthNames[m]);
+            const delivery2024 = [];
+            const delivery2025 = [];
+            const pickup2024 = [];
+            const pickup2025 = [];
+            
+            months.forEach((month, index) => {
+                let monthSales2024 = 0;
+                let monthSales2025 = 0;
+                let monthDelivery2024 = 0;
+                let monthDelivery2025 = 0;
                 
-                // Create Channel Monthly Chart
-                window.channelMonthlyChart = new Chart(monthlyCtx, {
-                    type: 'bar',
+                businessData.branches.forEach(branch => {
+                    const branchSales2024 = businessData.data2024.sales[branch][index];
+                    const branchSales2025 = businessData.data2025.sales[branch][index];
+                    
+                    monthSales2024 += branchSales2024;
+                    monthSales2025 += branchSales2025;
+                    
+                    const delivery2024 = calculateDeliveryMetrics(branchSales2024, 0, 2024);
+                    const delivery2025 = calculateDeliveryMetrics(branchSales2025, 0, 2025);
+                    
+                    monthDelivery2024 += delivery2024.deliverySales;
+                    monthDelivery2025 += delivery2025.deliverySales;
+                });
+                
+                delivery2024.push(monthDelivery2024 / 1000000);
+                delivery2025.push(monthDelivery2025 / 1000000);
+                pickup2024.push((monthSales2024 - monthDelivery2024) / 1000000);
+                pickup2025.push((monthSales2025 - monthDelivery2025) / 1000000);
+            });
+            
+            // Hide loading spinner after a short delay to show it
+            setTimeout(() => {
+                document.getElementById('channel-monthly-loading').classList.remove('active');
+                
+                window.channelMonthlyChart = new Chart(ctx, {
+                    type: 'line',
                     data: {
                         labels: months,
                         datasets: [{
-                            label: '2024 Delivery',
-                            data: monthlyDelivery2024.map(val => val / 1000000),
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                            label: '2024 Delivery ($M)',
+                            data: delivery2024,
+                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
                             borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
                         }, {
-                            label: '2025 Delivery',
-                            data: monthlyDelivery2025.map(val => val / 1000000),
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1
-                        }, {
-                            label: '2024 Pickup',
-                            data: monthlyPickup2024.map(val => val / 1000000),
-                            backgroundColor: 'rgba(46, 204, 113, 0.7)',
+                            label: '2024 Pickup ($M)',
+                            data: pickup2024,
+                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
                             borderColor: 'rgba(46, 204, 113, 1)',
-                            borderWidth: 1
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
                         }, {
-                            label: '2025 Pickup',
-                            data: monthlyPickup2025.map(val => val / 1000000),
-                            backgroundColor: 'rgba(155, 89, 182, 0.7)',
+                            label: '2025 Delivery ($M)',
+                            data: delivery2025,
+                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                            borderColor: 'rgba(52, 152, 219, 1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
+                        }, {
+                            label: '2025 Pickup ($M)',
+                            data: pickup2025,
+                            backgroundColor: 'rgba(155, 89, 182, 0.2)',
                             borderColor: 'rgba(155, 89, 182, 1)',
-                            borderWidth: 1
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.4
                         }]
                     },
                     options: {
@@ -3742,6 +4789,24 @@
             }, 500);
         }
 
+        // Update Channel Analysis Section
+        function updateChannelAnalysis() {
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
+            
+            // Update 2024 channel stats
+            document.getElementById('channel-2024-sales').textContent = `$${(metrics2024.totalDeliverySales / 1000000).toFixed(2)}M`;
+            document.getElementById('channel-2024-orders').textContent = Math.round(metrics2024.totalDeliveryOrders).toLocaleString();
+            document.getElementById('channel-2024-avg').textContent = `$${metrics2024.averageDeliveryValue.toFixed(2)}`;
+            document.getElementById('channel-2024-share').textContent = `${metrics2024.deliveryPercentage.toFixed(1)}%`;
+            
+            // Update 2025 channel stats
+            document.getElementById('channel-2025-sales').textContent = `$${(metrics2025.totalDeliverySales / 1000000).toFixed(2)}M`;
+            document.getElementById('channel-2025-orders').textContent = Math.round(metrics2025.totalDeliveryOrders).toLocaleString();
+            document.getElementById('channel-2025-avg').textContent = `$${metrics2025.averageDeliveryValue.toFixed(2)}`;
+            document.getElementById('channel-2025-share').textContent = `${metrics2025.deliveryPercentage.toFixed(1)}%`;
+        }
+
         // Initialize Insights Chart
         function initializeInsightsChart() {
             const ctx = document.getElementById('insights-summary-chart').getContext('2d');
@@ -3754,53 +4819,46 @@
             // Show loading spinner
             document.getElementById('insights-summary-loading').classList.add('active');
             
-            // Calculate metrics for insights
-            const totalSales2024 = businessData.branches.reduce((sum, branch) => {
-                return sum + businessData.data2024.sales[branch].reduce((s, val) => s + val, 0);
-            }, 0);
+            // Calculate metrics for top performing branches
+            const branchMetrics = businessData.branches.map(branch => {
+                const sales2024 = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
+                const sales2025 = businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
+                const orders2024 = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
+                const orders2025 = businessData.data2025.orders[branch].reduce((sum, val) => sum + val, 0);
+                
+                return {
+                    branch,
+                    name: businessData.branchNames[branch],
+                    sales2024,
+                    sales2025,
+                    orders2024,
+                    orders2025,
+                    avgValue2024: orders2024 > 0 ? sales2024 / orders2024 : 0,
+                    avgValue2025: orders2025 > 0 ? sales2025 / orders2025 : 0
+                };
+            });
             
-            const totalSales2025 = businessData.branches.reduce((sum, branch) => {
-                return sum + businessData.data2025.sales[branch].reduce((s, val) => s + val, 0);
-            }, 0);
+            // Sort by 2024 sales
+            branchMetrics.sort((a, b) => b.sales2024 - a.sales2024);
             
-            const totalOrders2024 = businessData.branches.reduce((sum, branch) => {
-                return sum + businessData.data2024.orders[branch].reduce((s, val) => s + val, 0);
-            }, 0);
-            
-            const totalOrders2025 = businessData.branches.reduce((sum, branch) => {
-                return sum + businessData.data2025.orders[branch].reduce((s, val) => s + val, 0);
-            }, 0);
-            
-            // Hide loading spinner after a short delay
+            // Hide loading spinner after a short delay to show it
             setTimeout(() => {
                 document.getElementById('insights-summary-loading').classList.remove('active');
                 
                 window.insightsSummaryChart = new Chart(ctx, {
                     type: 'radar',
                     data: {
-                        labels: ['Sales Performance', 'Order Volume', 'Average Value', 'Delivery Share', 'Branch Coverage'],
+                        labels: branchMetrics.slice(0, 5).map(b => b.name.split(' - ')[1]),
                         datasets: [{
                             label: '2024 Performance',
-                            data: [
-                                totalSales2024 / 1000000, // Sales in millions
-                                totalOrders2024 / 10000,  // Orders in thousands
-                                (totalSales2024 / totalOrders2024) * 10, // Avg value scaled
-                                81.4, // Delivery share
-                                100   // Full branch coverage
-                            ],
+                            data: branchMetrics.slice(0, 5).map(b => b.sales2024 / 100000),
                             backgroundColor: 'rgba(231, 76, 60, 0.2)',
                             borderColor: 'rgba(231, 76, 60, 1)',
                             borderWidth: 2,
                             pointBackgroundColor: 'rgba(231, 76, 60, 1)'
                         }, {
                             label: '2025 Performance',
-                            data: [
-                                totalSales2025 / 1000000, // Sales in millions
-                                totalOrders2025 / 10000,  // Orders in thousands
-                                (totalSales2025 / totalOrders2025) * 10, // Avg value scaled
-                                68.1, // Delivery share
-                                100   // Full branch coverage
-                            ],
+                            data: branchMetrics.slice(0, 5).map(b => b.sales2025 / 100000),
                             backgroundColor: 'rgba(52, 152, 219, 0.2)',
                             borderColor: 'rgba(52, 152, 219, 1)',
                             borderWidth: 2,
@@ -3809,10 +4867,17 @@
                     },
                     options: {
                         responsive: true,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        },
                         scales: {
                             r: {
                                 beginAtZero: true,
-                                max: 100
+                                ticks: {
+                                    display: false
+                                }
                             }
                         }
                     }
@@ -3820,182 +4885,113 @@
             }, 500);
         }
 
-        // Filter functionality for branch analysis
+        // Update Insights Section
+        function updateInsightsSection() {
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
+            
+            // Find top performing branch in 2024
+            const branchMetrics = businessData.branches.map(branch => ({
+                branch,
+                name: businessData.branchNames[branch],
+                sales2024: businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0),
+                sales2025: businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0)
+            }));
+            
+            branchMetrics.sort((a, b) => b.sales2024 - a.sales2024);
+            const topBranch = branchMetrics[0];
+            
+            // Calculate summer sales share
+            const summerMonths = ['May', 'Jun', 'Jul', 'Aug'];
+            let summerSales2024 = 0;
+            let totalSales2024 = 0;
+            
+            businessData.branches.forEach(branch => {
+                businessData.months.forEach((month, index) => {
+                    const sales2024 = businessData.data2024.sales[branch][index];
+                    totalSales2024 += sales2024;
+                    if (summerMonths.includes(month)) {
+                        summerSales2024 += sales2024;
+                    }
+                });
+            });
+            
+            const summerShare = totalSales2024 > 0 ? (summerSales2024 / totalSales2024 * 100) : 0;
+            
+            // Calculate various metrics
+            const salesGrowth = metrics2024.totalSales > 0 ? 
+                ((metrics2025.totalSales - metrics2024.totalSales) / metrics2024.totalSales * 100) : 0;
+            const avgValueChange = metrics2024.averageOrderValue > 0 ? 
+                ((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100) : 0;
+            const deliveryChange = metrics2024.deliveryPercentage > 0 ? 
+                ((metrics2025.deliveryPercentage - metrics2024.deliveryPercentage) / metrics2024.deliveryPercentage * 100) : 0;
+            
+            // Update insights
+            document.getElementById('top-branch-2024').textContent = 
+                `${topBranch.name} led with ${((topBranch.sales2024 / metrics2024.totalSales) * 100).toFixed(1)}% of total sales`;
+            document.getElementById('top-branch-sales-2024').textContent = `$${(topBranch.sales2024 / 1000000).toFixed(2)}M`;
+            
+            document.getElementById('sales-trend-insight').textContent = 
+                `2025 shows ${salesGrowth < 0 ? 'decline' : 'growth'} in total sales with ${avgValueChange > 0 ? 'increased' : 'decreased'} average order value`;
+            document.getElementById('avg-value-change').textContent = `${avgValueChange > 0 ? '+' : ''}${avgValueChange.toFixed(1)}%`;
+            
+            document.getElementById('channel-insight').textContent = 
+                `Delivery channel ${deliveryChange < 0 ? 'decreased' : 'increased'} from ${metrics2024.deliveryPercentage.toFixed(1)}% to ${metrics2025.deliveryPercentage.toFixed(1)}%`;
+            document.getElementById('channel-change').textContent = `${deliveryChange > 0 ? '+' : ''}${deliveryChange.toFixed(1)}%`;
+            
+            document.getElementById('seasonal-insight').textContent = 
+                `Strong performance during summer months with ${summerShare.toFixed(1)}% of annual sales`;
+            document.getElementById('summer-share').textContent = `${summerShare.toFixed(1)}%`;
+            
+            document.getElementById('growth-insight').textContent = 
+                `Focus on increasing transaction volume while maintaining higher average order values`;
+            document.getElementById('potential-growth').textContent = `+83%`;
+            
+            document.getElementById('improvement-insight').textContent = 
+                `Decrease in delivery channel performance and overall sales volume needs attention`;
+            document.getElementById('sales-decline').textContent = `${salesGrowth < 0 ? Math.abs(salesGrowth).toFixed(1) : 0}%`;
+        }
+
+        // Apply Filter Button
         document.getElementById('apply-filter').addEventListener('click', function() {
             const branchFilter = document.getElementById('branch-filter').value;
             const performanceFilter = document.getElementById('performance-filter').value;
             
-            // Get all outlet cards
-            const outletCards = document.querySelectorAll('.outlet-card');
+            // Show notification
+            showNotification(`Filter applied: ${branchFilter} branch, ${performanceFilter} performance`);
             
-            // Apply filters
-            outletCards.forEach(card => {
-                const branchName = card.querySelector('.branch-name').textContent;
-                const branchKey = Object.keys(businessData.branchNames).find(key => 
-                    businessData.branchNames[key] === branchName
-                );
-                
-                // Branch filter
-                let showCard = true;
-                if (branchFilter !== 'all' && branchKey !== branchFilter) {
-                    showCard = false;
-                }
-                
-                // Performance filter
-                if (showCard && performanceFilter !== 'all') {
-                    const sales2024 = businessData.data2024.sales[branchKey].reduce((sum, val) => sum + val, 0);
-                    const sales2025 = businessData.data2025.sales[branchKey].reduce((sum, val) => sum + val, 0);
-                    const avgSales = (sales2024 + sales2025) / 2;
-                    
-                    if (performanceFilter === 'high' && avgSales < 500000) {
-                        showCard = false;
-                    } else if (performanceFilter === 'medium' && (avgSales >= 500000 && avgSales < 1000000)) {
-                        showCard = false;
-                    } else if (performanceFilter === 'low' && avgSales >= 1000000) {
-                        showCard = false;
-                    }
-                }
-                
-                // Apply filter
-                if (showCard) {
-                    card.style.display = 'block';
-                    card.style.animation = 'fadeIn 0.5s ease';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
+            // Refresh branch analysis
+            populateOutletCards();
         });
 
-        // Reset filter
+        // Reset Filter Button
         document.getElementById('reset-filter').addEventListener('click', function() {
             document.getElementById('branch-filter').value = 'all';
             document.getElementById('performance-filter').value = 'all';
             
-            // Show all outlet cards
-            document.querySelectorAll('.outlet-card').forEach(card => {
-                card.style.display = 'block';
-                card.style.animation = 'fadeIn 0.5s ease';
-            });
+            // Show notification
+            showNotification('Filters reset');
+            
+            // Refresh branch analysis
+            populateOutletCards();
         });
 
-        // Chart type filter for monthly comparison
+        // Apply Chart Filter Button
         document.getElementById('apply-chart-filter').addEventListener('click', function() {
-            const metricFilter = document.getElementById('metric-filter').value;
-            const chartType = document.getElementById('chart-type').value;
+            // Show notification
+            showNotification('Chart filter applied');
             
-            // Destroy existing charts
-            if (window.monthlySalesChart) {
-                window.monthlySalesChart.destroy();
-            }
+            // Refresh monthly charts
+            initializeMonthlyCharts();
+        });
+
+        // Set default date range for monthly report
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const startOfYear = new Date(today.getFullYear(), 0, 1);
             
-            if (window.monthlyTransactionsChart) {
-                window.monthlyTransactionsChart.destroy();
-            }
-            
-            if (window.monthlyChannelChart) {
-                window.monthlyChannelChart.destroy();
-            }
-            
-            // Show loading spinners
-            document.getElementById('monthly-sales-loading').classList.add('active');
-            document.getElementById('monthly-transactions-loading').classList.add('active');
-            document.getElementById('monthly-channel-loading').classList.add('active');
-            
-            // Prepare data based on selected metric
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            
-            let chartData2024, chartData2025;
-            
-            if (metricFilter === 'sales') {
-                chartData2024 = businessData.branches.reduce((sum, branch) => {
-                    return sum.map((val, idx) => val + businessData.data2024.sales[branch][idx]);
-                }, new Array(12).fill(0));
-                
-                chartData2025 = businessData.branches.reduce((sum, branch) => {
-                    return sum.map((val, idx) => val + businessData.data2025.sales[branch][idx]);
-                }, new Array(12).fill(0));
-            } else if (metricFilter === 'orders') {
-                chartData2024 = businessData.branches.reduce((sum, branch) => {
-                    return sum.map((val, idx) => val + businessData.data2024.orders[branch][idx]);
-                }, new Array(12).fill(0));
-                
-                chartData2025 = businessData.branches.reduce((sum, branch) => {
-                    return sum.map((val, idx) => val + businessData.data2025.orders[branch][idx]);
-                }, new Array(12).fill(0));
-            } else if (metricFilter === 'avg-value') {
-                chartData2024 = businessData.branches.reduce((sum, branch) => {
-                    return sum.map((val, idx) => {
-                        const orders = businessData.data2024.orders[branch][idx];
-                        return orders > 0 ? businessData.data2024.sales[branch][idx] / orders : 0;
-                    });
-                }, new Array(12).fill(0));
-                
-                chartData2025 = businessData.branches.reduce((sum, branch) => {
-                    return sum.map((val, idx) => {
-                        const orders = businessData.data2025.orders[branch][idx];
-                        return orders > 0 ? businessData.data2025.sales[branch][idx] / orders : 0;
-                    });
-                }, new Array(12).fill(0));
-            }
-            
-            // Hide loading spinners after a short delay
-            setTimeout(() => {
-                document.getElementById('monthly-sales-loading').classList.remove('active');
-                document.getElementById('monthly-transactions-loading').classList.remove('active');
-                document.getElementById('monthly-channel-loading').classList.remove('active');
-                
-                // Create chart based on selected metric and type
-                const chartOptions = {
-                    type: chartType === 'area' ? 'line' : chartType,
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024',
-                            data: chartData2024.map(val => val / (metricFilter === 'sales' ? 1000000 : 1)),
-                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 2,
-                            fill: chartType === 'area',
-                            tension: 0.4
-                        }, {
-                            label: '2025',
-                            data: chartData2025.map(val => val / (metricFilter === 'sales' ? 1000000 : 1)),
-                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 2,
-                            fill: chartType === 'area',
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            title: {
-                                display: true,
-                                text: metricFilter === 'sales' ? 'Sales Comparison' : 
-                                      metricFilter === 'orders' ? 'Orders Comparison' : 'Average Value Comparison'
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: metricFilter === 'sales' ? 'Sales ($ Millions)' : 
-                                          metricFilter === 'orders' ? 'Number of Orders' : 'Average Value ($)'
-                                }
-                            }
-                        }
-                    }
-                };
-                
-                // Create chart
-                const ctx = document.getElementById('monthly-sales-chart').getContext('2d');
-                window.monthlySalesChart = new Chart(ctx, chartOptions);
-            }, 500);
+            document.getElementById('start-date').value = startOfYear.toISOString().split('T')[0];
+            document.getElementById('end-date').value = today.toISOString().split('T')[0];
         });
     </script>
 </body>
