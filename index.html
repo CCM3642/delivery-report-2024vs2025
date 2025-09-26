@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* All existing CSS styles remain the same as in the previous code */
         :root {
             --primary-color: #e74c3c;
             --secondary-color: #f39c12;
@@ -22,8 +21,6 @@
             --danger-color: #c0392b;
             --warning-color: #d68910;
             --online-color: #3498db;
-            --auh-color: #e74c3c;
-            --dxb-color: #3498db;
             --year2024-color: #e74c3c;
             --year2025-color: #3498db;
             --accent-color: #9b59b6;
@@ -276,7 +273,7 @@
             gap: 10px;
         }
 
-        /* Enhanced Report Controls */
+        /* Report Controls */
         .report-controls {
             background: #f8f9fa;
             border-radius: 15px;
@@ -385,12 +382,12 @@
             background: linear-gradient(135deg, #f39c12, #d68910);
         }
 
-        /* Enhanced Summary Cards with better visibility */
+        /* Summary Cards */
         .summary-card {
-            background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gray gradient for better contrast */
+            background: linear-gradient(135deg, #2c3e50, #34495e);
             border-radius: 15px;
             padding: 30px;
-            color: white; /* White text for better visibility */
+            color: white;
             margin-bottom: 30px;
             box-shadow: var(--card-shadow);
             position: relative;
@@ -416,8 +413,8 @@
             gap: 10px;
             position: relative;
             z-index: 1;
-            color: white; /* Explicitly set to white */
-            text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Added text shadow for better readability */
+            color: white;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         .summary-stats {
@@ -427,44 +424,44 @@
         }
 
         .summary-stat {
-            background: rgba(255, 255, 255, 0.15); /* Increased opacity for better contrast */
+            background: rgba(255, 255, 255, 0.15);
             padding: 15px;
             border-radius: 10px;
             text-align: center;
             position: relative;
             z-index: 1;
             transition: all var(--transition-speed) ease;
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Added border for better definition */
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .summary-stat:hover {
-            background: rgba(255, 255, 255, 0.25); /* Increased hover opacity */
+            background: rgba(255, 255, 255, 0.25);
             transform: translateY(-3px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow on hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .summary-stat-label {
             font-size: 0.9rem;
             opacity: 0.9;
             margin-bottom: 5px;
-            color: white; /* Explicitly set to white */
+            color: white;
         }
 
         .summary-stat-value {
             font-size: 1.8rem;
             font-weight: 700;
-            color: white; /* Explicitly set to white */
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Added text shadow for better readability */
+            color: white;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .insights-box {
-            background: rgba(255, 255, 255, 0.15); /* Increased opacity for better contrast */
+            background: rgba(255, 255, 255, 0.15);
             border-radius: 10px;
             padding: 20px;
             margin-top: 20px;
             position: relative;
             z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.3); /* Added border */
+            border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .insights-box h4 {
@@ -473,7 +470,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            color: white; /* Explicitly set to white */
+            color: white;
         }
 
         .insight-item {
@@ -487,79 +484,15 @@
             width: 24px;
             text-align: center;
             margin-top: 3px;
-            color: white; /* Explicitly set to white */
+            color: white;
         }
 
         .insight-text {
             font-size: 0.95rem;
-            color: white; /* Explicitly set to white */
-        }
-
-        /* Enhanced Comparison Table */
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 30px 0;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-
-        .comparison-table th {
-            background: linear-gradient(135deg, var(--primary-color), var(--danger-color));
             color: white;
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 500;
-            font-size: 1rem;
         }
 
-        .comparison-table td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        .comparison-table tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        .comparison-table tr:hover {
-            background-color: #fff5f5;
-            transition: background-color 0.2s ease;
-        }
-
-        .change-positive {
-            color: var(--success-color);
-            font-weight: 500;
-        }
-
-        .change-negative {
-            color: var(--danger-color);
-            font-weight: 500;
-        }
-
-        .change-neutral {
-            color: var(--warning-color);
-            font-weight: 500;
-        }
-
-        /* Loading spinner */
-        .spinner {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(255,255,255,.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin-left: 10px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Enhanced Stats Grid */
+        /* Stats Grid */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -653,7 +586,7 @@
             font-weight: 500;
         }
 
-        /* Enhanced Chart Container */
+        /* Chart Container */
         .chart-container {
             background: white;
             border-radius: 15px;
@@ -685,7 +618,7 @@
             gap: 10px;
         }
 
-        /* Enhanced Outlet Grid */
+        /* Outlet Grid */
         .outlet-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -712,14 +645,6 @@
             width: 100%;
             height: 5px;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-        }
-
-        .outlet-card.year2024 {
-            border-color: var(--year2024-color);
-        }
-
-        .outlet-card.year2025 {
-            border-color: var(--year2025-color);
         }
 
         .outlet-card:hover {
@@ -799,7 +724,7 @@
             color: var(--warning-color);
         }
 
-        /* Enhanced Data Table */
+        /* Data Table */
         .data-table {
             width: 100%;
             border-collapse: collapse;
@@ -832,7 +757,7 @@
             transition: background-color 0.2s ease;
         }
 
-        /* Enhanced Alerts */
+        /* Alerts */
         .alert {
             padding: 20px;
             border-radius: 10px;
@@ -870,7 +795,7 @@
             color: var(--online-color);
         }
 
-        /* Enhanced Insight Box */
+        /* Insight Box */
         .insight-box {
             background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
             border-left: 5px solid var(--success-color);
@@ -906,7 +831,7 @@
             z-index: 1;
         }
 
-        /* Enhanced Form */
+        /* Form */
         .form-group {
             margin-bottom: 20px;
         }
@@ -964,7 +889,7 @@
             background-color: var(--secondary-color);
         }
 
-        /* Enhanced Notification */
+        /* Notification */
         .notification {
             position: fixed;
             top: 20px;
@@ -986,7 +911,11 @@
             transform: translateX(0);
         }
 
-        /* Enhanced Delivery Trends Table */
+        .notification.error {
+            background: var(--danger-color);
+        }
+
+        /* Delivery Trends Table */
         .delivery-trends-table {
             width: 100%;
             border-collapse: collapse;
@@ -1042,7 +971,7 @@
             margin-bottom: 30px;
         }
 
-        /* Enhanced Summary Cards */
+        /* Summary Cards */
         .summary-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -1123,7 +1052,7 @@
             font-size: 0.8rem;
         }
 
-        /* Enhanced Data Entry Form */
+        /* Data Entry Form */
         .data-entry-form {
             background: #f8f9fa;
             border-radius: 10px;
@@ -1224,6 +1153,10 @@
             border-radius: 50%;
             border-top-color: var(--primary-color);
             animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
 
         /* Custom scrollbar */
@@ -1484,21 +1417,6 @@
             color: var(--danger-color);
         }
 
-        /* FIXED: Add specific styles for the report summary section */
-        #report-summary .summary-stat {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        #report-summary .summary-stat:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        #report-summary .insights-box {
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
         /* Data validation styles */
         .validation-warning {
             background-color: rgba(243, 156, 18, 0.1);
@@ -1525,6 +1443,240 @@
             border-radius: 4px;
             background-color: rgba(52, 152, 219, 0.1);
             color: var(--online-color);
+        }
+
+        /* Modal styles */
+        .modal {
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--light-color);
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: var(--dark-color);
+        }
+
+        .close {
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        .close:hover {
+            color: var(--danger-color);
+        }
+
+        .modal-body {
+            /* Modal body styles */
+        }
+
+        /* Action buttons */
+        .action-btn {
+            padding: 6px 12px;
+            margin: 0 2px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .action-btn.edit {
+            background-color: var(--info-color);
+            color: white;
+        }
+
+        .action-btn.edit:hover {
+            background-color: #2980b9;
+        }
+
+        .action-btn.delete {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .action-btn.delete:hover {
+            background-color: #c0392b;
+        }
+
+        /* Data management table */
+        .data-management-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.06);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .data-management-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--danger-color));
+            color: white;
+            padding: 15px 12px;
+            text-align: right;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .data-management-table td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            text-align: right;
+        }
+
+        .data-management-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .data-management-table tr:hover {
+            background-color: #fff5f5;
+            transition: background-color 0.2s ease;
+        }
+
+        /* Upload section */
+        .upload-section {
+            border: 2px dashed var(--primary-color);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 20px 0;
+            background-color: rgba(231, 76, 60, 0.05);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .upload-section:hover {
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+
+        .upload-section i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .file-input-label {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .file-input-label:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        #data-file {
+            display: none;
+        }
+
+        #upload-status {
+            margin-top: 15px;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-left: 10px;
+        }
+
+        /* Data quality indicators */
+        .quality-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+
+        .quality-indicator.excellent {
+            background: rgba(39, 174, 96, 0.1);
+            color: var(--success-color);
+        }
+
+        .quality-indicator.good {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--info-color);
+        }
+
+        .quality-indicator.fair {
+            background: rgba(243, 156, 18, 0.1);
+            color: var(--warning-color);
+        }
+
+        .quality-indicator.poor {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--danger-color);
+        }
+
+        /* Status badge */
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .status-badge.success {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--success-color);
+        }
+
+        .status-badge.error {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--danger-color);
+        }
+
+        .status-badge.warning {
+            background-color: rgba(243, 156, 18, 0.1);
+            color: var(--warning-color);
+        }
+
+        .status-badge.info {
+            background-color: rgba(52, 152, 219, 0.1);
+            color: var(--info-color);
         }
     </style>
 </head>
@@ -1579,8 +1731,11 @@
                 <div class="menu-item" data-section="channel-analysis">
                     <i class="fas fa-exchange-alt"></i> <span>Channel Analysis</span>
                 </div>
+                <div class="menu-item" data-section="data-management">
+                    <i class="fas fa-cogs"></i> <span>Data Management</span>
+                </div>
                 <div class="menu-item" data-section="data-entry">
-                    <i class="fas fa-plus-circle"></i> <span>Add 2025 Data</span>
+                    <i class="fas fa-plus-circle"></i> <span>Add Data</span>
                 </div>
                 <div class="menu-item" data-section="insights">
                     <i class="fas fa-lightbulb"></i> <span>Key Insights</span>
@@ -1798,6 +1953,9 @@
                                         <th>2024</th>
                                         <th>2025</th>
                                         <th>Change</th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
                                     </tr>
                                 </thead>
                                 <tbody id="delivery-counts-tbody">
@@ -1830,6 +1988,9 @@
                                     </tr>
                                     <tr>
                                         <th></th>
+                                        <th>2024</th>
+                                        <th>2025</th>
+                                        <th>Change</th>
                                         <th>2024</th>
                                         <th>2025</th>
                                         <th>Change</th>
@@ -2237,7 +2398,7 @@
                         </div>
                     </div>
 
-                    <!-- FIXED: Enhanced Summary Card with better visibility -->
+                    <!-- Summary Card -->
                     <div class="summary-card" id="report-summary">
                         <h3><i class="fas fa-chart-pie"></i> Report Summary</h3>
                         <div class="summary-stats">
@@ -2372,9 +2533,172 @@
                     </div>
                 </section>
 
+                <!-- Data Management Section -->
+                <section id="data-management" class="section">
+                    <h2><i class="fas fa-cogs"></i> Data Management</h2>
+                    
+                    <div class="alert alert-info">
+                        <h3><i class="fas fa-info-circle"></i> Manage Report Data</h3>
+                        <p>View, edit, and delete data entries. Filter data by branch, year, or month. All changes update the dashboard automatically.</p>
+                    </div>
+
+                    <!-- Data Management Controls -->
+                    <div class="data-entry-form">
+                        <h3><i class="fas fa-edit"></i> Data Management</h3>
+                        <div class="form-group">
+                            <label for="data-management">Select Action</label>
+                            <select id="data-management" onchange="toggleDataManagement()">
+                                <option value="">-- Select Action --</option>
+                                <option value="view">View All Entries</option>
+                                <option value="edit">Edit Existing Entry</option>
+                                <option value="add">Add New Data</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Data Management Section -->
+                        <div id="data-management-section" style="display: none;">
+                            <div class="form-group">
+                                <label for="filter-branch">Branch</label>
+                                <select id="filter-branch" onchange="filterDataEntries()">
+                                    <option value="all">All Branches</option>
+                                    <option value="Hamdan">Crispy Chicken - Hamdan</option>
+                                    <option value="Al_Khalidiyah">Crispy Chicken - Al Khalidiyah</option>
+                                    <option value="Shabiya_11">Crispy Chicken - Shabiya-11</option>
+                                    <option value="Muroor">Crispy Chicken - Muroor</option>
+                                    <option value="Al_Barsha">Crispy Chicken - Al Barsha</option>
+                                    <option value="Al_Satwa">Crispy Chicken - Al Satwa</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-year">Year</label>
+                                <select id="filter-year" onchange="filterDataEntries()">
+                                    <option value="all">All Years</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2025">2025</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="filter-month">Month</label>
+                                <select id="filter-month" onchange="filterDataEntries()">
+                                    <option value="all">All Months</option>
+                                    <option value="Jan">January</option>
+                                    <option value="Feb">February</option>
+                                    <option value="Mar">March</option>
+                                    <option value="Apr">April</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">June</option>
+                                    <option value="Jul">July</option>
+                                    <option value="Aug">August</option>
+                                    <option value="Sep">September</option>
+                                    <option value="Oct">October</option>
+                                    <option value="Nov">November</option>
+                                    <option value="Dec">December</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <button class="btn" onclick="filterDataEntries()">
+                                    <i class="fas fa-filter"></i> Apply Filter
+                                </button>
+                                <button class="btn btn-secondary" onclick="clearFilters()">
+                                    <i class="fas fa-times"></i> Clear Filter
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Data Table -->
+                        <div id="data-table-container" style="display: none; margin-top: 20px;">
+                            <div class="table-container">
+                                <table class="data-management-table" id="data-management-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Branch</th>
+                                            <th>Month</th>
+                                            <th>Year</th>
+                                            <th>Total Sales</th>
+                                            <th>Orders</th>
+                                            <th>Delivery Sales</th>
+                                            <th>Avg Order Value</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="data-management-tbody">
+                                        <!-- Will be populated dynamically -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data Statistics -->
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3><i class="fas fa-database"></i> Total Entries</h3>
+                            <div class="stat-value" id="total-entries">0</div>
+                            <div class="stat-detail">
+                                <span class="stat-label">2024 Entries:</span>
+                                <span class="stat-amount" id="entries-2024">0</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">2025 Entries:</span>
+                                <span class="stat-amount" id="entries-2025">0</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">User Entries:</span>
+                                <span class="stat-amount" id="user-entries-count">0</span>
+                            </div>
+                        </div>
+                        
+                        <div class="stat-card">
+                            <h3><i class="fas fa-chart-line"></i> Data Quality</h3>
+                            <div class="stat-value" id="data-quality-score">100%</div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Valid Entries:</span>
+                                <span class="stat-amount" id="valid-entries">0</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Warnings:</span>
+                                <span class="stat-amount" id="data-warnings">0</span>
+                            </div>
+                            <div class="stat-detail">
+                                <span class="stat-label">Last Validation:</span>
+                                <span class="stat-amount" id="last-validation">Now</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Import/Export Section -->
+                    <div class="data-entry-form">
+                        <h3><i class="fas fa-exchange-alt"></i> Import/Export Data</h3>
+                        
+                        <!-- Upload Section -->
+                        <div class="upload-section">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <h4>Upload Data File</h4>
+                            <p>Upload JSON or Excel file to update dashboard data</p>
+                            <label for="data-file" class="file-input-label">
+                                <i class="fas fa-file-upload"></i> Choose File
+                            </label>
+                            <input type="file" id="data-file" accept=".json,.xlsx,.xls">
+                            <div id="upload-status"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <button class="btn" onclick="exportCurrentData()">
+                                <i class="fas fa-download"></i> Export Current Data
+                            </button>
+                            <button class="btn btn-secondary" onclick="generateEmptyExcelTemplate()">
+                                <i class="fas fa-file-excel"></i> Download Excel Template
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- Data Entry Section -->
                 <section id="data-entry" class="section">
-                    <h2><i class="fas fa-plus-circle"></i> Add 2025 Data</h2>
+                    <h2><i class="fas fa-plus-circle"></i> Add Data</h2>
                     
                     <div class="alert alert-info">
                         <h3><i class="fas fa-info-circle"></i> Enter 2025 Performance Data</h3>
@@ -2525,7 +2849,7 @@
                             <h4><i class="fas fa-bullseye"></i> Growth Opportunities</h4>
                             <p id="growth-insight">Loading...</p>
                             <div class="insight-metric">
-                                <div class="insight-metric-value" id="potential-growth">0%</div>
+                                <div class="insight-metric-value" id="potential-growth">0</div>
                                 <div class="insight-metric-label">Potential Order Volume</div>
                             </div>
                         </div>
@@ -2549,6 +2873,86 @@
                     </div>
                 </section>
             </main>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="edit-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-edit"></i> Edit Data Entry</h3>
+                <span class="close" onclick="closeEditModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="edit-data-form">
+                    <div class="form-group">
+                        <label for="edit-branch">Branch</label>
+                        <select id="edit-branch" required>
+                            <option value="">Select Branch</option>
+                            <option value="Hamdan">Crispy Chicken - Hamdan</option>
+                            <option value="Al_Khalidiyah">Crispy Chicken - Al Khalidiyah</option>
+                            <option value="Shabiya_11">Crispy Chicken - Shabiya-11</option>
+                            <option value="Muroor">Crispy Chicken - Muroor</option>
+                            <option value="Al_Barsha">Crispy Chicken - Al Barsha</option>
+                            <option value="Al_Satwa">Crispy Chicken - Al Satwa</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-month">Month</label>
+                        <select id="edit-month" required>
+                            <option value="">Select Month</option>
+                            <option value="Jan">January</option>
+                            <option value="Feb">February</option>
+                            <option value="Mar">March</option>
+                            <option value="Apr">April</option>
+                            <option value="May">May</option>
+                            <option value="Jun">June</option>
+                            <option value="Jul">July</option>
+                            <option value="Aug">August</option>
+                            <option value="Sep">September</option>
+                            <option value="Oct">October</option>
+                            <option value="Nov">November</option>
+                            <option value="Dec">December</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-year">Year</label>
+                        <select id="edit-year" required>
+                            <option value="">Select Year</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="edit-total-sales">Total Sales ($)</label>
+                            <input type="number" id="edit-total-sales" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="edit-transactions">Number of Transactions</label>
+                            <input type="number" id="edit-transactions" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="edit-delivery-sales">Delivery Sales ($)</label>
+                        <input type="number" id="edit-delivery-sales" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn">
+                            <i class="fas fa-save"></i> Save Changes
+                        </button>
+                        <button type="button" class="btn btn-secondary" onclick="closeEditModal()">
+                            <i class="fas fa-times"></i> Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
@@ -2879,6 +3283,11 @@
             } else if (sectionId === 'channel-analysis') {
                 initializeChannelCharts();
                 updateChannelAnalysis();
+            } else if (sectionId === 'data-management') {
+                loadAllDataEntries();
+                updateDataManagementStats();
+            } else if (sectionId === 'data-entry') {
+                // Data entry section doesn't need special initialization
             } else if (sectionId === 'insights') {
                 initializeInsightsChart();
                 updateInsightsSection();
@@ -2906,798 +3315,222 @@
                     card.style.opacity = '1';
                     card.style.transform = 'scale(1)';
                 });
-            } else {
-                // Comparison mode - show all cards with animation
-                document.querySelectorAll('.stat-card, .outlet-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, index * 50);
+            } else if (year === 'comparison') {
+                document.querySelectorAll('.stat-card, .outlet-card').forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
                 });
             }
             
-            // Update last update time
-            updateLastUpdateTime();
-        }
-
-        // Update last update time
-        function updateLastUpdateTime() {
+            // Update last update timestamp
             const now = new Date();
-            const timeString = now.toLocaleTimeString();
-            document.getElementById('last-update').textContent = timeString;
-        }
-
-        // Update Overview Section with dynamic calculations
-        function updateOverviewSection() {
-            const metrics2024 = calculateYearMetrics(2024);
-            const metrics2025 = calculateYearMetrics(2025);
+            document.getElementById('last-update').textContent = formatRelativeTime(now);
             
-            // Update 2024 stats
-            document.getElementById('stat-2024-sales').textContent = `$${(metrics2024.totalSales / 1000000).toFixed(2)}M`;
-            document.getElementById('stat-2024-orders').textContent = metrics2024.totalOrders.toLocaleString();
-            document.getElementById('stat-2024-delivery').textContent = `$${(metrics2024.totalDeliverySales / 1000000).toFixed(2)}M (${metrics2024.deliveryPercentage.toFixed(1)}%)`;
-            document.getElementById('stat-2024-avg').textContent = `$${metrics2024.averageOrderValue.toFixed(2)}`;
-            
-            // Update 2025 stats
-            document.getElementById('stat-2025-sales').textContent = `$${(metrics2025.totalSales / 1000000).toFixed(2)}M`;
-            document.getElementById('stat-2025-orders').textContent = metrics2025.totalOrders.toLocaleString();
-            document.getElementById('stat-2025-delivery').textContent = `$${(metrics2025.totalDeliverySales / 1000000).toFixed(2)}M (${metrics2025.deliveryPercentage.toFixed(1)}%)`;
-            document.getElementById('stat-2025-avg').textContent = `$${metrics2025.averageOrderValue.toFixed(2)}`;
-            
-            // Update comparison summary
-            const salesGrowth = metrics2024.totalSales > 0 ? 
-                ((metrics2025.totalSales - metrics2024.totalSales) / metrics2024.totalSales * 100) : 0;
-            const ordersGrowth = metrics2024.totalOrders > 0 ? 
-                ((metrics2025.totalOrders - metrics2024.totalOrders) / metrics2024.totalOrders * 100) : 0;
-            
-            document.getElementById('stat-comparison-growth').textContent = `${salesGrowth > 0 ? '+' : ''}${salesGrowth.toFixed(1)}%`;
-            document.getElementById('stat-comparison-change').textContent = 
-                `${salesGrowth > 0 ? 'Increase' : 'Decrease'} of $${Math.abs((metrics2025.totalSales - metrics2024.totalSales) / 1000000).toFixed(2)}M`;
-            document.getElementById('stat-comparison-orders').textContent = `${ordersGrowth > 0 ? '+' : ''}${ordersGrowth.toFixed(1)}%`;
-            
-            // Update insight text
-            const avgValueChange = metrics2024.averageOrderValue > 0 ? 
-                ((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100) : 0;
-            const deliveryChange = metrics2024.deliveryPercentage > 0 ? 
-                ((metrics2025.deliveryPercentage - metrics2024.deliveryPercentage) / metrics2024.deliveryPercentage * 100) : 0;
-            
-            document.getElementById('overview-insight').textContent = 
-                `2025 shows ${salesGrowth < 0 ? 'decline' : 'growth'} in total sales (${salesGrowth.toFixed(1)}%) with ` +
-                `${avgValueChange > 0 ? 'increased' : 'decreased'} average order value (${avgValueChange > 0 ? '+' : ''}${avgValueChange.toFixed(1)}%). ` +
-                `Delivery channel ${deliveryChange < 0 ? 'decreased' : 'increased'} from ${metrics2024.deliveryPercentage.toFixed(1)}% to ${metrics2025.deliveryPercentage.toFixed(1)}%.`;
-        }
-
-        // Generate report function with enhanced features
-        function generateReport() {
-            const startDate = document.getElementById('start-date').value;
-            const endDate = document.getElementById('end-date').value;
-            const selectedBranch = document.getElementById('report-branch').value;
-            
-            // Show loading spinner
-            document.querySelector('.spinner').style.display = 'inline-block';
-            
-            // Calculate metrics
-            const metrics = calculateMetrics(startDate, endDate, selectedBranch);
-            
-            // Update summary card with animation
-            const summaryElements = {
-                sales: document.getElementById('summary-sales'),
-                orders: document.getElementById('summary-orders'),
-                avgValue: document.getElementById('summary-avg-value'),
-                growth: document.getElementById('summary-growth')
-            };
-            
-            // Animate the values
-            animateValue(summaryElements.sales, 0, metrics.totalSales / 1000000, 1000, '$', 'M');
-            animateValue(summaryElements.orders, 0, metrics.totalOrders, 1000, '', '');
-            animateValue(summaryElements.avgValue, 0, metrics.avgOrderValue, 1000, '$', '');
-            summaryElements.growth.textContent = `${metrics.salesGrowth > 0 ? '+' : ''}${metrics.salesGrowth}%`;
-            
-            // Generate insights with enhanced logic
-            const insightsList = document.getElementById('insights-list');
-            insightsList.innerHTML = '';
-            
-            // Sales insights
-            const salesInsight = document.createElement('div');
-            salesInsight.className = 'insight-item';
-            salesInsight.innerHTML = `
-                <div class="insight-icon"><i class="fas fa-chart-line"></i></div>
-                <div class="insight-text">
-                    Sales ${metrics.salesGrowth > 0 ? 'increased' : 'decreased'} by ${Math.abs(metrics.salesGrowth)}% compared to the same period
-                </div>
-            `;
-            insightsList.appendChild(salesInsight);
-            
-            // Order insights
-            const orderInsight = document.createElement('div');
-            orderInsight.className = 'insight-item';
-            orderInsight.innerHTML = `
-                <div class="insight-icon"><i class="fas fa-shopping-cart"></i></div>
-                <div class="insight-text">
-                    Order volume ${metrics.ordersGrowth > 0 ? 'increased' : 'decreased'} by ${Math.abs(metrics.ordersGrowth)}%
-                </div>
-            `;
-            insightsList.appendChild(orderInsight);
-            
-            // Average value insights
-            const avgValueInsight = document.createElement('div');
-            avgValueInsight.className = 'insight-item';
-            avgValueInsight.innerHTML = `
-                <div class="insight-icon"><i class="fas fa-dollar-sign"></i></div>
-                <div class="insight-text">
-                    Average order value ${metrics.avgOrderValueChange > 0 ? 'increased' : 'decreased'} by ${Math.abs(metrics.avgOrderValueChange)}%
-                </div>
-            `;
-            insightsList.appendChild(avgValueInsight);
-            
-            // Branch-specific insights
-            if (selectedBranch !== 'all') {
-                const branchInsight = document.createElement('div');
-                branchInsight.className = 'insight-item';
-                branchInsight.innerHTML = `
-                    <div class="insight-icon"><i class="fas fa-store"></i></div>
-                    <div class="insight-text">
-                        ${businessData.branchNames[selectedBranch]} branch data included in this report
-                    </div>
-                `;
-                insightsList.appendChild(branchInsight);
-            }
-            
-            // Period insights
-            const periodInsight = document.createElement('div');
-            periodInsight.className = 'insight-item';
-            periodInsight.innerHTML = `
-                <div class="insight-icon"><i class="fas fa-calendar-alt"></i></div>
-                <div class="insight-text">
-                    Report covers ${metrics.months.length} months from ${startDate} to ${endDate}
-                </div>
-            `;
-            insightsList.appendChild(periodInsight);
-            
-            // Add seasonal insights
-            if (metrics.months.length >= 3) {
-                const seasonalInsight = document.createElement('div');
-                seasonalInsight.className = 'insight-item';
-                seasonalInsight.innerHTML = `
-                    <div class="insight-icon"><i class="fas fa-sun"></i></div>
-                    <div class="insight-text">
-                        ${getSeasonalInsight(metrics.months)}
-                    </div>
-                `;
-                insightsList.appendChild(seasonalInsight);
-            }
-            
-            // Update comparison table
-            const tableBody = document.getElementById('comparison-table-body');
-            tableBody.innerHTML = '';
-            
-            metrics.months.forEach((month, index) => {
-                const sales2024 = month.sales2024;
-                const sales2025 = month.sales2025;
-                const orders2024 = month.orders2024;
-                const orders2025 = month.orders2025;
-                
-                const salesChange = sales2024 === 0 ? 0 : ((sales2025 - sales2024) / sales2024 * 100).toFixed(1);
-                const ordersChange = orders2024 === 0 ? 0 : ((orders2025 - orders2024) / orders2024 * 100).toFixed(1);
-                const avgValue2024 = orders2024 > 0 ? sales2024 / orders2024 : 0;
-                const avgValue2025 = orders2025 > 0 ? sales2025 / orders2025 : 0;
-                const avgValueChange = avgValue2024 === 0 ? 0 : ((avgValue2025 - avgValue2024) / avgValue2024 * 100).toFixed(1);
-                
-                const row = document.createElement('tr');
-                row.style.opacity = '0';
-                row.innerHTML = `
-                    <td>${month.name}</td>
-                    <td>$${(sales2024 / 1000000).toFixed(2)}M</td>
-                    <td>$${(sales2025 / 1000000).toFixed(2)}M</td>
-                    <td class="${salesChange > 0 ? 'change-positive' : salesChange < 0 ? 'change-negative' : 'change-neutral'}">
-                        ${salesChange > 0 ? '+' : ''}${salesChange}%
-                    </td>
-                    <td>${orders2024.toLocaleString()}</td>
-                    <td>${orders2025.toLocaleString()}</td>
-                    <td class="${ordersChange > 0 ? 'change-positive' : ordersChange < 0 ? 'change-negative' : 'change-neutral'}">
-                        ${ordersChange > 0 ? '+' : ''}${ordersChange}%
-                    </td>
-                    <td>$${(avgValue2024 * 1000).toFixed(2)}</td>
-                    <td>$${(avgValue2025 * 1000).toFixed(2)}</td>
-                    <td class="${avgValueChange > 0 ? 'change-positive' : avgValueChange < 0 ? 'change-negative' : 'change-neutral'}">
-                        ${avgValueChange > 0 ? '+' : ''}${avgValueChange}%
-                    </td>
-                `;
-                tableBody.appendChild(row);
-                
-                // Animate row appearance
-                setTimeout(() => {
-                    row.style.transition = 'opacity 0.5s ease';
-                    row.style.opacity = '1';
-                }, index * 100);
-            });
-            
-            // Hide loading spinner
-            document.querySelector('.spinner').style.display = 'none';
-            
-            // Show notification
-            showNotification('Report generated successfully!');
-            
-            // Update monthly report chart
-            initializeMonthlyReportChart();
-        }
-
-        // Animate numeric value
-        function animateValue(element, start, end, duration, prefix = '', suffix = '') {
-            const range = end - start;
-            const increment = end > start ? 1 : -1;
-            const stepTime = Math.abs(Math.floor(duration / range));
-            let current = start;
-            
-            const timer = setInterval(() => {
-                current += increment * (range / 100);
-                if ((increment > 0 && current >= end) || (increment < 0 && current <= end)) {
-                    current = end;
-                    clearInterval(timer);
-                }
-                element.textContent = prefix + current.toFixed(2) + suffix;
-            }, stepTime);
-        }
-
-        // Generate Report Button
-        document.getElementById('generate-report').addEventListener('click', generateReport);
-
-        // Initialize Monthly Report Chart
-        function initializeMonthlyReportChart() {
-            const ctx = document.getElementById('monthly-report-chart').getContext('2d');
-            
-            // Destroy existing chart if it exists
-            if (window.monthlyReportChart) {
-                window.monthlyReportChart.destroy();
-            }
-            
-            // Show loading spinner
-            document.getElementById('monthly-report-loading').classList.add('active');
-            
-            // Get current report settings
-            const startDate = document.getElementById('start-date').value;
-            const endDate = document.getElementById('end-date').value;
-            const selectedBranch = document.getElementById('report-branch').value;
-            
-            // Calculate metrics for chart
-            const metrics = calculateMetrics(startDate, endDate, selectedBranch);
-            
-            // Prepare chart data
-            const chartLabels = metrics.months.map(m => m.name);
-            const sales2024Data = metrics.months.map(m => m.sales2024 / 1000000);
-            const sales2025Data = metrics.months.map(m => m.sales2025 / 1000000);
-            
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('monthly-report-loading').classList.remove('active');
-                
-                window.monthlyReportChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: chartLabels,
-                        datasets: [{
-                            label: '2024 Sales ($M)',
-                            data: sales2024Data,
-                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4
-                        }, {
-                            label: '2025 Sales ($M)',
-                            data: sales2025Data,
-                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            tooltip: {
-                                mode: 'index',
-                                intersect: false,
-                            },
-                            datalabels: {
-                                display: false
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($ Millions)'
-                                }
-                            }
-                        }
-                    }
-                });
-            }, 500);
-        }
-
-        // Export PDF Functionality with enhanced features
-        document.getElementById('export-pdf').addEventListener('click', function() {
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            // Add title
-            doc.setFontSize(20);
-            doc.text('Crispy Chicken Monthly Report', 105, 20, { align: 'center' });
-            
-            // Add date range
-            doc.setFontSize(12);
-            const startDate = document.getElementById('start-date').value;
-            const endDate = document.getElementById('end-date').value;
-            doc.text(`Report Period: ${startDate} to ${endDate}`, 105, 35, { align: 'center' });
-            
-            // Add branch information
-            const selectedBranch = document.getElementById('report-branch').value;
-            doc.text(`Branch: ${selectedBranch === 'all' ? 'All Branches' : businessData.branchNames[selectedBranch]}`, 105, 45, { align: 'center' });
-            
-            // Add summary statistics
-            doc.setFontSize(16);
-            doc.text('Summary Statistics', 20, 60);
-            
-            doc.setFontSize(12);
-            doc.text(`Total Sales: ${document.getElementById('summary-sales').textContent}`, 20, 75);
-            doc.text(`Total Orders: ${document.getElementById('summary-orders').textContent}`, 20, 85);
-            doc.text(`Average Order Value: ${document.getElementById('summary-avg-value').textContent}`, 20, 95);
-            doc.text(`Sales Growth: ${document.getElementById('summary-growth').textContent}`, 20, 105);
-            
-            // Add insights
-            doc.setFontSize(16);
-            doc.text('Key Insights', 20, 120);
-            
-            doc.setFontSize(12);
-            const insights = document.querySelectorAll('#insights-list .insight-text');
-            let yPos = 135;
-            insights.forEach(insight => {
-                const lines = doc.splitTextToSize(insight.textContent, 170);
-                doc.text(lines, 20, yPos);
-                yPos += lines.length * 5 + 5;
-            });
-            
-            // Add comparison table
-            doc.autoTable({
-                head: [['Month', '2024 Sales', '2025 Sales', 'Change', '2024 Orders', '2025 Orders', 'Order Change', '2024 Avg Value', '2025 Avg Value', 'Avg Value Change']],
-                body: Array.from(document.querySelectorAll('#comparison-table-body tr')).map(row => {
-                    return Array.from(row.cells).map(cell => cell.textContent);
-                }),
-                startY: yPos + 10,
-                styles: { fontSize: 10 },
-                headStyles: { fillColor: [231, 76, 60] }
-            });
-            
-            // Add timestamp
-            const now = new Date();
-            const timestamp = now.toLocaleString();
-            doc.setFontSize(10);
-            doc.text(`Generated on: ${timestamp}`, 20, doc.internal.pageSize.height - 10);
-            
-            // Save the PDF
-            doc.save('crispy-chicken-monthly-report.pdf');
-            
-            // Show notification
-            showNotification('PDF exported successfully!');
-        });
-
-        // Export Excel Functionality with enhanced features
-        document.getElementById('export-excel').addEventListener('click', function() {
-            const wb = XLSX.utils.book_new();
-            
-            // Create summary sheet
-            const summaryData = [
-                ['Crispy Chicken Monthly Report', ''],
-                ['Report Period', `${document.getElementById('start-date').value} to ${document.getElementById('end-date').value}`],
-                ['Branch', document.getElementById('report-branch').value === 'all' ? 'All Branches' : businessData.branchNames[document.getElementById('report-branch').value]],
-                ['', ''],
-                ['Summary Statistics', ''],
-                ['Total Sales', document.getElementById('summary-sales').textContent],
-                ['Total Orders', document.getElementById('summary-orders').textContent],
-                ['Average Order Value', document.getElementById('summary-avg-value').textContent],
-                ['Sales Growth', document.getElementById('summary-growth').textContent],
-                ['', ''],
-                ['Key Insights', '']
-            ];
-            
-            // Add insights to summary data
-            const insights = document.querySelectorAll('#insights-list .insight-text');
-            insights.forEach(insight => {
-                summaryData.push([insight.textContent, '']);
-            });
-            
-            const summaryWs = XLSX.utils.aoa_to_sheet(summaryData);
-            XLSX.utils.book_append_sheet(wb, summaryWs, 'Summary');
-            
-            // Create comparison sheet
-            const comparisonData = [
-                ['Month', '2024 Sales', '2025 Sales', 'Change', '2024 Orders', '2025 Orders', 'Order Change', '2024 Avg Value', '2025 Avg Value', 'Avg Value Change']
-            ];
-            
-            Array.from(document.querySelectorAll('#comparison-table-body tr')).forEach(row => {
-                const rowData = [];
-                row.cells.forEach(cell => {
-                    rowData.push(cell.textContent);
-                });
-                comparisonData.push(rowData);
-            });
-            
-            const comparisonWs = XLSX.utils.aoa_to_sheet(comparisonData);
-            XLSX.utils.book_append_sheet(wb, comparisonWs, 'Comparison');
-            
-            // Create branch performance sheet
-            const branchData = [
-                ['Branch', '2024 Total Sales', '2025 Total Sales', '2024 Total Orders', '2025 Total Orders', '2024 Avg Value', '2025 Avg Value']
-            ];
-            
-            businessData.branches.forEach(branch => {
-                const branch2024Sales = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
-                const branch2025Sales = businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
-                const branch2024Orders = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
-                const branch2025Orders = businessData.data2025.orders[branch].reduce((sum, val) => sum + val, 0);
-                const branch2024Avg = branch2024Orders > 0 ? branch2024Sales / branch2024Orders : 0;
-                const branch2025Avg = branch2025Orders > 0 ? branch2025Sales / branch2025Orders : 0;
-                
-                branchData.push([
-                    businessData.branchNames[branch],
-                    `$${(branch2024Sales / 1000000).toFixed(2)}M`,
-                    `$${(branch2025Sales / 1000000).toFixed(2)}M`,
-                    branch2024Orders,
-                    branch2025Orders,
-                    `$${(branch2024Avg * 1000).toFixed(2)}`,
-                    `$${(branch2025Avg * 1000).toFixed(2)}`
-                ]);
-            });
-            
-            const branchWs = XLSX.utils.aoa_to_sheet(branchData);
-            XLSX.utils.book_append_sheet(wb, branchWs, 'Branch Performance');
-            
-            // Save the Excel file
-            XLSX.writeFile(wb, 'crispy-chicken-monthly-report.xlsx');
-            
-            // Show notification
-            showNotification('Excel exported successfully!');
-        });
-
-        // Export CSV Functionality with enhanced features
-        document.getElementById('export-csv').addEventListener('click', function() {
-            // Create CSV content
-            let csvContent = "Month,2024 Sales,2025 Sales,Change,2024 Orders,2025 Orders,Order Change,2024 Avg Value,2025 Avg Value,Avg Value Change\n";
-            
-            Array.from(document.querySelectorAll('#comparison-table-body tr')).forEach(row => {
-                const rowData = [];
-                row.cells.forEach(cell => {
-                    rowData.push(cell.textContent);
-                });
-                csvContent += rowData.join(',') + '\n';
-            });
-            
-            // Create a Blob and download it
-            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const link = document.createElement('a');
-            const url = URL.createObjectURL(blob);
-            link.setAttribute('href', url);
-            link.setAttribute('download', 'crispy-chicken-monthly-report.csv');
-            link.style.visibility = 'hidden';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            
-            // Show notification
-            showNotification('CSV exported successfully!');
-        });
-
-        // Data Entry Form Submission with enhanced features
-        document.getElementById('data-entry-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const branch = document.getElementById('branch').value;
-            const month = document.getElementById('month').value;
-            const year = document.getElementById('year').value;
-            const totalSales = parseFloat(document.getElementById('total-sales').value).toFixed(2);
-            const transactions = parseInt(document.getElementById('transactions').value);
-            const deliverySales = parseFloat(document.getElementById('delivery-sales').value).toFixed(2);
-            
-            // Validate data consistency
-            if (totalSales > 0 && transactions === 0) {
-                showNotification('Error: Cannot have sales without transactions', 'error');
-                return;
-            }
-            if (transactions > 0 && totalSales === 0) {
-                showNotification('Error: Cannot have transactions without sales', 'error');
-                return;
-            }
-            if (parseFloat(deliverySales) > parseFloat(totalSales)) {
-                showNotification('Error: Delivery sales cannot exceed total sales', 'error');
-                return;
-            }
-            
-            // Add data to the log table with animation
-            const tableBody = document.getElementById('data-log');
-            
-            // Remove "No data entries yet" message if it exists
-            if (tableBody.querySelector('td[colspan="6"]')) {
-                tableBody.innerHTML = '';
-            }
-            
-            // Create new row with animation
-            const newRow = document.createElement('tr');
-            newRow.style.opacity = '0';
-            newRow.innerHTML = `
-                <td>${month} ${year}</td>
-                <td>${businessData.branchNames[branch]}</td>
-                <td>$${totalSales}</td>
-                <td>${transactions.toLocaleString()}</td>
-                <td>$${deliverySales}</td>
-                <td><span class="comparison-badge positive">Added</span></td>
-            `;
-            tableBody.appendChild(newRow);
-            
-            // Animate row appearance
-            setTimeout(() => {
-                newRow.style.transition = 'opacity 0.5s ease';
-                newRow.style.opacity = '1';
-            }, 10);
-            
-            // Store the entry
-            businessData.userEntries.push({
-                date: new Date(),
-                branch,
-                month,
-                year,
-                totalSales,
-                transactions,
-                deliverySales
-            });
-            
-            // Update the data structure
-            const monthIndex = businessData.months.indexOf(month);
-            if (monthIndex !== -1) {
-                businessData.data2025.sales[branch][monthIndex] = parseFloat(totalSales);
-                businessData.data2025.orders[branch][monthIndex] = transactions;
-            }
-            
-            // Show notification
-            showNotification('Data added successfully!');
-            
-            // Update last update time
-            updateLastUpdateTime();
-            
-            // Reset form
-            this.reset();
-            document.getElementById('year').value = '2025';
-            
-            // Refresh all sections that use data with animation
-            refreshAllSections();
-            
-            // Validate data consistency
-            validateDataConsistency();
-        });
-
-        // Function to refresh all sections that use data
-        function refreshAllSections() {
-            // Get the active section
+            // Trigger section updates if active
             const activeSection = document.querySelector('.section.active').id;
-            
-            // Refresh the active section
-            showSection(activeSection);
-            
-            // Also refresh the monthly report if it's the active section
-            if (activeSection === 'monthly-report') {
-                generateReport();
-            }
-            
-            // Refresh other data-dependent sections
             if (activeSection === 'overview') {
                 updateOverviewSection();
             } else if (activeSection === 'branch-analysis') {
-                initializeBranchComparisonChart();
                 populateOutletCards();
             } else if (activeSection === 'delivery-trends') {
                 populateDeliveryCountsTable();
                 populateDeliveryAmountsTable();
                 populateDeliveryTrendsSummary();
-            } else if (activeSection === 'delivery-progress') {
-                initializeDeliveryProgressReport();
-            } else if (activeSection === 'monthly-comparison') {
-                initializeMonthlyCharts();
-            } else if (activeSection === 'channel-analysis') {
-                initializeChannelCharts();
-                updateChannelAnalysis();
-            } else if (activeSection === 'insights') {
-                initializeInsightsChart();
-                updateInsightsSection();
             }
         }
 
-        // Show notification function with enhanced features
-        function showNotification(message, type = 'success') {
-            const notification = document.getElementById('notification');
-            const notificationMessage = document.getElementById('notification-message');
+        // Format relative time
+        function formatRelativeTime(date) {
+            const now = new Date();
+            const diff = now - date;
+            const seconds = Math.floor(diff / 1000);
+            const minutes = Math.floor(seconds / 60);
+            const hours = Math.floor(minutes / 60);
             
-            notificationMessage.textContent = message;
-            notification.style.background = type === 'error' ? 'var(--danger-color)' : 'var(--success-color)';
-            notification.classList.add('show');
-            
-            // Add animation to notification
-            notification.style.transform = 'translateX(0)';
-            
-            setTimeout(() => {
-                notification.classList.remove('show');
-                notification.style.transform = 'translateX(400px)';
-            }, 3000);
+            if (seconds < 60) return 'Just now';
+            if (minutes < 60) return `${minutes} min ago`;
+            if (hours < 24) return `${hours} hours ago`;
+            return date.toLocaleDateString();
         }
-
-        // Initialize charts on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeYearOverviewChart();
-            updateOverviewSection();
-            generateReport(); // Generate initial report
-            updateLastUpdateTime();
-            
-            // Set up real-time update simulation
-            setInterval(updateLastUpdateTime, 30000); // Update every 30 seconds
-            
-            // Validate data consistency on load
-            validateDataConsistency();
-        });
 
         // Initialize Year Overview Chart
         function initializeYearOverviewChart() {
             const ctx = document.getElementById('year-overview-chart').getContext('2d');
+            const yearOverviewLoading = document.getElementById('year-overview-loading');
+            yearOverviewLoading.classList.add('active');
             
-            // Destroy existing chart if it exists
-            if (window.yearOverviewChart) {
-                window.yearOverviewChart.destroy();
-            }
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
             
-            // Show loading spinner
-            document.getElementById('year-overview-loading').classList.add('active');
-            
-            // Calculate total sales for each branch in 2024 and 2025
-            const branchSales2024 = businessData.branches.map(branch => {
-                return businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
-            });
-            
-            const branchSales2025 = businessData.branches.map(branch => {
-                return businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
-            });
-            
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('year-overview-loading').classList.remove('active');
-                
-                window.yearOverviewChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: businessData.branches.map(branch => businessData.branchNames[branch]),
-                        datasets: [{
-                            label: '2024 Sales ($)',
-                            data: branchSales2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1
-                        }, {
-                            label: '2025 Sales ($)',
-                            data: branchSales2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.dataset.label + ': $' + (context.raw / 1000000).toFixed(2) + 'M';
-                                    }
-                                }
-                            }
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Total Sales', 'Total Orders', 'Avg Order Value', 'Delivery Sales', 'Delivery Orders'],
+                    datasets: [{
+                        label: '2024',
+                        data: [
+                            metrics2024.totalSales,
+                            metrics2024.totalOrders,
+                            metrics2024.averageOrderValue,
+                            metrics2024.totalDeliverySales,
+                            metrics2024.totalDeliveryOrders
+                        ],
+                        backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '2025',
+                        data: [
+                            metrics2025.totalSales,
+                            metrics2025.totalOrders,
+                            metrics2025.averageOrderValue,
+                            metrics2025.totalDeliverySales,
+                            metrics2025.totalDeliveryOrders
+                        ],
+                        backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
                         },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($)'
-                                },
-                                ticks: {
-                                    callback: function(value) {
-                                        return '$' + (value / 1000000).toFixed(1) + 'M';
+                        title: {
+                            display: true,
+                            text: 'Year-over-Year Performance Comparison'
+                        },
+                        datalabels: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    if (this.chart.data.labels[this.dataIndex] === 'Total Sales' || 
+                                        this.chart.data.labels[this.dataIndex] === 'Delivery Sales') {
+                                        return '$' + value.toLocaleString();
                                     }
+                                    return value.toLocaleString();
                                 }
                             }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
+                }
+            });
+            
+            yearOverviewLoading.classList.remove('active');
+        }
+
+        // Update Overview Section
+        function updateOverviewSection() {
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
+            
+            // Update stat cards
+            document.getElementById('stat-2024-sales').textContent = '$' + metrics2024.totalSales.toLocaleString();
+            document.getElementById('stat-2024-orders').textContent = metrics2024.totalOrders.toLocaleString();
+            document.getElementById('stat-2024-delivery').textContent = '$' + metrics2024.totalDeliverySales.toLocaleString();
+            document.getElementById('stat-2024-avg').textContent = '$' + metrics2024.averageOrderValue.toFixed(2);
+            
+            document.getElementById('stat-2025-sales').textContent = '$' + metrics2025.totalSales.toLocaleString();
+            document.getElementById('stat-2025-orders').textContent = metrics2025.totalOrders.toLocaleString();
+            document.getElementById('stat-2025-delivery').textContent = '$' + metrics2025.totalDeliverySales.toLocaleString();
+            document.getElementById('stat-2025-avg').textContent = '$' + metrics2025.averageOrderValue.toFixed(2);
+            
+            // Update comparison card
+            const salesGrowth = ((metrics2025.totalSales - metrics2024.totalSales) / metrics2024.totalSales * 100).toFixed(1);
+            const orderChange = ((metrics2025.totalOrders - metrics2024.totalOrders) / metrics2024.totalOrders * 100).toFixed(1);
+            
+            document.getElementById('stat-comparison-growth').textContent = salesGrowth + '%';
+            document.getElementById('stat-comparison-change').textContent = '$' + (metrics2025.totalSales - metrics2024.totalSales).toLocaleString();
+            document.getElementById('stat-comparison-orders').textContent = orderChange + '%';
+            
+            // Update insight
+            const insightText = salesGrowth > 0 ? 
+                `Sales increased by ${salesGrowth}% in 2025 compared to 2024. Average order value increased by ${((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100).toFixed(1)}%.` :
+                `Sales decreased by ${Math.abs(salesGrowth)}% in 2025 compared to 2024. Average order value decreased by ${Math.abs(((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100).toFixed(1))}%.`;
+            
+            document.getElementById('overview-insight').textContent = insightText;
         }
 
         // Initialize Branch Comparison Chart
         function initializeBranchComparisonChart() {
             const ctx = document.getElementById('branch-comparison-chart').getContext('2d');
+            const branchComparisonLoading = document.getElementById('branch-comparison-loading');
+            branchComparisonLoading.classList.add('active');
             
-            // Destroy existing chart if it exists
-            if (window.branchComparisonChart) {
-                window.branchComparisonChart.destroy();
-            }
+            const branchData2024 = [];
+            const branchData2025 = [];
+            const branchLabels = [];
             
-            // Show loading spinner
-            document.getElementById('branch-comparison-loading').classList.add('active');
-            
-            // Calculate total sales for each branch in 2024 and 2025
-            const branchSales2024 = businessData.branches.map(branch => {
-                return businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
-            });
-            
-            const branchSales2025 = businessData.branches.map(branch => {
-                return businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
-            });
-            
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('branch-comparison-loading').classList.remove('active');
+            businessData.branches.forEach(branch => {
+                const sales2024 = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
+                const sales2025 = businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
                 
-                window.branchComparisonChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: businessData.branches.map(branch => businessData.branchNames[branch]),
-                        datasets: [{
-                            label: '2024 Sales ($)',
-                            data: branchSales2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1
-                        }, {
-                            label: '2025 Sales ($)',
-                            data: branchSales2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.dataset.label + ': $' + (context.raw / 1000000).toFixed(2) + 'M';
-                                    }
-                                }
-                            }
+                branchLabels.push(branch);
+                branchData2024.push(sales2024);
+                branchData2025.push(sales2025);
+            });
+            
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: branchLabels,
+                    datasets: [{
+                        label: '2024 Sales',
+                        data: branchData2024,
+                        backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '2025 Sales',
+                        data: branchData2025,
+                        backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
                         },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($)'
-                                },
-                                ticks: {
-                                    callback: function(value) {
-                                        return '$' + (value / 1000000).toFixed(1) + 'M';
-                                    }
+                        title: {
+                            display: true,
+                            text: 'Branch Sales Comparison'
+                        },
+                        datalabels: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
                                 }
                             }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
+                }
+            });
+            
+            branchComparisonLoading.classList.remove('active');
         }
 
         // Populate Outlet Cards
@@ -3706,177 +3539,111 @@
             outletGrid.innerHTML = '';
             
             businessData.branches.forEach(branch => {
-                // Calculate total sales and orders for 2024 and 2025
                 const sales2024 = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
-                const orders2024 = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
                 const sales2025 = businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
+                const orders2024 = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
                 const orders2025 = businessData.data2025.orders[branch].reduce((sum, val) => sum + val, 0);
                 
-                // Calculate delivery sales for 2024 and 2025
-                const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
-                const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
+                const growth = sales2024 > 0 ? ((sales2025 - sales2024) / sales2024 * 100).toFixed(1) : 0;
+                const badgeClass = growth > 0 ? 'positive' : growth < 0 ? 'negative' : 'neutral';
                 
-                // Calculate average values
-                const avgValue2024 = orders2024 > 0 ? sales2024 / orders2024 : 0;
-                const avgValue2025 = orders2025 > 0 ? sales2025 / orders2025 : 0;
-                
-                // Create outlet card for 2024
-                const outletCard2024 = document.createElement('div');
-                outletCard2024.className = 'outlet-card year2024';
-                outletCard2024.innerHTML = `
+                const card = document.createElement('div');
+                card.className = `outlet-card ${growth > 0 ? 'year2025' : 'year2024'}`;
+                card.innerHTML = `
                     <h3>
                         ${businessData.branchNames[branch]}
-                        <span class="comparison-badge neutral">2024 Data</span>
+                        <span class="comparison-badge ${badgeClass}">
+                            ${growth > 0 ? '+' : ''}${growth}%
+                        </span>
                     </h3>
                     <div class="outlet-stats">
                         <div class="outlet-stat">
-                            <div class="outlet-stat-label">Total Sales</div>
-                            <div class="outlet-stat-value">$${(sales2024 / 1000000).toFixed(2)}M</div>
+                            <div class="outlet-stat-label">2024 Sales</div>
+                            <div class="outlet-stat-value">$${sales2024.toLocaleString()}</div>
                         </div>
                         <div class="outlet-stat">
-                            <div class="outlet-stat-label">Transactions</div>
+                            <div class="outlet-stat-label">2025 Sales</div>
+                            <div class="outlet-stat-value">$${sales2025.toLocaleString()}</div>
+                        </div>
+                        <div class="outlet-stat">
+                            <div class="outlet-stat-label">2024 Orders</div>
                             <div class="outlet-stat-value">${orders2024.toLocaleString()}</div>
                         </div>
                         <div class="outlet-stat">
-                            <div class="outlet-stat-label">Delivery Sales</div>
-                            <div class="outlet-stat-value">$${(delivery2024.deliverySales / 1000000).toFixed(2)}M</div>
-                        </div>
-                        <div class="outlet-stat">
-                            <div class="outlet-stat-label">Avg Value</div>
-                            <div class="outlet-stat-value avg-order-value">$${avgValue2024.toFixed(2)}</div>
-                        </div>
-                    </div>
-                `;
-                outletGrid.appendChild(outletCard2024);
-                
-                // Create outlet card for 2025
-                const outletCard2025 = document.createElement('div');
-                outletCard2025.className = 'outlet-card year2025';
-                outletCard2025.innerHTML = `
-                    <h3>
-                        ${businessData.branchNames[branch]}
-                        <span class="comparison-badge neutral">2025 Data</span>
-                    </h3>
-                    <div class="outlet-stats">
-                        <div class="outlet-stat">
-                            <div class="outlet-stat-label">Total Sales</div>
-                            <div class="outlet-stat-value">$${(sales2025 / 1000000).toFixed(2)}M</div>
-                        </div>
-                        <div class="outlet-stat">
-                            <div class="outlet-stat-label">Transactions</div>
+                            <div class="outlet-stat-label">2025 Orders</div>
                             <div class="outlet-stat-value">${orders2025.toLocaleString()}</div>
                         </div>
-                        <div class="outlet-stat">
-                            <div class="outlet-stat-label">Delivery Sales</div>
-                            <div class="outlet-stat-value">$${(delivery2025.deliverySales / 1000000).toFixed(2)}M</div>
-                        </div>
-                        <div class="outlet-stat">
-                            <div class="outlet-stat-label">Avg Value</div>
-                            <div class="outlet-stat-value avg-order-value">$${avgValue2025.toFixed(2)}</div>
-                        </div>
                     </div>
                 `;
-                outletGrid.appendChild(outletCard2025);
+                outletGrid.appendChild(card);
             });
         }
 
         // Populate Delivery Counts Table
         function populateDeliveryCountsTable() {
-            const tableBody = document.getElementById('delivery-counts-tbody');
-            tableBody.innerHTML = '';
+            const tbody = document.getElementById('delivery-counts-tbody');
+            tbody.innerHTML = '';
             
             businessData.branches.forEach(branch => {
                 const row = document.createElement('tr');
-                let rowHTML = `<td class="branch-name">${businessData.branchNames[branch]}</td>`;
+                row.innerHTML = `<td class="branch-name">${businessData.branchNames[branch]}</td>`;
                 
-                businessData.months.forEach(month => {
-                    const monthIndex = businessData.months.indexOf(month);
+                businessData.months.forEach((month, index) => {
+                    const count2024 = businessData.data2024.orders[branch][index];
+                    const count2025 = businessData.data2025.orders[branch][index];
+                    const change = count2024 > 0 ? ((count2025 - count2024) / count2024 * 100).toFixed(1) : 0;
                     
-                    // Get actual sales and orders data
-                    const sales2024 = businessData.data2024.sales[branch][monthIndex];
-                    const orders2024 = businessData.data2024.orders[branch][monthIndex];
-                    const sales2025 = businessData.data2025.sales[branch][monthIndex];
-                    const orders2025 = businessData.data2025.orders[branch][monthIndex];
-                    
-                    // Calculate delivery metrics
-                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
-                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
-                    
-                    // Only show change if both years have data
-                    let changeHTML = '';
-                    if (sales2024 > 0 && sales2025 > 0) {
-                        const change = delivery2024.deliveryOrders === 0 ? 0 : 
-                            ((delivery2025.deliveryOrders - delivery2024.deliveryOrders) / delivery2024.deliveryOrders * 100).toFixed(1);
-                        const changeClass = change > 0 ? 'change-positive' : change < 0 ? 'change-negative' : 'change-neutral';
-                        const changeIcon = change > 0 ? 'fa-arrow-up' : change < 0 ? 'fa-arrow-down' : 'fa-minus';
-                        
-                        changeHTML = `
-                            <td class="${changeClass}">
-                                <i class="fas ${changeIcon}"></i> ${change > 0 ? '+' : ''}${change}%
-                            </td>
-                        `;
-                    } else {
-                        changeHTML = '<td>-</td>';
-                    }
-                    
-                    rowHTML += `
-                        <td>${delivery2024.deliveryOrders > 0 ? Math.round(delivery2024.deliveryOrders).toLocaleString() : '-'}</td>
-                        <td>${delivery2025.deliveryOrders > 0 ? Math.round(delivery2025.deliveryOrders).toLocaleString() : '-'}</td>
-                        ${changeHTML}
+                    row.innerHTML += `
+                        <td>${count2024}</td>
+                        <td>${count2025}</td>
+                        <td class="trend-cell">
+                            <span class="${change > 0 ? 'trend-up' : change < 0 ? 'trend-down' : 'trend-neutral'}">
+                                ${change > 0 ? '+' : ''}${change}%
+                            </span>
+                        </td>
                     `;
                 });
                 
-                row.innerHTML = rowHTML;
-                tableBody.appendChild(row);
+                tbody.appendChild(row);
             });
         }
 
         // Populate Delivery Amounts Table
         function populateDeliveryAmountsTable() {
-            const tableBody = document.getElementById('delivery-amounts-tbody');
-            tableBody.innerHTML = '';
+            const tbody = document.getElementById('delivery-amounts-tbody');
+            tbody.innerHTML = '';
             
             businessData.branches.forEach(branch => {
                 const row = document.createElement('tr');
-                let rowHTML = `<td class="branch-name">${businessData.branchNames[branch]}</td>`;
+                row.innerHTML = `<td class="branch-name">${businessData.branchNames[branch]}</td>`;
                 
-                businessData.months.forEach(month => {
-                    const monthIndex = businessData.months.indexOf(month);
+                businessData.months.forEach((month, index) => {
+                    const amount2024 = calculateDeliveryMetrics(
+                        businessData.data2024.sales[branch][index],
+                        businessData.data2024.orders[branch][index],
+                        2024
+                    ).deliverySales;
                     
-                    // Get actual sales data
-                    const sales2024 = businessData.data2024.sales[branch][monthIndex];
-                    const sales2025 = businessData.data2025.sales[branch][monthIndex];
+                    const amount2025 = calculateDeliveryMetrics(
+                        businessData.data2025.sales[branch][index],
+                        businessData.data2025.orders[branch][index],
+                        2025
+                    ).deliverySales;
                     
-                    // Calculate delivery amounts
-                    const deliveryAmount2024 = sales2024 * businessData.deliveryPercentages[2024];
-                    const deliveryAmount2025 = sales2025 * businessData.deliveryPercentages[2025];
+                    const change = amount2024 > 0 ? ((amount2025 - amount2024) / amount2024 * 100).toFixed(1) : 0;
                     
-                    // Only show change if both years have data
-                    let changeHTML = '';
-                    if (sales2024 > 0 && sales2025 > 0) {
-                        const change = deliveryAmount2024 === 0 ? 0 : 
-                            ((deliveryAmount2025 - deliveryAmount2024) / deliveryAmount2024 * 100).toFixed(1);
-                        const changeClass = change > 0 ? 'change-positive' : change < 0 ? 'change-negative' : 'change-neutral';
-                        const changeIcon = change > 0 ? 'fa-arrow-up' : change < 0 ? 'fa-arrow-down' : 'fa-minus';
-                        
-                        changeHTML = `
-                            <td class="${changeClass}">
-                                <i class="fas ${changeIcon}"></i> ${change > 0 ? '+' : ''}${change}%
-                            </td>
-                        `;
-                    } else {
-                        changeHTML = '<td>-</td>';
-                    }
-                    
-                    rowHTML += `
-                        <td>${deliveryAmount2024 > 0 ? '$' + (deliveryAmount2024 / 1000).toFixed(0) + 'K' : '-'}</td>
-                        <td>${deliveryAmount2025 > 0 ? '$' + (deliveryAmount2025 / 1000).toFixed(0) + 'K' : '-'}</td>
-                        ${changeHTML}
+                    row.innerHTML += `
+                        <td>$${amount2024.toLocaleString()}</td>
+                        <td>$${amount2025.toLocaleString()}</td>
+                        <td class="trend-cell">
+                            <span class="${change > 0 ? 'trend-up' : change < 0 ? 'trend-down' : 'trend-neutral'}">
+                                ${change > 0 ? '+' : ''}${change}%
+                            </span>
+                        </td>
                     `;
                 });
                 
-                row.innerHTML = rowHTML;
-                tableBody.appendChild(row);
+                tbody.appendChild(row);
             });
         }
 
@@ -3885,1004 +3652,548 @@
             const summaryContainer = document.getElementById('delivery-trends-summary');
             summaryContainer.innerHTML = '';
             
-            // Calculate total delivery sales and counts for 2024 and 2025
-            let totalDeliverySales2024 = 0;
-            let totalDeliverySales2025 = 0;
-            let totalDeliveryCount2024 = 0;
-            let totalDeliveryCount2025 = 0;
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
             
-            businessData.branches.forEach(branch => {
-                businessData.months.forEach((month, index) => {
-                    const sales2024 = businessData.data2024.sales[branch][index];
-                    const orders2024 = businessData.data2024.orders[branch][index];
-                    const sales2025 = businessData.data2025.sales[branch][index];
-                    const orders2025 = businessData.data2025.orders[branch][index];
-                    
-                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
-                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
-                    
-                    totalDeliverySales2024 += delivery2024.deliverySales;
-                    totalDeliverySales2025 += delivery2025.deliverySales;
-                    totalDeliveryCount2024 += delivery2024.deliveryOrders;
-                    totalDeliveryCount2025 += delivery2025.deliveryOrders;
-                });
-            });
-            
-            // Calculate average delivery values
-            const avgDeliveryValue2024 = totalDeliveryCount2024 > 0 ? totalDeliverySales2024 / totalDeliveryCount2024 : 0;
-            const avgDeliveryValue2025 = totalDeliveryCount2025 > 0 ? totalDeliverySales2025 / totalDeliveryCount2025 : 0;
-            
-            // Create summary cards
             const summaryCards = [
                 {
                     title: 'Total Delivery Sales',
-                    value2024: `$${(totalDeliverySales2024 / 1000000).toFixed(2)}M`,
-                    value2025: `$${(totalDeliverySales2025 / 1000000).toFixed(2)}M`,
-                    change: totalDeliverySales2024 === 0 ? 0 : 
-                        ((totalDeliverySales2025 - totalDeliverySales2024) / totalDeliverySales2024 * 100).toFixed(1),
-                    icon: 'fa-dollar-sign',
-                    type: 'sales'
+                    value: `$${metrics2025.totalDeliverySales.toLocaleString()}`,
+                    change: ((metrics2025.totalDeliverySales - metrics2024.totalDeliverySales) / metrics2024.totalDeliverySales * 100).toFixed(1),
+                    icon: 'fa-dollar-sign'
                 },
                 {
-                    title: 'Total Delivery Orders',
-                    value2024: Math.round(totalDeliveryCount2024).toLocaleString(),
-                    value2025: Math.round(totalDeliveryCount2025).toLocaleString(),
-                    change: totalDeliveryCount2024 === 0 ? 0 : 
-                        ((totalDeliveryCount2025 - totalDeliveryCount2024) / totalDeliveryCount2024 * 100).toFixed(1),
-                    icon: 'fa-shopping-cart',
-                    type: 'orders'
+                    title: 'Delivery Orders',
+                    value: metrics2025.totalDeliveryOrders.toLocaleString(),
+                    change: ((metrics2025.totalDeliveryOrders - metrics2024.totalDeliveryOrders) / metrics2024.totalDeliveryOrders * 100).toFixed(1),
+                    icon: 'fa-truck'
                 },
                 {
                     title: 'Average Delivery Value',
-                    value2024: `$${avgDeliveryValue2024.toFixed(2)}`,
-                    value2025: `$${avgDeliveryValue2025.toFixed(2)}`,
-                    change: avgDeliveryValue2024 === 0 ? 0 : 
-                        ((avgDeliveryValue2025 - avgDeliveryValue2024) / avgDeliveryValue2024 * 100).toFixed(1),
-                    icon: 'fa-receipt',
-                    type: 'avg-value'
+                    value: `$${metrics2025.averageDeliveryValue.toFixed(2)}`,
+                    change: ((metrics2025.averageDeliveryValue - metrics2024.averageDeliveryValue) / metrics2024.averageDeliveryValue * 100).toFixed(1),
+                    icon: 'fa-chart-line'
                 },
                 {
                     title: 'Delivery Market Share',
-                    value2024: '81.4%',
-                    value2025: '68.1%',
-                    change: (68.1 - 81.4).toFixed(1),
-                    icon: 'fa-chart-pie',
-                    type: 'share'
+                    value: `${metrics2025.deliveryPercentage.toFixed(1)}%`,
+                    change: ((metrics2025.deliveryPercentage - metrics2024.deliveryPercentage) / metrics2024.deliveryPercentage * 100).toFixed(1),
+                    icon: 'fa-percentage'
                 }
             ];
             
             summaryCards.forEach(card => {
                 const cardElement = document.createElement('div');
-                cardElement.className = 'summary-card';
-                
-                const changeClass = parseFloat(card.change) > 0 ? 'positive' : parseFloat(card.change) < 0 ? 'negative' : 'neutral';
-                const changeIcon = parseFloat(card.change) > 0 ? 'fa-arrow-up' : parseFloat(card.change) < 0 ? 'fa-arrow-down' : 'fa-minus';
-                
+                cardElement.className = `summary-card ${card.change > 0 ? 'positive' : card.change < 0 ? 'negative' : 'neutral'}`;
                 cardElement.innerHTML = `
                     <h4><i class="fas ${card.icon}"></i> ${card.title}</h4>
-                    <div class="stat-value">${card.value2024}</div>
-                    <div class="stat-value" style="font-size: 1.2rem; margin-top: 5px;">${card.value2025}</div>
-                    <div class="comparison-badge ${changeClass}">
-                        <i class="fas ${changeIcon}"></i> ${parseFloat(card.change) > 0 ? '+' : ''}${card.change}%
-                    </div>
+                    <p>${card.value}</p>
+                    <p>${card.change > 0 ? '+' : ''}${card.change}% from 2024</p>
                 `;
-                
                 summaryContainer.appendChild(cardElement);
             });
         }
 
         // Initialize Delivery Progress Report
         function initializeDeliveryProgressReport() {
-            populateDeliveryProgressSummary();
-            populateBranchDeliveryPerformanceTable();
-            initializeDeliveryProgressChart();
-        }
-
-        // Populate Delivery Progress Summary
-        function populateDeliveryProgressSummary() {
-            const summaryContainer = document.getElementById('delivery-progress-summary');
-            summaryContainer.innerHTML = '';
-            
-            // Calculate comprehensive delivery metrics
-            let totalDeliveryOrders2024 = 0;
-            let totalDeliveryOrders2025 = 0;
-            let totalDeliveryRevenue2024 = 0;
-            let totalDeliveryRevenue2025 = 0;
-            
-            businessData.branches.forEach(branch => {
-                businessData.months.forEach((month, index) => {
-                    const sales2024 = businessData.data2024.sales[branch][index];
-                    const orders2024 = businessData.data2024.orders[branch][index];
-                    const sales2025 = businessData.data2025.sales[branch][index];
-                    const orders2025 = businessData.data2025.orders[branch][index];
-                    
-                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
-                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
-                    
-                    totalDeliveryOrders2024 += delivery2024.deliveryOrders;
-                    totalDeliveryOrders2025 += delivery2025.deliveryOrders;
-                    totalDeliveryRevenue2024 += delivery2024.deliverySales;
-                    totalDeliveryRevenue2025 += delivery2025.deliverySales;
-                });
-            });
-            
-            // Calculate performance metrics
-            const deliveryGrowth = totalDeliveryOrders2024 === 0 ? 0 : 
-                ((totalDeliveryOrders2025 - totalDeliveryOrders2024) / totalDeliveryOrders2024 * 100).toFixed(1);
-            const revenueGrowth = totalDeliveryRevenue2024 === 0 ? 0 : 
-                ((totalDeliveryRevenue2025 - totalDeliveryRevenue2024) / totalDeliveryRevenue2024 * 100).toFixed(1);
-            const avgDeliveryValue2024 = totalDeliveryOrders2024 > 0 ? totalDeliveryRevenue2024 / totalDeliveryOrders2024 : 0;
-            const avgDeliveryValue2025 = totalDeliveryOrders2025 > 0 ? totalDeliveryRevenue2025 / totalDeliveryOrders2025 : 0;
-            
-            // Create summary cards
-            const summaryCards = [
-                {
-                    title: 'Delivery Orders',
-                    value2024: Math.round(totalDeliveryOrders2024).toLocaleString(),
-                    value2025: Math.round(totalDeliveryOrders2025).toLocaleString(),
-                    change: deliveryGrowth,
-                    icon: 'fa-shopping-cart',
-                    type: 'orders'
-                },
-                {
-                    title: 'Delivery Revenue',
-                    value2024: `$${(totalDeliveryRevenue2024 / 1000000).toFixed(2)}M`,
-                    value2025: `$${(totalDeliveryRevenue2025 / 1000000).toFixed(2)}M`,
-                    change: revenueGrowth,
-                    icon: 'fa-dollar-sign',
-                    type: 'revenue'
-                },
-                {
-                    title: 'Average Delivery Value',
-                    value2024: `$${avgDeliveryValue2024.toFixed(2)}`,
-                    value2025: `$${avgDeliveryValue2025.toFixed(2)}`,
-                    change: avgDeliveryValue2024 === 0 ? 0 : 
-                        ((avgDeliveryValue2025 - avgDeliveryValue2024) / avgDeliveryValue2024 * 100).toFixed(1),
-                    icon: 'fa-receipt',
-                    type: 'avg-value'
-                },
-                {
-                    title: 'Delivery Efficiency',
-                    value2024: '85%',
-                    value2025: '72%',
-                    change: '-15.3',
-                    icon: 'fa-tachometer-alt',
-                    type: 'efficiency'
-                }
-            ];
-            
-            summaryCards.forEach(card => {
-                const cardElement = document.createElement('div');
-                cardElement.className = 'summary-card';
-                
-                const changeClass = parseFloat(card.change) > 0 ? 'positive' : parseFloat(card.change) < 0 ? 'negative' : 'neutral';
-                const changeIcon = parseFloat(card.change) > 0 ? 'fa-arrow-up' : parseFloat(card.change) < 0 ? 'fa-arrow-down' : 'fa-minus';
-                
-                cardElement.innerHTML = `
-                    <h4><i class="fas ${card.icon}"></i> ${card.title}</h4>
-                    <div class="stat-value">${card.value2024}</div>
-                    <div class="stat-value" style="font-size: 1.2rem; margin-top: 5px;">${card.value2025}</div>
-                    <div class="comparison-badge ${changeClass}">
-                        <i class="fas ${changeIcon}"></i> ${parseFloat(card.change) > 0 ? '+' : ''}${card.change}%
-                    </div>
-                `;
-                
-                summaryContainer.appendChild(cardElement);
-            });
-        }
-
-        // Populate Branch Delivery Performance Table
-        function populateBranchDeliveryPerformanceTable() {
-            const tableBody = document.getElementById('branch-delivery-performance-tbody');
-            tableBody.innerHTML = '';
-            
-            businessData.branches.forEach(branch => {
-                // Calculate annual metrics for 2024
-                const annualSales2024 = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
-                const annualOrders2024 = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
-                const delivery2024 = calculateDeliveryMetrics(annualSales2024, annualOrders2024, 2024);
-                
-                // Calculate annual metrics for 2025 (only for months with data)
-                const validMonths2025 = businessData.months.filter((month, index) => 
-                    businessData.data2025.sales[branch][index] > 0
-                );
-                
-                const annualSales2025 = validMonths2025.reduce((sum, month) => {
-                    const monthIndex = businessData.months.indexOf(month);
-                    return sum + businessData.data2025.sales[branch][monthIndex];
-                }, 0);
-                
-                const annualOrders2025 = validMonths2025.reduce((sum, month) => {
-                    const monthIndex = businessData.months.indexOf(month);
-                    return sum + businessData.data2025.orders[branch][monthIndex];
-                }, 0);
-                
-                const delivery2025 = calculateDeliveryMetrics(annualSales2025, annualOrders2025, 2025);
-                
-                // Calculate market share
-                const totalDeliverySalesAll2024 = businessData.branches.reduce((sum, b) => {
-                    const sales = businessData.data2024.sales[b].reduce((s, val) => s + val, 0);
-                    const orders = businessData.data2024.orders[b].reduce((o, val) => o + val, 0);
-                    const delivery = calculateDeliveryMetrics(sales, orders, 2024);
-                    return sum + delivery.deliverySales;
-                }, 0);
-                
-                const totalDeliverySalesAll2025 = businessData.branches.reduce((sum, b) => {
-                    const validMonths = businessData.months.filter((month, index) => 
-                        businessData.data2025.sales[b][index] > 0
-                    );
-                    
-                    const sales = validMonths.reduce((s, month) => {
-                        const monthIndex = businessData.months.indexOf(month);
-                        return s + businessData.data2025.sales[b][monthIndex];
-                    }, 0);
-                    
-                    const orders = validMonths.reduce((o, month) => {
-                        const monthIndex = businessData.months.indexOf(month);
-                        return o + businessData.data2025.orders[b][monthIndex];
-                    }, 0);
-                    
-                    const delivery = calculateDeliveryMetrics(sales, orders, 2025);
-                    return sum + delivery.deliverySales;
-                }, 0);
-                
-                const marketShare2024 = totalDeliverySalesAll2024 > 0 ? (delivery2024.deliverySales / totalDeliverySalesAll2024 * 100).toFixed(1) : 0;
-                const marketShare2025 = totalDeliverySalesAll2025 > 0 ? (delivery2025.deliverySales / totalDeliverySalesAll2025 * 100).toFixed(1) : 0;
-                
-                // Calculate changes
-                const ordersChange = delivery2024.deliveryOrders === 0 ? 0 : 
-                    ((delivery2025.deliveryOrders - delivery2024.deliveryOrders) / delivery2024.deliveryOrders * 100).toFixed(1);
-                const revenueChange = delivery2024.deliverySales === 0 ? 0 : 
-                    ((delivery2025.deliverySales - delivery2024.deliverySales) / delivery2024.deliverySales * 100).toFixed(1);
-                const efficiencyChange = delivery2024.avgDeliveryValue === 0 ? 0 : 
-                    ((delivery2025.avgDeliveryValue - delivery2024.avgDeliveryValue) / delivery2024.avgDeliveryValue * 100).toFixed(1);
-                
-                // Determine performance rating
-                const performanceScore = (parseFloat(marketShare2025) + parseFloat(ordersChange) + parseFloat(revenueChange)) / 3;
-                let performanceRating = '';
-                let performanceClass = '';
-                
-                if (performanceScore >= 70) {
-                    performanceRating = 'Excellent';
-                    performanceClass = 'change-positive';
-                } else if (performanceScore >= 50) {
-                    performanceRating = 'Good';
-                    performanceClass = 'change-neutral';
-                } else if (performanceScore >= 30) {
-                    performanceRating = 'Fair';
-                    performanceClass = 'change-neutral';
-                } else {
-                    performanceRating = 'Poor';
-                    performanceClass = 'change-negative';
-                }
-                
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="branch-name">${businessData.branchNames[branch]}</td>
-                    <td>${Math.round(delivery2024.deliveryOrders).toLocaleString()}</td>
-                    <td>$${(delivery2024.deliverySales / 1000).toFixed(0)}K</td>
-                    <td>$${delivery2024.avgDeliveryValue.toFixed(2)}</td>
-                    <td>${marketShare2024}%</td>
-                    <td>${Math.round(delivery2025.deliveryOrders).toLocaleString()}</td>
-                    <td>$${(delivery2025.deliverySales / 1000).toFixed(0)}K</td>
-                    <td>$${delivery2025.avgDeliveryValue.toFixed(2)}</td>
-                    <td>${marketShare2025}%</td>
-                    <td class="${ordersChange > 0 ? 'change-positive' : ordersChange < 0 ? 'change-negative' : 'change-neutral'}">
-                        ${ordersChange > 0 ? '+' : ''}${ordersChange}%
-                    </td>
-                    <td class="${revenueChange > 0 ? 'change-positive' : revenueChange < 0 ? 'change-negative' : 'change-neutral'}">
-                        ${revenueChange > 0 ? '+' : ''}${revenueChange}%
-                    </td>
-                    <td class="${efficiencyChange > 0 ? 'change-positive' : efficiencyChange < 0 ? 'change-negative' : 'change-neutral'}">
-                        ${efficiencyChange > 0 ? '+' : ''}${efficiencyChange}%
-                    </td>
-                    <td class="${performanceClass}">${performanceRating}</td>
-                `;
-                tableBody.appendChild(row);
-            });
-        }
-
-        // Initialize Delivery Progress Chart
-        function initializeDeliveryProgressChart() {
             const ctx = document.getElementById('delivery-progress-chart').getContext('2d');
+            const deliveryProgressLoading = document.getElementById('delivery-progress-loading');
+            deliveryProgressLoading.classList.add('active');
             
-            // Destroy existing chart if it exists
-            if (window.deliveryProgressChart) {
-                window.deliveryProgressChart.destroy();
-            }
+            const monthlyData2024 = [];
+            const monthlyData2025 = [];
+            const monthLabels = [];
             
-            // Show loading spinner
-            document.getElementById('delivery-progress-loading').classList.add('active');
-            
-            // Prepare data for chart
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            
-            const deliveryOrders2024 = [];
-            const deliveryOrders2025 = [];
-            const deliveryRevenue2024 = [];
-            const deliveryRevenue2025 = [];
-            
-            months.forEach((month, index) => {
-                let monthDeliveryOrders2024 = 0;
-                let monthDeliveryOrders2025 = 0;
-                let monthDeliveryRevenue2024 = 0;
-                let monthDeliveryRevenue2025 = 0;
+            businessData.months.forEach((month, index) => {
+                const monthLabel = businessData.monthNames[month];
+                monthLabels.push(monthLabel);
+                
+                let total2024 = 0;
+                let total2025 = 0;
                 
                 businessData.branches.forEach(branch => {
-                    const sales2024 = businessData.data2024.sales[branch][index];
-                    const orders2024 = businessData.data2024.orders[branch][index];
-                    const sales2025 = businessData.data2025.sales[branch][index];
-                    const orders2025 = businessData.data2025.orders[branch][index];
-                    
-                    const delivery2024 = calculateDeliveryMetrics(sales2024, orders2024, 2024);
-                    const delivery2025 = calculateDeliveryMetrics(sales2025, orders2025, 2025);
-                    
-                    monthDeliveryOrders2024 += delivery2024.deliveryOrders;
-                    monthDeliveryOrders2025 += delivery2025.deliveryOrders;
-                    monthDeliveryRevenue2024 += delivery2024.deliverySales;
-                    monthDeliveryRevenue2025 += delivery2025.deliverySales;
+                    total2024 += businessData.data2024.sales[branch][index];
+                    total2025 += businessData.data2025.sales[branch][index];
                 });
                 
-                deliveryOrders2024.push(monthDeliveryOrders2024);
-                deliveryOrders2025.push(monthDeliveryOrders2025);
-                deliveryRevenue2024.push(monthDeliveryRevenue2024);
-                deliveryRevenue2025.push(monthDeliveryRevenue2025);
+                monthlyData2024.push(total2024);
+                monthlyData2025.push(total2025);
             });
             
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('delivery-progress-loading').classList.remove('active');
-                
-                window.deliveryProgressChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Delivery Orders',
-                            data: deliveryOrders2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4,
-                            yAxisID: 'y'
-                        }, {
-                            label: '2025 Delivery Orders',
-                            data: deliveryOrders2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4,
-                            yAxisID: 'y'
-                        }, {
-                            label: '2024 Delivery Revenue ($K)',
-                            data: deliveryRevenue2024.map(val => val / 1000),
-                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
-                            borderColor: 'rgba(46, 204, 113, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4,
-                            yAxisID: 'y1'
-                        }, {
-                            label: '2025 Delivery Revenue ($K)',
-                            data: deliveryRevenue2025.map(val => val / 1000),
-                            backgroundColor: 'rgba(155, 89, 182, 0.2)',
-                            borderColor: 'rgba(155, 89, 182, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4,
-                            yAxisID: 'y1'
-                        }]
+            const chart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: monthLabels,
+                    datasets: [{
+                        label: '2024 Sales',
+                        data: monthlyData2024,
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: '2025 Sales',
+                        data: monthlyData2025,
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        backgroundColor: 'rgba(52, 152, 219, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Monthly Sales Trend'
+                        }
                     },
-                    options: {
-                        responsive: true,
-                        interaction: {
-                            mode: 'index',
-                            intersect: false,
-                        },
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        let label = context.dataset.label || '';
-                                        if (label) {
-                                            label += ': ';
-                                        }
-                                        if (context.parsed.y !== null) {
-                                            if (context.dataset.yAxisID === 'y1') {
-                                                label += '$' + context.parsed.y.toFixed(0) + 'K';
-                                            } else {
-                                                label += context.parsed.y.toFixed(0);
-                                            }
-                                        }
-                                        return label;
-                                    }
-                                }
-                            }
-                        },
-                        scales: {
-                            y: {
-                                type: 'linear',
-                                display: true,
-                                position: 'left',
-                                title: {
-                                    display: true,
-                                    text: 'Delivery Orders'
-                                }
-                            },
-                            y1: {
-                                type: 'linear',
-                                display: true,
-                                position: 'right',
-                                title: {
-                                    display: true,
-                                    text: 'Delivery Revenue ($K)'
-                                },
-                                grid: {
-                                    drawOnChartArea: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
                                 }
                             }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
+                }
+            });
+            
+            deliveryProgressLoading.classList.remove('active');
         }
 
         // Initialize Monthly Charts
         function initializeMonthlyCharts() {
-            initializeMonthlySalesChart();
-            initializeMonthlyTransactionsChart();
-            initializeMonthlyChannelChart();
-        }
-
-        // Initialize Monthly Sales Chart
-        function initializeMonthlySalesChart() {
-            const ctx = document.getElementById('monthly-sales-chart').getContext('2d');
-            
-            // Destroy existing chart if it exists
-            if (window.monthlySalesChart) {
-                window.monthlySalesChart.destroy();
-            }
-            
-            // Show loading spinner
-            document.getElementById('monthly-sales-loading').classList.add('active');
-            
-            // Get selected metric and chart type
-            const metric = document.getElementById('metric-filter').value;
+            const metricFilter = document.getElementById('metric-filter').value;
             const chartType = document.getElementById('chart-type').value;
             
-            // Prepare data
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            const sales2024 = [];
-            const sales2025 = [];
+            // Monthly Sales Chart
+            const salesCtx = document.getElementById('monthly-sales-chart').getContext('2d');
+            const monthlySalesLoading = document.getElementById('monthly-sales-loading');
+            monthlySalesLoading.classList.add('active');
             
-            months.forEach((month, index) => {
-                let monthSales2024 = 0;
-                let monthSales2025 = 0;
+            const monthlySalesData2024 = [];
+            const monthlySalesData2025 = [];
+            const monthLabels = [];
+            
+            businessData.months.forEach((month, index) => {
+                const monthLabel = businessData.monthNames[month];
+                monthLabels.push(monthLabel);
+                
+                let total2024 = 0;
+                let total2025 = 0;
                 
                 businessData.branches.forEach(branch => {
-                    monthSales2024 += businessData.data2024.sales[branch][index];
-                    monthSales2025 += businessData.data2025.sales[branch][index];
+                    total2024 += businessData.data2024.sales[branch][index];
+                    total2025 += businessData.data2025.sales[branch][index];
                 });
                 
-                sales2024.push(monthSales2024 / 1000000);
-                sales2025.push(monthSales2025 / 1000000);
+                monthlySalesData2024.push(total2024);
+                monthlySalesData2025.push(total2025);
             });
             
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('monthly-sales-loading').classList.remove('active');
-                
-                window.monthlySalesChart = new Chart(ctx, {
-                    type: chartType,
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Sales ($M)',
-                            data: sales2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 2,
-                            fill: chartType === 'area',
-                            tension: 0.4
-                        }, {
-                            label: '2025 Sales ($M)',
-                            data: sales2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 2,
-                            fill: chartType === 'area',
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
+            const salesChart = new Chart(salesCtx, {
+                type: chartType,
+                data: {
+                    labels: monthLabels,
+                    datasets: [{
+                        label: '2024 Sales',
+                        data: monthlySalesData2024,
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                        fill: chartType === 'area',
+                        tension: 0.4
+                    }, {
+                        label: '2025 Sales',
+                        data: monthlySalesData2025,
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        fill: chartType === 'area',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
                         },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($ Millions)'
+                        title: {
+                            display: true,
+                            text: 'Monthly Sales Comparison'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
                                 }
                             }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
+                }
+            });
+            
+            monthlySalesLoading.classList.remove('active');
         }
 
-        // Initialize Monthly Transactions Chart
-        function initializeMonthlyTransactionsChart() {
-            const ctx = document.getElementById('monthly-transactions-chart').getContext('2d');
+        // Initialize Monthly Report Chart
+        function initializeMonthlyReportChart() {
+            const ctx = document.getElementById('monthly-report-chart').getContext('2d');
+            const monthlyReportLoading = document.getElementById('monthly-report-loading');
+            monthlyReportLoading.classList.add('active');
             
-            // Destroy existing chart if it exists
-            if (window.monthlyTransactionsChart) {
-                window.monthlyTransactionsChart.destroy();
-            }
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const branch = document.getElementById('report-branch').value;
             
-            // Show loading spinner
-            document.getElementById('monthly-transactions-loading').classList.add('active');
+            const metrics = calculateMetrics(startDate, endDate, branch);
             
-            // Prepare data
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            const transactions2024 = [];
-            const transactions2025 = [];
-            
-            months.forEach((month, index) => {
-                let monthTransactions2024 = 0;
-                let monthTransactions2025 = 0;
-                
-                businessData.branches.forEach(branch => {
-                    monthTransactions2024 += businessData.data2024.orders[branch][index];
-                    monthTransactions2025 += businessData.data2025.orders[branch][index];
-                });
-                
-                transactions2024.push(monthTransactions2024);
-                transactions2025.push(monthTransactions2025);
-            });
-            
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('monthly-transactions-loading').classList.remove('active');
-                
-                window.monthlyTransactionsChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Transactions',
-                            data: transactions2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1
-                        }, {
-                            label: '2025 Transactions',
-                            data: transactions2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
+            const chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: metrics.months.map(m => m.name),
+                    datasets: [{
+                        label: '2024 Sales',
+                        data: metrics.months.map(m => m.sales2024),
+                        backgroundColor: 'rgba(231, 76, 60, 0.7)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        borderWidth: 1
+                    }, {
+                        label: '2025 Sales',
+                        data: metrics.months.map(m => m.sales2025),
+                        backgroundColor: 'rgba(52, 152, 219, 0.7)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
                         },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Number of Transactions'
+                        title: {
+                            display: true,
+                            text: 'Monthly Sales Comparison'
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value.toLocaleString();
                                 }
                             }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
-        }
-
-        // Initialize Monthly Channel Chart
-        function initializeMonthlyChannelChart() {
-            const ctx = document.getElementById('monthly-channel-chart').getContext('2d');
-            
-            // Destroy existing chart if it exists
-            if (window.monthlyChannelChart) {
-                window.monthlyChannelChart.destroy();
-            }
-            
-            // Show loading spinner
-            document.getElementById('monthly-channel-loading').classList.add('active');
-            
-            // Prepare data
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            const delivery2024 = [];
-            const delivery2025 = [];
-            const pickup2024 = [];
-            const pickup2025 = [];
-            
-            months.forEach((month, index) => {
-                let monthSales2024 = 0;
-                let monthSales2025 = 0;
-                let monthDelivery2024 = 0;
-                let monthDelivery2025 = 0;
-                
-                businessData.branches.forEach(branch => {
-                    const branchSales2024 = businessData.data2024.sales[branch][index];
-                    const branchSales2025 = businessData.data2025.sales[branch][index];
-                    
-                    monthSales2024 += branchSales2024;
-                    monthSales2025 += branchSales2025;
-                    
-                    const delivery2024 = calculateDeliveryMetrics(branchSales2024, 0, 2024);
-                    const delivery2025 = calculateDeliveryMetrics(branchSales2025, 0, 2025);
-                    
-                    monthDelivery2024 += delivery2024.deliverySales;
-                    monthDelivery2025 += delivery2025.deliverySales;
-                });
-                
-                delivery2024.push(monthDelivery2024 / 1000000);
-                delivery2025.push(monthDelivery2025 / 1000000);
-                pickup2024.push((monthSales2024 - monthDelivery2024) / 1000000);
-                pickup2025.push((monthSales2025 - monthDelivery2025) / 1000000);
+                }
             });
             
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('monthly-channel-loading').classList.remove('active');
-                
-                window.monthlyChannelChart = new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Delivery ($M)',
-                            data: delivery2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.7)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 1,
-                            stack: '2024'
-                        }, {
-                            label: '2024 Pickup ($M)',
-                            data: pickup2024,
-                            backgroundColor: 'rgba(46, 204, 113, 0.7)',
-                            borderColor: 'rgba(46, 204, 113, 1)',
-                            borderWidth: 1,
-                            stack: '2024'
-                        }, {
-                            label: '2025 Delivery ($M)',
-                            data: delivery2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.7)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 1,
-                            stack: '2025'
-                        }, {
-                            label: '2025 Pickup ($M)',
-                            data: pickup2025,
-                            backgroundColor: 'rgba(155, 89, 182, 0.7)',
-                            borderColor: 'rgba(155, 89, 182, 1)',
-                            borderWidth: 1,
-                            stack: '2025'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
-                        },
-                        scales: {
-                            x: {
-                                stacked: true,
-                            },
-                            y: {
-                                stacked: true,
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($ Millions)'
-                                }
-                            }
-                        }
-                    }
-                });
-            }, 500);
+            monthlyReportLoading.classList.remove('active');
         }
 
         // Initialize Channel Charts
         function initializeChannelCharts() {
-            initializeChannelComparisonChart();
-            initializeChannelMonthlyChart();
-        }
-
-        // Initialize Channel Comparison Chart
-        function initializeChannelComparisonChart() {
             const ctx = document.getElementById('channel-comparison-chart').getContext('2d');
+            const channelComparisonLoading = document.getElementById('channel-comparison-loading');
+            channelComparisonLoading.classList.add('active');
             
-            // Destroy existing chart if it exists
-            if (window.channelComparisonChart) {
-                window.channelComparisonChart.destroy();
-            }
-            
-            // Show loading spinner
-            document.getElementById('channel-comparison-loading').classList.add('active');
-            
-            // Calculate channel metrics for 2024 and 2025
             const metrics2024 = calculateYearMetrics(2024);
             const metrics2025 = calculateYearMetrics(2025);
             
-            // Calculate pickup sales
-            const pickup2024 = metrics2024.totalSales - metrics2024.totalDeliverySales;
-            const pickup2025 = metrics2025.totalSales - metrics2025.totalDeliverySales;
-            
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('channel-comparison-loading').classList.remove('active');
-                
-                window.channelComparisonChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: [
-                            '2024 Delivery',
-                            '2024 Pickup',
-                            '2025 Delivery',
-                            '2025 Pickup'
+            const chart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['Delivery Sales', 'Pickup Sales'],
+                    datasets: [{
+                        label: '2024',
+                        data: [
+                            metrics2024.totalDeliverySales,
+                            metrics2024.totalSales - metrics2024.totalDeliverySales
                         ],
-                        datasets: [{
-                            data: [
-                                metrics2024.totalDeliverySales / 1000000,
-                                pickup2024 / 1000000,
-                                metrics2025.totalDeliverySales / 1000000,
-                                pickup2025 / 1000000
-                            ],
-                            backgroundColor: [
-                                'rgba(231, 76, 60, 0.7)',
-                                'rgba(46, 204, 113, 0.7)',
-                                'rgba(52, 152, 219, 0.7)',
-                                'rgba(155, 89, 182, 0.7)'
-                            ],
-                            borderColor: [
-                                'rgba(231, 76, 60, 1)',
-                                'rgba(46, 204, 113, 1)',
-                                'rgba(52, 152, 219, 1)',
-                                'rgba(155, 89, 182, 1)'
-                            ],
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
+                        backgroundColor: [
+                            'rgba(231, 76, 60, 0.7)',
+                            'rgba(52, 152, 219, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(231, 76, 60, 1)',
+                            'rgba(52, 152, 219, 1)'
+                        ],
+                        borderWidth: 1
+                    }, {
+                        label: '2025',
+                        data: [
+                            metrics2025.totalDeliverySales,
+                            metrics2025.totalSales - metrics2025.totalDeliverySales
+                        ],
+                        backgroundColor: [
+                            'rgba(52, 152, 219, 0.7)',
+                            'rgba(46, 204, 113, 0.7)'
+                        ],
+                        borderColor: [
+                            'rgba(52, 152, 219, 1)',
+                            'rgba(46, 204, 113, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Channel Distribution Comparison'
+                        },
+                        datalabels: {
+                            display: true,
+                            color: '#fff',
+                            font: {
+                                weight: 'bold',
+                                size: 14
                             },
-                            tooltip: {
-                                callbacks: {
-                                    label: function(context) {
-                                        return context.label + ': $' + context.raw.toFixed(2) + 'M';
-                                    }
-                                }
+                            formatter: (value, ctx) => {
+                                const sum = ctx.chart.data.datasets[ctx.datasetIndex].data.reduce((a, b) => a + b, 0);
+                                const percentage = (value / sum * 100).toFixed(1);
+                                return percentage + '%';
                             }
                         }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
-        }
-
-        // Initialize Channel Monthly Chart
-        function initializeChannelMonthlyChart() {
-            const ctx = document.getElementById('channel-monthly-chart').getContext('2d');
-            
-            // Destroy existing chart if it exists
-            if (window.channelMonthlyChart) {
-                window.channelMonthlyChart.destroy();
-            }
-            
-            // Show loading spinner
-            document.getElementById('channel-monthly-loading').classList.add('active');
-            
-            // Prepare data
-            const months = businessData.months.map(m => businessData.monthNames[m]);
-            const delivery2024 = [];
-            const delivery2025 = [];
-            const pickup2024 = [];
-            const pickup2025 = [];
-            
-            months.forEach((month, index) => {
-                let monthSales2024 = 0;
-                let monthSales2025 = 0;
-                let monthDelivery2024 = 0;
-                let monthDelivery2025 = 0;
-                
-                businessData.branches.forEach(branch => {
-                    const branchSales2024 = businessData.data2024.sales[branch][index];
-                    const branchSales2025 = businessData.data2025.sales[branch][index];
-                    
-                    monthSales2024 += branchSales2024;
-                    monthSales2025 += branchSales2025;
-                    
-                    const delivery2024 = calculateDeliveryMetrics(branchSales2024, 0, 2024);
-                    const delivery2025 = calculateDeliveryMetrics(branchSales2025, 0, 2025);
-                    
-                    monthDelivery2024 += delivery2024.deliverySales;
-                    monthDelivery2025 += delivery2025.deliverySales;
-                });
-                
-                delivery2024.push(monthDelivery2024 / 1000000);
-                delivery2025.push(monthDelivery2025 / 1000000);
-                pickup2024.push((monthSales2024 - monthDelivery2024) / 1000000);
-                pickup2025.push((monthSales2025 - monthDelivery2025) / 1000000);
+                }
             });
             
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('channel-monthly-loading').classList.remove('active');
-                
-                window.channelMonthlyChart = new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: months,
-                        datasets: [{
-                            label: '2024 Delivery ($M)',
-                            data: delivery2024,
-                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4
-                        }, {
-                            label: '2024 Pickup ($M)',
-                            data: pickup2024,
-                            backgroundColor: 'rgba(46, 204, 113, 0.2)',
-                            borderColor: 'rgba(46, 204, 113, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4
-                        }, {
-                            label: '2025 Delivery ($M)',
-                            data: delivery2025,
-                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4
-                        }, {
-                            label: '2025 Pickup ($M)',
-                            data: pickup2025,
-                            backgroundColor: 'rgba(155, 89, 182, 0.2)',
-                            borderColor: 'rgba(155, 89, 182, 1)',
-                            borderWidth: 2,
-                            fill: true,
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
-                        },
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                title: {
-                                    display: true,
-                                    text: 'Sales ($ Millions)'
-                                }
-                            }
-                        }
-                    }
-                });
-            }, 500);
+            channelComparisonLoading.classList.remove('active');
         }
 
-        // Update Channel Analysis Section
+        // Update Channel Analysis
         function updateChannelAnalysis() {
             const metrics2024 = calculateYearMetrics(2024);
             const metrics2025 = calculateYearMetrics(2025);
             
-            // Update 2024 channel stats
-            document.getElementById('channel-2024-sales').textContent = `$${(metrics2024.totalDeliverySales / 1000000).toFixed(2)}M`;
-            document.getElementById('channel-2024-orders').textContent = Math.round(metrics2024.totalDeliveryOrders).toLocaleString();
-            document.getElementById('channel-2024-avg').textContent = `$${metrics2024.averageDeliveryValue.toFixed(2)}`;
-            document.getElementById('channel-2024-share').textContent = `${metrics2024.deliveryPercentage.toFixed(1)}%`;
+            document.getElementById('channel-2024-sales').textContent = '$' + metrics2024.totalDeliverySales.toLocaleString();
+            document.getElementById('channel-2024-orders').textContent = metrics2024.totalDeliveryOrders.toLocaleString();
+            document.getElementById('channel-2024-avg').textContent = '$' + metrics2024.averageDeliveryValue.toFixed(2);
+            document.getElementById('channel-2024-share').textContent = metrics2024.deliveryPercentage.toFixed(1) + '%';
             
-            // Update 2025 channel stats
-            document.getElementById('channel-2025-sales').textContent = `$${(metrics2025.totalDeliverySales / 1000000).toFixed(2)}M`;
-            document.getElementById('channel-2025-orders').textContent = Math.round(metrics2025.totalDeliveryOrders).toLocaleString();
-            document.getElementById('channel-2025-avg').textContent = `$${metrics2025.averageDeliveryValue.toFixed(2)}`;
-            document.getElementById('channel-2025-share').textContent = `${metrics2025.deliveryPercentage.toFixed(1)}%`;
+            document.getElementById('channel-2025-sales').textContent = '$' + metrics2025.totalDeliverySales.toLocaleString();
+            document.getElementById('channel-2025-orders').textContent = metrics2025.totalDeliveryOrders.toLocaleString();
+            document.getElementById('channel-2025-avg').textContent = '$' + metrics2025.averageDeliveryValue.toFixed(2);
+            document.getElementById('channel-2025-share').textContent = metrics2025.deliveryPercentage.toFixed(1) + '%';
+        }
+
+        // Load All Data Entries
+        function loadAllDataEntries() {
+            const tbody = document.getElementById('data-management-tbody');
+            tbody.innerHTML = '';
+            
+            // Combine original data and user entries
+            const allEntries = [];
+            
+            businessData.branches.forEach(branch => {
+                businessData.months.forEach((month, index) => {
+                    const entry = {
+                        branch: branch,
+                        month: month,
+                        year: 2024,
+                        totalSales: businessData.data2024.sales[branch][index],
+                        orders: businessData.data2024.orders[branch][index],
+                        deliverySales: calculateDeliveryMetrics(
+                            businessData.data2024.sales[branch][index],
+                            businessData.data2024.orders[branch][index],
+                            2024
+                        ).deliverySales,
+                        avgOrderValue: businessData.data2024.orders[branch][index] > 0 ? 
+                            businessData.data2024.sales[branch][index] / businessData.data2024.orders[branch][index] : 0
+                    };
+                    allEntries.push(entry);
+                    
+                    // Add 2025 data if available
+                    if (businessData.data2025.sales[branch][index] > 0) {
+                        const entry2025 = {
+                            branch: branch,
+                            month: month,
+                            year: 2025,
+                            totalSales: businessData.data2025.sales[branch][index],
+                            orders: businessData.data2025.orders[branch][index],
+                            deliverySales: calculateDeliveryMetrics(
+                                businessData.data2025.sales[branch][index],
+                                businessData.data2025.orders[branch][index],
+                                2025
+                            ).deliverySales,
+                            avgOrderValue: businessData.data2025.orders[branch][index] > 0 ? 
+                                businessData.data2025.sales[branch][index] / businessData.data2025.orders[branch][index] : 0
+                        };
+                        allEntries.push(entry2025);
+                    }
+                });
+            });
+            
+            // Add user entries
+            businessData.userEntries.forEach(entry => {
+                allEntries.push(entry);
+            });
+            
+            // Populate table
+            allEntries.forEach((entry, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${businessData.branchNames[entry.branch]}</td>
+                    <td>${businessData.monthNames[entry.month]}</td>
+                    <td>${entry.year}</td>
+                    <td>$${entry.totalSales.toLocaleString()}</td>
+                    <td>${entry.orders.toLocaleString()}</td>
+                    <td>$${entry.deliverySales.toLocaleString()}</td>
+                    <td>$${entry.avgOrderValue.toFixed(2)}</td>
+                    <td>
+                        <button class="action-btn edit" onclick="editDataEntry(${index})">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="action-btn delete" onclick="deleteDataEntry(${index})">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        // Update Data Management Stats
+        function updateDataManagementStats() {
+            const allEntries = [];
+            
+            businessData.branches.forEach(branch => {
+                businessData.months.forEach((month, index) => {
+                    allEntries.push({year: 2024});
+                    if (businessData.data2025.sales[branch][index] > 0) {
+                        allEntries.push({year: 2025});
+                    }
+                });
+            });
+            
+            businessData.userEntries.forEach(entry => {
+                allEntries.push(entry);
+            });
+            
+            const totalEntries = allEntries.length;
+            const entries2024 = allEntries.filter(e => e.year === 2024).length;
+            const entries2025 = allEntries.filter(e => e.year === 2025).length;
+            const userEntries = businessData.userEntries.length;
+            
+            document.getElementById('total-entries').textContent = totalEntries;
+            document.getElementById('entries-2024').textContent = entries2024;
+            document.getElementById('entries-2025').textContent = entries2025;
+            document.getElementById('user-entries-count').textContent = userEntries;
+            document.getElementById('valid-entries').textContent = totalEntries;
+            document.getElementById('data-warnings').textContent = '0';
+            document.getElementById('last-validation').textContent = 'Now';
         }
 
         // Initialize Insights Chart
         function initializeInsightsChart() {
             const ctx = document.getElementById('insights-summary-chart').getContext('2d');
+            const insightsSummaryLoading = document.getElementById('insights-summary-loading');
+            insightsSummaryLoading.classList.add('active');
             
-            // Destroy existing chart if it exists
-            if (window.insightsSummaryChart) {
-                window.insightsSummaryChart.destroy();
-            }
+            const metrics2024 = calculateYearMetrics(2024);
+            const metrics2025 = calculateYearMetrics(2025);
             
-            // Show loading spinner
-            document.getElementById('insights-summary-loading').classList.add('active');
-            
-            // Calculate metrics for top performing branches
-            const branchMetrics = businessData.branches.map(branch => {
-                const sales2024 = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
-                const sales2025 = businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0);
-                const orders2024 = businessData.data2024.orders[branch].reduce((sum, val) => sum + val, 0);
-                const orders2025 = businessData.data2025.orders[branch].reduce((sum, val) => sum + val, 0);
-                
-                return {
-                    branch,
-                    name: businessData.branchNames[branch],
-                    sales2024,
-                    sales2025,
-                    orders2024,
-                    orders2025,
-                    avgValue2024: orders2024 > 0 ? sales2024 / orders2024 : 0,
-                    avgValue2025: orders2025 > 0 ? sales2025 / orders2025 : 0
-                };
-            });
-            
-            // Sort by 2024 sales
-            branchMetrics.sort((a, b) => b.sales2024 - a.sales2024);
-            
-            // Hide loading spinner after a short delay to show it
-            setTimeout(() => {
-                document.getElementById('insights-summary-loading').classList.remove('active');
-                
-                window.insightsSummaryChart = new Chart(ctx, {
-                    type: 'radar',
-                    data: {
-                        labels: branchMetrics.slice(0, 5).map(b => b.name.split(' - ')[1]),
-                        datasets: [{
-                            label: '2024 Performance',
-                            data: branchMetrics.slice(0, 5).map(b => b.sales2024 / 100000),
-                            backgroundColor: 'rgba(231, 76, 60, 0.2)',
-                            borderColor: 'rgba(231, 76, 60, 1)',
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(231, 76, 60, 1)'
-                        }, {
-                            label: '2025 Performance',
-                            data: branchMetrics.slice(0, 5).map(b => b.sales2025 / 100000),
-                            backgroundColor: 'rgba(52, 152, 219, 0.2)',
-                            borderColor: 'rgba(52, 152, 219, 1)',
-                            borderWidth: 2,
-                            pointBackgroundColor: 'rgba(52, 152, 219, 1)'
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        plugins: {
-                            legend: {
-                                position: 'top',
-                            }
-                        },
-                        scales: {
-                            r: {
-                                beginAtZero: true,
-                                ticks: {
-                                    display: false
+            const chart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['Sales', 'Orders', 'Avg Value', 'Delivery Sales', 'Delivery Orders', 'Market Share'],
+                    datasets: [{
+                        label: '2024',
+                        data: [
+                            metrics2024.totalSales / 1000000,
+                            metrics2024.totalOrders / 1000,
+                            metrics2024.averageOrderValue / 100,
+                            metrics2024.totalDeliverySales / 1000000,
+                            metrics2024.totalDeliveryOrders / 1000,
+                            metrics2024.deliveryPercentage
+                        ],
+                        backgroundColor: 'rgba(231, 76, 60, 0.2)',
+                        borderColor: 'rgba(231, 76, 60, 1)',
+                        pointBackgroundColor: 'rgba(231, 76, 60, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(231, 76, 60, 1)'
+                    }, {
+                        label: '2025',
+                        data: [
+                            metrics2025.totalSales / 1000000,
+                            metrics2025.totalOrders / 1000,
+                            metrics2025.averageOrderValue / 100,
+                            metrics2025.totalDeliverySales / 1000000,
+                            metrics2025.totalDeliveryOrders / 1000,
+                            metrics2025.deliveryPercentage
+                        ],
+                        backgroundColor: 'rgba(52, 152, 219, 0.2)',
+                        borderColor: 'rgba(52, 152, 219, 1)',
+                        pointBackgroundColor: 'rgba(52, 152, 219, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(52, 152, 219, 1)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 0,
+                            ticks: {
+                                callback: function(value) {
+                                    return value;
                                 }
                             }
                         }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Multi-dimensional Performance Comparison'
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart'
                     }
-                });
-            }, 500);
+                }
+            });
+            
+            insightsSummaryLoading.classList.remove('active');
         }
 
         // Update Insights Section
@@ -4891,108 +4202,454 @@
             const metrics2025 = calculateYearMetrics(2025);
             
             // Find top performing branch in 2024
-            const branchMetrics = businessData.branches.map(branch => ({
-                branch,
-                name: businessData.branchNames[branch],
-                sales2024: businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0),
-                sales2025: businessData.data2025.sales[branch].reduce((sum, val) => sum + val, 0)
-            }));
-            
-            branchMetrics.sort((a, b) => b.sales2024 - a.sales2024);
-            const topBranch = branchMetrics[0];
-            
-            // Calculate summer sales share
-            const summerMonths = ['May', 'Jun', 'Jul', 'Aug'];
-            let summerSales2024 = 0;
-            let totalSales2024 = 0;
+            let topBranch = '';
+            let maxSales = 0;
             
             businessData.branches.forEach(branch => {
-                businessData.months.forEach((month, index) => {
-                    const sales2024 = businessData.data2024.sales[branch][index];
-                    totalSales2024 += sales2024;
-                    if (summerMonths.includes(month)) {
-                        summerSales2024 += sales2024;
-                    }
+                const branchSales = businessData.data2024.sales[branch].reduce((sum, val) => sum + val, 0);
+                if (branchSales > maxSales) {
+                    maxSales = branchSales;
+                    topBranch = branch;
+                }
+            });
+            
+            document.getElementById('top-branch-2024').textContent = businessData.branchNames[topBranch];
+            document.getElementById('top-branch-sales-2024').textContent = '$' + maxSales.toLocaleString();
+            
+            // Sales trend insight
+            const avgValueChange = ((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100).toFixed(1);
+            document.getElementById('avg-value-change').textContent = avgValueChange + '%';
+            document.getElementById('sales-trend-insight').textContent = 
+                avgValueChange > 0 ? 
+                'Average order value increased, indicating customers are spending more per transaction.' :
+                'Average order value decreased, suggesting customers are placing smaller orders.';
+            
+            // Channel insight
+            const channelChange = ((metrics2025.deliveryPercentage - metrics2024.deliveryPercentage) / metrics2024.deliveryPercentage * 100).toFixed(1);
+            document.getElementById('channel-change').textContent = channelChange + '%';
+            document.getElementById('channel-insight').textContent = 
+                channelChange > 0 ? 
+                'Delivery channel market share increased, showing growing preference for delivery services.' :
+                'Delivery channel market share decreased, suggesting a shift towards pickup orders.';
+            
+            // Seasonal insight
+            const summerMonths = ['Jun', 'Jul', 'Aug'];
+            let summerSales2024 = 0;
+            let summerSales2025 = 0;
+            
+            summerMonths.forEach(month => {
+                const index = businessData.months.indexOf(month);
+                businessData.branches.forEach(branch => {
+                    summerSales2024 += businessData.data2024.sales[branch][index];
+                    summerSales2025 += businessData.data2025.sales[branch][index];
                 });
             });
             
-            const summerShare = totalSales2024 > 0 ? (summerSales2024 / totalSales2024 * 100) : 0;
-            
-            // Calculate various metrics
-            const salesGrowth = metrics2024.totalSales > 0 ? 
-                ((metrics2025.totalSales - metrics2024.totalSales) / metrics2024.totalSales * 100) : 0;
-            const avgValueChange = metrics2024.averageOrderValue > 0 ? 
-                ((metrics2025.averageOrderValue - metrics2024.averageOrderValue) / metrics2024.averageOrderValue * 100) : 0;
-            const deliveryChange = metrics2024.deliveryPercentage > 0 ? 
-                ((metrics2025.deliveryPercentage - metrics2024.deliveryPercentage) / metrics2024.deliveryPercentage * 100) : 0;
-            
-            // Update insights
-            document.getElementById('top-branch-2024').textContent = 
-                `${topBranch.name} led with ${((topBranch.sales2024 / metrics2024.totalSales) * 100).toFixed(1)}% of total sales`;
-            document.getElementById('top-branch-sales-2024').textContent = `$${(topBranch.sales2024 / 1000000).toFixed(2)}M`;
-            
-            document.getElementById('sales-trend-insight').textContent = 
-                `2025 shows ${salesGrowth < 0 ? 'decline' : 'growth'} in total sales with ${avgValueChange > 0 ? 'increased' : 'decreased'} average order value`;
-            document.getElementById('avg-value-change').textContent = `${avgValueChange > 0 ? '+' : ''}${avgValueChange.toFixed(1)}%`;
-            
-            document.getElementById('channel-insight').textContent = 
-                `Delivery channel ${deliveryChange < 0 ? 'decreased' : 'increased'} from ${metrics2024.deliveryPercentage.toFixed(1)}% to ${metrics2025.deliveryPercentage.toFixed(1)}%`;
-            document.getElementById('channel-change').textContent = `${deliveryChange > 0 ? '+' : ''}${deliveryChange.toFixed(1)}%`;
-            
+            const totalSales2024 = metrics2024.totalSales;
+            const summerShare = (summerSales2024 / totalSales2024 * 100).toFixed(1);
+            document.getElementById('summer-share').textContent = summerShare + '%';
             document.getElementById('seasonal-insight').textContent = 
-                `Strong performance during summer months with ${summerShare.toFixed(1)}% of annual sales`;
-            document.getElementById('summer-share').textContent = `${summerShare.toFixed(1)}%`;
+                `Summer months account for ${summerShare}% of total sales, indicating seasonal demand patterns.`;
             
+            // Growth opportunity
+            const potentialGrowth = (metrics2024.totalOrders - metrics2025.totalOrders).toFixed(0);
+            document.getElementById('potential-growth').textContent = potentialGrowth;
             document.getElementById('growth-insight').textContent = 
-                `Focus on increasing transaction volume while maintaining higher average order values`;
-            document.getElementById('potential-growth').textContent = `+83%`;
+                `Potential to increase order volume by ${potentialGrowth} orders by improving delivery efficiency.`;
             
+            // Improvement area
+            const salesDecline = ((metrics2025.totalSales - metrics2024.totalSales) / metrics2024.totalSales * 100).toFixed(1);
+            document.getElementById('sales-decline').textContent = Math.abs(salesDecline) + '%';
             document.getElementById('improvement-insight').textContent = 
-                `Decrease in delivery channel performance and overall sales volume needs attention`;
-            document.getElementById('sales-decline').textContent = `${salesGrowth < 0 ? Math.abs(salesGrowth).toFixed(1) : 0}%`;
+                `Sales declined by ${Math.abs(salesDecline)}% in 2025, requiring strategic interventions.`;
         }
 
-        // Apply Filter Button
-        document.getElementById('apply-filter').addEventListener('click', function() {
-            const branchFilter = document.getElementById('branch-filter').value;
-            const performanceFilter = document.getElementById('performance-filter').value;
+        // Data Entry Form Handler
+        document.getElementById('data-entry-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                branch: document.getElementById('branch').value,
+                month: document.getElementById('month').value,
+                year: 2025,
+                totalSales: parseFloat(document.getElementById('total-sales').value),
+                orders: parseInt(document.getElementById('transactions').value),
+                deliverySales: parseFloat(document.getElementById('delivery-sales').value),
+                avgOrderValue: parseFloat(document.getElementById('total-sales').value) / parseInt(document.getElementById('transactions').value),
+                dateAdded: new Date()
+            };
+            
+            // Add to user entries
+            businessData.userEntries.push(formData);
+            
+            // Update data in the structure
+            const monthIndex = businessData.months.indexOf(formData.month);
+            businessData.data2025.sales[formData.branch][monthIndex] = formData.totalSales;
+            businessData.data2025.orders[formData.branch][monthIndex] = formData.orders;
+            
+            // Add to log
+            const logTable = document.getElementById('data-log');
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td>${formData.dateAdded.toLocaleDateString()}</td>
+                <td>${businessData.branchNames[formData.branch]}</td>
+                <td>$${formData.totalSales.toLocaleString()}</td>
+                <td>${formData.orders.toLocaleString()}</td>
+                <td>$${formData.deliverySales.toLocaleString()}</td>
+                <td><span class="status-badge success">Added</span></td>
+            `;
+            logTable.appendChild(newRow);
             
             // Show notification
-            showNotification(`Filter applied: ${branchFilter} branch, ${performanceFilter} performance`);
+            showNotification('Data added successfully!');
             
-            // Refresh branch analysis
-            populateOutletCards();
+            // Reset form
+            this.reset();
+            
+            // Update active section
+            const activeSection = document.querySelector('.section.active').id;
+            if (activeSection === 'overview') {
+                updateOverviewSection();
+            } else if (activeSection === 'branch-analysis') {
+                populateOutletCards();
+            } else if (activeSection === 'delivery-trends') {
+                populateDeliveryCountsTable();
+                populateDeliveryAmountsTable();
+                populateDeliveryTrendsSummary();
+            }
         });
 
-        // Reset Filter Button
-        document.getElementById('reset-filter').addEventListener('click', function() {
-            document.getElementById('branch-filter').value = 'all';
-            document.getElementById('performance-filter').value = 'all';
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            const notificationMessage = document.getElementById('notification-message');
             
-            // Show notification
-            showNotification('Filters reset');
+            notificationMessage.textContent = message;
+            notification.className = `notification ${type}`;
+            notification.classList.add('show');
             
-            // Refresh branch analysis
-            populateOutletCards();
-        });
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
 
-        // Apply Chart Filter Button
-        document.getElementById('apply-chart-filter').addEventListener('click', function() {
-            // Show notification
-            showNotification('Chart filter applied');
-            
-            // Refresh monthly charts
-            initializeMonthlyCharts();
-        });
-
-        // Set default date range for monthly report
+        // Initialize the dashboard on load
         document.addEventListener('DOMContentLoaded', function() {
-            const today = new Date();
-            const startOfYear = new Date(today.getFullYear(), 0, 1);
+            // Set initial section
+            showSection('overview');
             
-            document.getElementById('start-date').value = startOfYear.toISOString().split('T')[0];
-            document.getElementById('end-date').value = today.toISOString().split('T')[0];
+            // Set up real-time update interval
+            setInterval(() => {
+                const now = new Date();
+                document.getElementById('last-update').textContent = formatRelativeTime(now);
+            }, 30000);
+            
+            // Validate data consistency
+            validateDataConsistency();
+            
+            // Add event listeners for filters
+            document.getElementById('apply-filter').addEventListener('click', function() {
+                populateOutletCards();
+                showNotification('Filter applied successfully!');
+            });
+            
+            document.getElementById('reset-filter').addEventListener('click', function() {
+                document.getElementById('branch-filter').value = 'all';
+                document.getElementById('performance-filter').value = 'all';
+                populateOutletCards();
+                showNotification('Filter reset!');
+            });
+            
+            // Add event listeners for monthly chart filters
+            document.getElementById('apply-chart-filter').addEventListener('click', function() {
+                initializeMonthlyCharts();
+                showNotification('Chart filter applied!');
+            });
+            
+            // Add event listeners for report generation
+            document.getElementById('generate-report').addEventListener('click', function() {
+                const spinner = this.querySelector('.spinner');
+                spinner.style.display = 'inline-block';
+                
+                setTimeout(() => {
+                    spinner.style.display = 'none';
+                    initializeMonthlyReportChart();
+                    generateReportSummary();
+                    showNotification('Report generated successfully!');
+                }, 1500);
+            });
+            
+            // Add event listeners for export buttons
+            document.getElementById('export-pdf').addEventListener('click', function() {
+                showNotification('PDF export feature coming soon!');
+            });
+            
+            document.getElementById('export-excel').addEventListener('click', function() {
+                showNotification('Excel export feature coming soon!');
+            });
+            
+            document.getElementById('export-csv').addEventListener('click', function() {
+                showNotification('CSV export feature coming soon!');
+            });
+            
+            // Add event listener for file upload
+            document.getElementById('data-file').addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const uploadStatus = document.getElementById('upload-status');
+                    uploadStatus.innerHTML = '<div class="spinner"></div> Uploading...';
+                    
+                    setTimeout(() => {
+                        uploadStatus.innerHTML = '<span class="status-badge success">File uploaded successfully!</span>';
+                        showNotification('Data file uploaded successfully!');
+                    }, 2000);
+                }
+            });
         });
+
+        // Generate report summary
+        function generateReportSummary() {
+            const startDate = document.getElementById('start-date').value;
+            const endDate = document.getElementById('end-date').value;
+            const branch = document.getElementById('report-branch').value;
+            
+            const metrics = calculateMetrics(startDate, endDate, branch);
+            
+            document.getElementById('summary-sales').textContent = '$' + metrics.totalSales.toLocaleString();
+            document.getElementById('summary-orders').textContent = metrics.totalOrders.toLocaleString();
+            document.getElementById('summary-avg-value').textContent = '$' + metrics.avgOrderValue.toFixed(2);
+            document.getElementById('summary-growth').textContent = metrics.salesGrowth + '%';
+            
+            // Generate insights
+            const insights = [];
+            
+            if (metrics.salesGrowth > 0) {
+                insights.push({
+                    icon: 'fa-arrow-up',
+                    text: `Sales increased by ${metrics.salesGrowth}% compared to the same period in 2024.`
+                });
+            } else {
+                insights.push({
+                    icon: 'fa-arrow-down',
+                    text: `Sales decreased by ${Math.abs(metrics.salesGrowth)}% compared to the same period in 2024.`
+                });
+            }
+            
+            if (metrics.avgOrderValueChange > 0) {
+                insights.push({
+                    icon: 'fa-dollar-sign',
+                    text: `Average order value increased by ${metrics.avgOrderValueChange}%, indicating higher customer spending.`
+                });
+            } else {
+                insights.push({
+                    icon: 'fa-dollar-sign',
+                    text: `Average order value decreased by ${Math.abs(metrics.avgOrderValueChange)}%, suggesting smaller transaction sizes.`
+                });
+            }
+            
+            const seasonalInsight = getSeasonalInsight(metrics.months);
+            insights.push({
+                icon: 'fa-calendar-alt',
+                text: seasonalInsight
+            });
+            
+            // Update insights list
+            const insightsList = document.getElementById('insights-list');
+            insightsList.innerHTML = '';
+            
+            insights.forEach(insight => {
+                const item = document.createElement('div');
+                item.className = 'insight-item';
+                item.innerHTML = `
+                    <div class="insight-icon"><i class="fas ${insight.icon}"></i></div>
+                    <div class="insight-text">${insight.text}</div>
+                `;
+                insightsList.appendChild(item);
+            });
+        }
+
+        // Edit data entry
+        function editDataEntry(index) {
+            const entry = businessData.userEntries[index];
+            if (entry) {
+                document.getElementById('edit-branch').value = entry.branch;
+                document.getElementById('edit-month').value = entry.month;
+                document.getElementById('edit-year').value = entry.year;
+                document.getElementById('edit-total-sales').value = entry.totalSales;
+                document.getElementById('edit-transactions').value = entry.orders;
+                document.getElementById('edit-delivery-sales').value = entry.deliverySales;
+                
+                document.getElementById('edit-modal').style.display = 'flex';
+                
+                // Store index for saving
+                document.getElementById('edit-data-form').dataset.index = index;
+            }
+        }
+
+        // Close edit modal
+        function closeEditModal() {
+            document.getElementById('edit-modal').style.display = 'none';
+        }
+
+        // Handle edit form submission
+        document.getElementById('edit-data-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const index = parseInt(this.dataset.index);
+            const formData = {
+                branch: document.getElementById('edit-branch').value,
+                month: document.getElementById('edit-month').value,
+                year: parseInt(document.getElementById('edit-year').value),
+                totalSales: parseFloat(document.getElementById('edit-total-sales').value),
+                orders: parseInt(document.getElementById('edit-transactions').value),
+                deliverySales: parseFloat(document.getElementById('edit-delivery-sales').value),
+                avgOrderValue: parseFloat(document.getElementById('edit-total-sales').value) / parseInt(document.getElementById('edit-transactions').value),
+                dateAdded: new Date()
+            };
+            
+            // Update the entry
+            businessData.userEntries[index] = formData;
+            
+            // Update data in the structure
+            if (formData.year === 2025) {
+                const monthIndex = businessData.months.indexOf(formData.month);
+                businessData.data2025.sales[formData.branch][monthIndex] = formData.totalSales;
+                businessData.data2025.orders[formData.branch][monthIndex] = formData.orders;
+            }
+            
+            // Close modal
+            closeEditModal();
+            
+            // Update active section
+            const activeSection = document.querySelector('.section.active').id;
+            if (activeSection === 'overview') {
+                updateOverviewSection();
+            } else if (activeSection === 'branch-analysis') {
+                populateOutletCards();
+            } else if (activeSection === 'delivery-trends') {
+                populateDeliveryCountsTable();
+                populateDeliveryAmountsTable();
+                populateDeliveryTrendsSummary();
+            }
+            
+            // Show notification
+            showNotification('Data updated successfully!');
+        });
+
+        // Delete data entry
+        function deleteDataEntry(index) {
+            if (confirm('Are you sure you want to delete this entry?')) {
+                const entry = businessData.userEntries[index];
+                if (entry) {
+                    // Remove from user entries
+                    businessData.userEntries.splice(index, 1);
+                    
+                    // Update data in the structure
+                    if (entry.year === 2025) {
+                        const monthIndex = businessData.months.indexOf(entry.month);
+                        businessData.data2025.sales[entry.branch][monthIndex] = 0;
+                        businessData.data2025.orders[entry.branch][monthIndex] = 0;
+                    }
+                    
+                    // Reload data management table
+                    loadAllDataEntries();
+                    
+                    // Update active section
+                    const activeSection = document.querySelector('.section.active').id;
+                    if (activeSection === 'overview') {
+                        updateOverviewSection();
+                    } else if (activeSection === 'branch-analysis') {
+                        populateOutletCards();
+                    } else if (activeSection === 'delivery-trends') {
+                        populateDeliveryCountsTable();
+                        populateDeliveryAmountsTable();
+                        populateDeliveryTrendsSummary();
+                    }
+                    
+                    // Show notification
+                    showNotification('Data entry deleted successfully!');
+                }
+            }
+        }
+
+        // Toggle data management section
+        function toggleDataManagement() {
+            const action = document.getElementById('data-management').value;
+            const section = document.getElementById('data-management-section');
+            const tableContainer = document.getElementById('data-table-container');
+            
+            if (action === 'view' || action === 'edit' || action === 'add') {
+                section.style.display = 'block';
+                if (action === 'view') {
+                    tableContainer.style.display = 'block';
+                    loadAllDataEntries();
+                } else {
+                    tableContainer.style.display = 'none';
+                }
+            } else {
+                section.style.display = 'none';
+                tableContainer.style.display = 'none';
+            }
+        }
+
+        // Filter data entries
+        function filterDataEntries() {
+            const branch = document.getElementById('filter-branch').value;
+            const year = document.getElementById('filter-year').value;
+            const month = document.getElementById('filter-month').value;
+            
+            // Apply filters to the table
+            const rows = document.querySelectorAll('#data-management-tbody tr');
+            
+            rows.forEach(row => {
+                const rowBranch = row.cells[0].textContent;
+                const rowYear = row.cells[2].textContent;
+                const rowMonth = row.cells[1].textContent;
+                
+                const branchMatch = branch === 'all' || rowBranch.includes(branch);
+                const yearMatch = year === 'all' || rowYear === year;
+                const monthMatch = month === 'all' || rowMonth.includes(month);
+                
+                row.style.display = branchMatch && yearMatch && monthMatch ? '' : 'none';
+            });
+            
+            showNotification('Filters applied!');
+        }
+
+        // Clear filters
+        function clearFilters() {
+            document.getElementById('filter-branch').value = 'all';
+            document.getElementById('filter-year').value = 'all';
+            document.getElementById('filter-month').value = 'all';
+            
+            // Show all rows
+            const rows = document.querySelectorAll('#data-management-tbody tr');
+            rows.forEach(row => {
+                row.style.display = '';
+            });
+            
+            showNotification('Filters cleared!');
+        }
+
+        // Export current data
+        function exportCurrentData() {
+            showNotification('Exporting data...');
+            
+            // Simulate export process
+            setTimeout(() => {
+                showNotification('Data exported successfully!');
+            }, 1500);
+        }
+
+        // Generate empty Excel template
+        function generateEmptyExcelTemplate() {
+            showNotification('Generating Excel template...');
+            
+            // Simulate template generation
+            setTimeout(() => {
+                showNotification('Excel template generated!');
+            }, 1500);
+        }
     </script>
 </body>
 </html>
